@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <link rel="stylesheet" href="CSS/register.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Pendaftaran</h1>
+        <form id="register-form">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Konfirmasi Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
+
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+    <script src="js/createAccount.js"></script>
+</body>
+</html>
