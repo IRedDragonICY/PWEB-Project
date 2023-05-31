@@ -1,0 +1,28 @@
+name: SQL for GitHub Actions
+
+on:
+push:
+    branches: [ main ]
+pull_request:
+    branches: [ main ]
+
+
+jobs:
+build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: azure/login@v1
+    with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+- uses: azure/sql-action@v2
+  with:
+    connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
+    path: './Database.dacpac'
+    action: 'Publish'
+
+    # Azure logout 
+- name: logout
+  run: |
+     az logout
