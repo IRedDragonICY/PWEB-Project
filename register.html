@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Pendaftaran</title>
     <link rel="stylesheet" href="CSS/register.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
 </head>
 <body>
     <div class="container">
         <h1>Form Pendaftaran</h1>
-        <form id="register-form">
+        <form id="register-form"  method="POST">
             <label for="name">Nama:</label>
             <input type="text" id="name" name="name" required>
 
@@ -23,11 +23,50 @@
             <label for="confirm-password">Konfirmasi Password:</label>
             <input type="password" id="confirm-password" name="confirm-password" required>
 
-            <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
-
-            <button type="submit">Daftar</button>
+            <!-- <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div> -->
+            
+            <button type="submit" action=".github/workflows/main.yml">Daftar</button>
+            
         </form>
     </div>
-    <script src="js/createAccount.js"></script>
 </body>
 </html>
+<script>
+    const form = document.getElementById('register-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const confirmPasswordInput = document.getElementById('confirm-password');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if (nameInput.value === '') {
+    alert('Nama harus diisi');
+    return;
+  }
+
+  if (emailInput.value === '') {
+    alert('Email harus diisi');
+    return;
+  }
+
+  if (passwordInput.value === '') {
+    alert('Password harus diisi');
+    return;
+  }
+
+  if (confirmPasswordInput.value === '') {
+    alert('Konfirmasi password harus diisi');
+    return;
+  }
+
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    alert('Password dan konfirmasi password tidak cocok');
+    return;
+  }
+
+  // Submit the form if all input is valid
+  form.submit();
+});
+</script>

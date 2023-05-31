@@ -10,29 +10,27 @@ document.getElementById('register-form').addEventListener('submit', function (ev
         alert('Password dan konfirmasi password tidak cocok.');
         return;
     }
-    // input data to Azure SQL
-    fetch('https://api-azure-sql.herokuapp.com/api/user', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },  
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-        }),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-            alert('Pendaftaran berhasil!');
-            window.location.href = 'login.html';
-        }
-        )
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Pendaftaran gagal!');
-        }
-        );
 
+    // create a new FormData object and append the form data
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('password', password);
+
+    // send the form data to insert.php using a POST request
+    fetch('PHP/insert.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+        .then(data => {
+            if (data.status === 'error') {
+                alert(data.message);
+                return;
+            }
+            window.location.href = 'login.html';
+        })
+        .catch(err => {
+            alert('Terjadi kesalahan pada server.');
+            console.error(err);
+        });
 });
