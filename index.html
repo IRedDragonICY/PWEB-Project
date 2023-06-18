@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
       /* CSS untuk menambahkan tampilan pada elemen <nav> */
-        nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(242, 242, 242, 0.8);
-  padding: 10px;
-  font-family: 'Source Sans Pro', sans-serif;
-  border-bottom: 1px solid #ccc;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(242, 242, 242, 0.8);
+        padding: 10px;
+        font-family: 'Source Sans Pro', sans-serif;
+        border-bottom: 1px solid #ccc;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+      }
       nav a {
         color: #333;
         text-decoration: none;
@@ -130,7 +130,7 @@
         margin-bottom: 2rem;
         font-family: 'Source Sans Pro', sans-serif;
         animation: slideInUp 1s ease-in-out;
-          text-shadow: 2px 2px black;
+        text-shadow: 2px 2px black;
       }
 
       .hero-content button {
@@ -202,10 +202,44 @@
           color: #f8c427;
         }
       }
-    </style>
-   
 
-  
+      /* CSS untuk membuat tampilan website menjadi responsif */
+      @media only screen and (max-width: 768px) {
+        /* CSS untuk menambahkan tampilan pada elemen <nav> */
+        nav {
+          padding: 5px;
+        }
+        nav a {
+          font-size: 16px;
+          margin-right: 10px;
+        }
+        .logo h1 {
+          font-size: 20px;
+        }
+        .menu-box {
+          width: 80px;
+          margin-right: 10px;
+        }
+        /* CSS untuk menambahkan tampilan pada elemen <h1> */
+        h1 {
+          font-size: 24px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+        .hero-content p {
+          font-size: 1.2rem;
+        }
+        .hero-content button {
+          font-size: 1rem;
+        }
+        footer p {
+          font-size: 12px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -230,7 +264,6 @@
         <a href="register.html"><button>Daftar Sekarang</button></a>
       </div>
     </section>
-
 
     <footer>
       <p>&copy; 2023 Tabunganku. All rights reserved.</p>
