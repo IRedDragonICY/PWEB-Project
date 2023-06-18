@@ -1,6 +1,10 @@
 # PWEB-Project: Aplikasi Web untuk Tabungan Sekolah
 [![pages-build-deployment](https://github.com/IRedDragonICY/PWEB-Project/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/IRedDragonICY/PWEB-Project/actions/workflows/pages/pages-build-deployment)
 
+## 📝Description
+
+tabunganku - Menabung sejak muda, masa depan menjadi lebih mudah.
+
 ## 🎯To Do
 + ~Perencanaan Website~
 + Desain website
@@ -25,3 +29,9 @@
 + ~Membuat domain~
     +  ~Mengurus sertifikat domain~
     +  ~Meningkatkan keamanan domain~
+
+## Contributors
+
++ [IRedDragonICY](github.com/IRedDragonICY)
++ [rzarey](github.com/rzarey)
++ [elnazizah11](github.com/elnazizah11)

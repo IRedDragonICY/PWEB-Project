@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
       /* CSS untuk menambahkan tampilan pada elemen <nav> */
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #f2f2f2;
-        padding: 10px;
-        font-family: 'Source Sans Pro', sans-serif;
-        border-bottom: 1px solid #ccc;
-      }
+        nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(242, 242, 242, 0.8);
+  padding: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
       nav a {
         color: #333;
         text-decoration: none;
@@ -83,14 +88,15 @@
       h1 {
         font-size: 36px;
         font-family: 'Montserrat', sans-serif;
-        color: #0077b6;
+        color: #f8c427;
         margin-top: 50px;
         margin-bottom: 50px;
         text-align: center;
       }
 
       .hero {
-        background-color: #000;
+        /* menggunakan image untuk backgroundnya */
+        background-image: url('assets/imgs/background-hero.jpg');
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -111,6 +117,12 @@
         text-transform: uppercase;
         letter-spacing: 2px;
         animation: slideInDown 1s ease-in-out;
+        /* animasi untuk membuat tulisan kelap-kelip */
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
       }
 
       .hero-content p {
@@ -118,6 +130,7 @@
         margin-bottom: 2rem;
         font-family: 'Source Sans Pro', sans-serif;
         animation: slideInUp 1s ease-in-out;
+          text-shadow: 2px 2px black;
       }
 
       .hero-content button {
@@ -173,8 +186,26 @@
         margin: 0;
         padding: 0;
       }
+
+      /* CSS untuk menambahkan kotak berwarna biru pada tulisan Daftar saja */
+      .menu-box:last-child {
+        background-color: blue;
+        color: white;
+      }
+
+      /* animasi untuk membuat tulisan kelap-kelip */
+      @keyframes blink {
+        from {
+          color: white;
+        }
+        to {
+          color: #f8c427;
+        }
+      }
     </style>
-    
+  
+
+  
   </head>
   <body>
     <header>
@@ -187,7 +218,7 @@
           <a href="#">Home</a>
           <a href="#">Tentang</a>
           <a href="#" class="menu-box">Login</a>
-          <a href="#" class="menu-box">Daftar</a>
+          <a href="register.html" class="menu-box">Daftar</a>
         </div>
       </nav>
     </header>
@@ -199,6 +230,7 @@
         <a href="register.html"><button>Daftar Sekarang</button></a>
       </div>
     </section>
+
 
     <footer>
       <p>&copy; 2023 Tabunganku. All rights reserved.</p>
