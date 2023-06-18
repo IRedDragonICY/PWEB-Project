@@ -17,7 +17,10 @@
     + ~Menggunakan CloudFlare DNS~
     + Payment Gateway API terkenal seperti OVO, google Pay, bank atau lainnya
     + Authentication and Authorization API (Dengan hanya akun Google bisa langsung login)
-+ Membuat database di XAMPP atau Microsoft Azure
++ ~Membuat database di XAMPP atau Microsoft Azure~
+    + Membuat query yang dibutuhkan
+    + Membuat tabel yang dibutuhkan
+    + Membuat relasi antar tabel
 + Integrasi API seperti 
 + ~Membuat domain~
     +  ~Mengurus sertifikat domain~

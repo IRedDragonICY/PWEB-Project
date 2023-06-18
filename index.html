@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Tabunganku - Ungkapkan potensimu bersama tabungan masa depanmu!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/imgs/logo.png" type="image/png" sizes="16x16">
     <title>Tabunganku</title>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -13,35 +16,192 @@
         background-color: #f2f2f2;
         padding: 10px;
         font-family: 'Source Sans Pro', sans-serif;
+        border-bottom: 1px solid #ccc;
       }
       nav a {
         color: #333;
         text-decoration: none;
         margin-right: 20px;
         font-size: 18px;
+        transition: color 0.3s ease-in-out;
       }
       nav a:hover {
         color: #0077b6;
       }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
 
+      .logo img {
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        color: #0077b6;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+
+      .menu a {
+        display: inline-block;
+        padding: 10px;
+        border: none;
+        color: #0077b6;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      }
+
+      .menu a:hover {
+        background-color: #0077b6;
+        color: #fff;
+        border-radius: 5px;
+      }
+      .menu-box {
+        display: inline-block;
+        padding: 10px;
+        border: none;
+        color: #0077b6;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        box-sizing: border-box;
+        width: 100px;
+        text-align: center;
+        margin-right: 20px;
+        border-radius: 5px;
+      }
+
+      .menu-box:hover {
+        background-color: #0077b6;
+        color: #fff;
+      }
+      /* CSS untuk menambahkan tampilan pada elemen <h1> */
+      h1 {
+        font-size: 36px;
+        font-family: 'Montserrat', sans-serif;
+        color: #0077b6;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+
+      .hero {
+        background-color: #000;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-content {
+        text-align: center;
+        color: #fff;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: slideInDown 1s ease-in-out;
+      }
+
+      .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        font-family: 'Source Sans Pro', sans-serif;
+        animation: slideInUp 1s ease-in-out;
+      }
+
+      .hero-content button {
+        background-color: #fff;
+        color: #0077b6;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        animation: slideInUp 1s ease-in-out;
+      }
+
+      .hero-content button:hover {
+        background-color: #0077b6;
+        color: #fff;
+      }
+
+      footer {
+        background-color: #f2f2f2;
+        padding: 10px;
+        font-family: 'Source Sans Pro', sans-serif;
+        text-align: center;
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+      }
+
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      /* CSS untuk membuat halaman full page */
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
     </style>
+    
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
           <img src="assets/imgs/logo.png" alt="logo" width="50px" height="50px">
-        </div>
-        <div class="title">
           <h1>Tabunganku</h1>
         </div>
         <div class="menu">
           <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="#">Tentang</a>
+          <a href="#" class="menu-box">Login</a>
+          <a href="#" class="menu-box">Daftar</a>
         </div>
       </nav>
-
     </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Tabunganku</h1>
+        <p>Menabung sejak muda, masa depan menjadi lebih mudah!</p>
+        <a href="register.html"><button>Daftar Sekarang</button></a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Tabunganku. All rights reserved.</p>
+    </footer>
   </body>
 </html>
