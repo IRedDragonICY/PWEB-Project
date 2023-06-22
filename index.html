@@ -1,272 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Tabunganku - Ungkapkan potensimu bersama tabungan masa depanmu!">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/imgs/logo.png" type="image/png" sizes="16x16">
-    <title>Tabunganku</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Tabunganku - Ungkapkan potensimu bersama tabungan masa depanmu!">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/imgs/logo.png" type="image/png" sizes="16x16">
+  <title>Tabunganku</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    // Mendapatkan semua elemen <img>
+    const lazyImages = document.querySelectorAll('img');
+
+    // Fungsi untuk memuat gambar secara lazy
+    const lazyLoad = target => {
+      const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute('data-src');
+
+            // Mengganti atribut src dengan data-src untuk memuat gambar
+            img.setAttribute('src', src);
+
+            // Menghentikan observasi setelah gambar dimuat
+            observer.disconnect();
+          }
+        });
+      });
+
+      io.observe(target);
+    };
+
+    // Memuat gambar secara lazy untuk setiap elemen <img>
+    lazyImages.forEach(lazyLoad);
+  </script>
+  <script>
+    window.addEventListener('scroll', function() {
+      var scrollPosition = window.pageYOffset;
+      var parallaxElement = document.querySelector('.hero-image');
+      parallaxElement.style.transform = 'translateY(' + (scrollPosition * 0.2) + 'px)';
+    });
+  </script>
+  <style>
+    /* CSS untuk menambahkan tampilan pada elemen <nav> */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(242, 242, 242, 0.8);
+      padding: 10px;
+      font-family: 'Source Sans Pro', sans-serif;
+      border-bottom: 1px solid #ccc;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-right: 20px;
+      font-size: 18px;
+      transition: color 0.3s ease-in-out;
+    }
+    nav a:hover {
+      color: #0077b6;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077b6;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .menu a {
+      display: inline-block;
+      padding: 10px;
+      border: none;
+      color: #0077b6;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .menu a:hover {
+      background-color: #0077b6;
+      color: #fff;
+      border-radius: 5px;
+    }
+    .menu-box {
+      display: inline-block;
+      padding: 10px;
+      border: none;
+      color: #0077b6;
+      font-weight: bold;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      box-sizing: border-box;
+      width: 100px;
+      text-align: center;
+      margin-right: 20px;
+      border-radius: 5px;
+    }
+
+    .menu-box:hover {
+      background-color: #0077b6;
+      color: #fff;
+    }
+    /* CSS untuk menambahkan tampilan pada elemen <h1> */
+    h1 {
+      font-size: 36px;
+      font-family: 'Montserrat', sans-serif;
+      color: #f8c427;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('assets/imgs/background-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    @keyframes parallax {
+      0% {
+        transform: scale(1.1) translateY(-20%);
+      }
+      100% {
+        transform: scale(1.1) translateY(0%);
+      }
+    }
+    .hero-content {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: slideInDown 1s ease-in-out;
+      /* animasi untuk membuat tulisan kelap-kelip */
+      animation-name: blink;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-family: 'Source Sans Pro', sans-serif;
+      animation: slideInUp 1s ease-in-out;
+      text-shadow: 2px 2px black;
+    }
+
+    .hero-content button {
+      background-color: #fff;
+      color: #0077b6;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      animation: slideInUp 1s ease-in-out;
+    }
+
+    .hero-content button:hover {
+      background-color: #0077b6;
+      color: #fff;
+    }
+
+    .features {
+      background-color: #f2f2f2;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+    }
+
+    .features p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-family: 'Source Sans Pro', sans-serif;
+      color: #333;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .features li {
+      flex: 0 0 45%;
+      max-width: 500px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+      transform: translateY(0);
+    }
+
+    .features li:hover {
+      transform: translateY(-10px);
+    }
+
+    .features li:before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      background-color: #0077b6;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* CSS untuk membuat halaman full page */
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CSS untuk menambahkan kotak berwarna biru pada tulisan Daftar saja */
+    .menu-box:last-child {
+      background-color: blue;
+      color: white;
+    }
+
+    /* animasi untuk membuat tulisan kelap-kelip */
+    @keyframes blink {
+      from {
+        color: white;
+      }
+      to {
+        color: #f8c427;
+      }
+    }
+
+    /* CSS untuk membuat tampilan website menjadi responsif */
+    @media only screen and (max-width: 768px) {
       /* CSS untuk menambahkan tampilan pada elemen <nav> */
       nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(242, 242, 242, 0.8);
-        padding: 10px;
-        font-family: 'Source Sans Pro', sans-serif;
-        border-bottom: 1px solid #ccc;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 9999;
+        padding: 5px;
       }
       nav a {
-        color: #333;
-        text-decoration: none;
-        margin-right: 20px;
-        font-size: 18px;
-        transition: color 0.3s ease-in-out;
-      }
-      nav a:hover {
-        color: #0077b6;
-      }
-      .logo {
-        display: flex;
-        align-items: center;
-      }
-
-      .logo img {
+        font-size: 16px;
         margin-right: 10px;
       }
-
       .logo h1 {
-        margin: 0;
-        font-size: 24px;
-        font-weight: bold;
-        color: #0077b6;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-
-
-      .menu a {
-        display: inline-block;
-        padding: 10px;
-        border: none;
-        color: #0077b6;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
-
-      .menu a:hover {
-        background-color: #0077b6;
-        color: #fff;
-        border-radius: 5px;
+        font-size: 20px;
       }
       .menu-box {
-        display: inline-block;
-        padding: 10px;
-        border: none;
-        color: #0077b6;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        box-sizing: border-box;
-        width: 100px;
-        text-align: center;
-        margin-right: 20px;
-        border-radius: 5px;
-      }
-
-      .menu-box:hover {
-        background-color: #0077b6;
-        color: #fff;
+        width: 80px;
+        margin-right: 10px;
       }
       /* CSS untuk menambahkan tampilan pada elemen <h1> */
       h1 {
-        font-size: 36px;
-        font-family: 'Montserrat', sans-serif;
-        color: #f8c427;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        text-align: center;
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 30px;
       }
-
-      .hero {
-        /* menggunakan image untuk backgroundnya */
-        background-image: url('assets/imgs/background-hero.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .hero-content {
-        text-align: center;
-        color: #fff;
-      }
-
       .hero-content h1 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
-        font-family: 'Montserrat', sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        animation: slideInDown 1s ease-in-out;
-        /* animasi untuk membuat tulisan kelap-kelip */
-        animation-name: blink;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+        font-size: 3rem;
       }
-
       .hero-content p {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        font-family: 'Source Sans Pro', sans-serif;
-        animation: slideInUp 1s ease-in-out;
-        text-shadow: 2px 2px black;
-      }
-
-      .hero-content button {
-        background-color: #fff;
-        color: #0077b6;
-        border: none;
-        padding: 1rem 2rem;
         font-size: 1.2rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        animation: slideInUp 1s ease-in-out;
       }
-
-      .hero-content button:hover {
-        background-color: #0077b6;
-        color: #fff;
+      .hero-content button {
+        font-size: 1rem;
       }
-
       footer {
-        background-color: #f2f2f2;
-        padding: 10px;
-        font-family: 'Source Sans Pro', sans-serif;
         text-align: center;
+        padding: 20px;
+        background-color: #f2f2f2;
       }
-
       footer p {
         margin: 0;
-        font-size: 14px;
-        color: #333;
       }
-
-      @keyframes slideInDown {
-        from {
-          transform: translateY(-100%);
-        }
-        to {
-          transform: translateY(0);
-        }
+      .features ul {
+        flex-direction: column;
       }
-
-      @keyframes slideInUp {
-        from {
-          transform: translateY(100%);
-        }
-        to {
-          transform: translateY(0);
-        }
+      .features li {
+        flex: 0 0 100%;
+        margin-bottom: 30px;
       }
-
-      /* CSS untuk membuat halaman full page */
-      html, body {
-        margin: 0;
-        padding: 0;
-      }
-
-      /* CSS untuk menambahkan kotak berwarna biru pada tulisan Daftar saja */
-      .menu-box:last-child {
-        background-color: blue;
-        color: white;
-      }
-
-      /* animasi untuk membuat tulisan kelap-kelip */
-      @keyframes blink {
-        from {
-          color: white;
-        }
-        to {
-          color: #f8c427;
-        }
-      }
-
-      /* CSS untuk membuat tampilan website menjadi responsif */
-      @media only screen and (max-width: 768px) {
-        /* CSS untuk menambahkan tampilan pada elemen <nav> */
-        nav {
-          padding: 5px;
-        }
-        nav a {
-          font-size: 16px;
-          margin-right: 10px;
-        }
-        .logo h1 {
-          font-size: 20px;
-        }
-        .menu-box {
-          width: 80px;
-          margin-right: 10px;
-        }
-        /* CSS untuk menambahkan tampilan pada elemen <h1> */
-        h1 {
-          font-size: 24px;
-          margin-top: 30px;
-          margin-bottom: 30px;
-        }
-        .hero-content h1 {
-          font-size: 3rem;
-        }
-        .hero-content p {
-          font-size: 1.2rem;
-        }
-        .hero-content button {
-          font-size: 1rem;
-        }
-        footer p {
-          font-size: 12px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">
-          <img src="assets/imgs/logo.png" alt="logo" width="50px" height="50px">
-          <h1>Tabunganku</h1>
-        </div>
-        <div class="menu">
-          <a href="#">Home</a>
-          <a href="#">Tentang</a>
-          <a href="#" class="menu-box">Login</a>
-          <a href="register.html" class="menu-box">Daftar</a>
-        </div>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="hero-content">
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="assets/imgs/logo.png" alt="logo" width="50px" height="50px">
         <h1>Tabunganku</h1>
-        <p>Menabung sejak muda, masa depan menjadi lebih mudah!</p>
-        <a href="register.html"><button>Daftar Sekarang</button></a>
       </div>
-    </section>
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Tentang</a>
+        <a href="#" class="menu-box">Login</a>
+        <a href="register.html" class="menu-box">Daftar</a>
+      </div>
+    </nav>
+  </header>
 
-    <footer>
-      <p>&copy; 2023 Tabunganku. All rights reserved.</p>
-    </footer>
-  </body>
+
+  <section class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-content">
+      <h1>Tabunganku</h1>
+      <p>Menabung sejak muda, masa depan menjadi lebih mudah!</p>
+      <a href="register.html"><button>Daftar Sekarang</button></a>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Fitur Tabunganku</h2>
+    <p>Tabunganku dilengkapi dengan berbagai fitur yang akan memudahkan Anda dalam menabung dan mengelola keuangan.</p>
+    <p>Berikut adalah beberapa fitur utama Tabunganku:</p>
+    <ul>
+      <li>
+        <h3>Simpanan dengan bunga yang menguntungkan</h3>
+        <p>Tabunganku menawarkan suku bunga yang kompetitif untuk simpanan Anda, sehingga Anda dapat meningkatkan nilai tabungan Anda secara efektif.</p>
+      </li>
+      <li>
+        <h3>Peluang investasi yang menjanjikan</h3>
+        <p>Dengan Tabunganku, Anda memiliki akses ke berbagai instrumen investasi yang menjanjikan. Anda dapat memilih investasi sesuai dengan profil risiko dan tujuan keuangan Anda.</p>
+      </li>
+      <li>
+        <h3>Fitur Otomatisasi</h3>
+        <p>Tabunganku dilengkapi dengan fitur otomatisasi yang memudahkan Anda dalam melakukan setoran rutin dan pembayaran tagihan secara otomatis. Anda dapat mengatur jadwal setoran dan pembayaran sesuai dengan preferensi Anda.</p>
+      </li>
+      <li>
+        <h3>Monitoring Keuangan</h3>
+        <p>Dengan Tabunganku, Anda dapat dengan mudah memantau aktivitas keuangan Anda, melacak pengeluaran, dan mengatur anggaran. Anda juga dapat melihat laporan keuangan yang membantu Anda mengelola keuangan secara lebih efektif.</p>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+  <center>
+    <p>&copy; 2023 Tabunganku. All rights reserved.</p>
+  </center>
+  </footer>
+</body>
+
+
+
 </html>
