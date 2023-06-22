@@ -7,56 +7,62 @@
   <link rel="icon" href="assets/imgs/logo.png" type="image/png" sizes="16x16">
   <title>Tabunganku</title>
   <link rel="stylesheet" href="assets/css/style.css">
-  <script>
-    // Mendapatkan semua elemen <img>
-    const lazyImages = document.querySelectorAll('img');
-
-    // Fungsi untuk memuat gambar secara lazy
-    const lazyLoad = target => {
-      const io = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.getAttribute('data-src');
-
-            // Mengganti atribut src dengan data-src untuk memuat gambar
-            img.setAttribute('src', src);
-
-            // Menghentikan observasi setelah gambar dimuat
-            observer.disconnect();
-          }
-        });
-      });
-
-      io.observe(target);
-    };
-
-    // Memuat gambar secara lazy untuk setiap elemen <img>
-    lazyImages.forEach(lazyLoad);
-  </script>
+  <script src="js/lazyload.js"></script>
   <script>
     window.addEventListener('scroll', function() {
       var scrollPosition = window.pageYOffset;
       var parallaxElement = document.querySelector('.hero-image');
       parallaxElement.style.transform = 'translateY(' + (scrollPosition * 0.2) + 'px)';
     });
+
+  </script>
+
   </script>
   <style>
+      .hidden {
+    display: none;
+  }
     /* CSS untuk menambahkan tampilan pada elemen <nav> */
+  /* CSS untuk menambahkan tampilan pada elemen <nav> */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(242, 242, 242, 0.8);
-      padding: 10px;
-      font-family: 'Source Sans Pro', sans-serif;
-      border-bottom: 1px solid #ccc;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 9999;
-      backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(242, 242, 242, 0.8);
+    padding: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+    opacity: 0;
+    animation: fadeInNavbar 1s forwards;
+  }
+
+  .navbar-fixed {
+    opacity: 1;
+    transform: translateY(0%);
+    position: fixed;
+    top: 0;
+  }
+
+    .navbar-hidden {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    @keyframes fadeInNavbar {
+      0% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0%);
+        opacity: 1;
+      }
     }
     nav a {
       color: #333;
@@ -205,6 +211,23 @@
       color: #fff;
     }
 
+    .hero-content h1,
+.hero-content p,
+.hero-content button {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
     .features {
       background-color: #f2f2f2;
       padding: 50px;
@@ -343,7 +366,7 @@
 </head>
 <body>
   <header>
-    <nav>
+    <nav id="navbar" class="header-section ">
       <div class="logo">
         <img src="assets/imgs/logo.png" alt="logo" width="50px" height="50px">
         <h1>Tabunganku</h1>
@@ -397,7 +420,4 @@
   </center>
   </footer>
 </body>
-
-
-
 </html>
