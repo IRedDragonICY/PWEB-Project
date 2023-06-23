@@ -1,72 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
+    <title> Form Pendaftaran </title>
+    <link rel="stylesheet" href="/CSS/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Pendaftaran</title>
-    <link rel="stylesheet" href="CSS/register.css">
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-</head>
+   </head>
 <body>
-    <div class="container">
-        <h1>Form Pendaftaran</h1>
-        <form id="register-form"  method="POST">
-            <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
-            <label for="confirm-password">Konfirmasi Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-
-            <!-- <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div> -->
-            
-            <button type="submit" action=".github/workflows/main.yml">Daftar</button>
-            
-        </form>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <img src="images/frontImg.jpg" alt="">
+        <div class="text">
+          <span class="text-1">Menabung Dari Muda<br> Untuk Masa Tua</span>
+          <span class="text-2">......</span>
+        </div>
+      </div>
+      <div class="back">
+        <img class="backImg" src="images/backImg.jpg" alt="">
+        <div class="text">
+          <span class="text-1">1000 Mil Jauhnya <br> Dimulai Dari Langkah Pertama</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
     </div>
+    <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Masuk</div>
+          <form action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Masukan Email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Masukan kata sandi" required>
+              </div>
+              <div class="text"><a href="#">Lupa kata sandi?</a></div>
+              <div class="button input-box">
+                <input type="submit" value="Masuk">
+              </div>
+              <div class="text sign-up-text">Belum memiliki akun? <label for="flip">Daftar sekarang</label></div>
+            </div>
+        </form>
+      </div>
+        <div class="signup-form">
+          <div class="title">Daftar Akun</div>
+        <form action="#">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Masukan nama Anda" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Masukan email Anda" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Masukan password" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Masukan ulang password" required>
+              </div>
+              <div class="button input-box">
+                <input type="submit" value="Masuk">
+              </div>
+              <div class="text sign-up-text">Sudah memiliki akun? <label for="flip">Masuk sekarang</label></div>
+            </div>
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
 </body>
 </html>
-<script>
-    const form = document.getElementById('register-form');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const confirmPasswordInput = document.getElementById('confirm-password');
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  if (nameInput.value === '') {
-    alert('Nama harus diisi');
-    return;
-  }
-
-  if (emailInput.value === '') {
-    alert('Email harus diisi');
-    return;
-  }
-
-  if (passwordInput.value === '') {
-    alert('Password harus diisi');
-    return;
-  }
-
-  if (confirmPasswordInput.value === '') {
-    alert('Konfirmasi password harus diisi');
-    return;
-  }
-
-  if (passwordInput.value !== confirmPasswordInput.value) {
-    alert('Password dan konfirmasi password tidak cocok');
-    return;
-  }
-
-  // Submit the form if all input is valid
-  form.submit();
-});
-</script>
