@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="assets/imgs/logo.png" type="image/png" sizes="16x16">
   <title>Tabunganku</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="css/index.css">
   <script src="js/lazyload.js"></script>
   <script>
     window.addEventListener('scroll', function() {
@@ -14,12 +14,10 @@
       var parallaxElement = document.querySelector('.hero-image');
       parallaxElement.style.transform = 'translateY(' + (scrollPosition * 0.2) + 'px)';
     });
-
   </script>
 
-  </script>
   <style>
-      .hidden {
+.hidden {
     display: none;
   }
     /* CSS untuk menambahkan tampilan pada elemen <nav> */
@@ -337,9 +335,16 @@
         margin-top: 30px;
         margin-bottom: 30px;
       }
+            
       .hero-content h1 {
-        font-size: 3rem;
-      }
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: slideInDown 1s ease-in-out;
+      animation-name: blink-fade 2s infinite;
+    }
       .hero-content p {
         font-size: 1.2rem;
       }
@@ -362,6 +367,42 @@
         margin-bottom: 30px;
       }
     }
+
+  .about {
+    background-color: #f2f2f2;
+    padding: 50px;
+    text-align: center;
+  }
+
+  .about .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+
+  .about .profile .profile-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about .profile .profile-circle img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  .about .profile .profile-circle h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+</style>
+
   </style>
 </head>
 <body>
@@ -380,7 +421,6 @@
     </nav>
   </header>
 
-
   <section class="hero">
     <div class="hero-image"></div>
     <div class="hero-content">
@@ -390,7 +430,7 @@
     </div>
   </section>
 
-  <section class="features">
+  <section class="features hidde">
     <h2>Fitur Tabunganku</h2>
     <p>Tabunganku dilengkapi dengan berbagai fitur yang akan memudahkan Anda dalam menabung dan mengelola keuangan.</p>
     <p>Berikut adalah beberapa fitur utama Tabunganku:</p>
@@ -413,7 +453,31 @@
       </li>
     </ul>
   </section>
-
+  <section class="about">
+    <h2>Tentang Kami</h2>
+    <div class="profile">
+      <div class="profile-circle">
+        <img src="assets/imgs/Creator/profile-1.jpg" alt="Profile 1">
+        <h3>Reyhanssan Islamey</h3>
+        <h3>	2200018411</h3>
+      </div>
+      <div class="profile-circle">
+        <img src="assets/imgs/Creator/profile-2.jpg" alt="Profile 2">
+        <h3>Mohammad Farid Hendianto</h3>
+        <h3>2200018401</h3>
+      </div>
+      <div class="profile-circle">
+        <img src="assets/imgs/Creator/profile-3.jpg" alt="Profile 3">
+        <h3>Laila Nur Azizah</h3>
+        <h3>2200018400</h3>
+      </div>
+      <div class="profile-circle">
+        <img src="assets/imgs/Creator/profile-4.jpg" alt="Profile 4">
+        <h3>Evinda Apriliani</h3>
+        <h3>2200018387</h3>
+      </div>
+    </div>
+  </section>
   <footer>
   <center>
     <p>&copy; 2023 Tabunganku. All rights reserved.</p>
