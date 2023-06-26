@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .hidden {
   display: none;
@@ -298,8 +299,46 @@ body {
   }
 }
 /* END OF HERO SECTION  */
+/* INTRODUCTION SECTION */
+body {
+  font-family: Arial, sans-serif;
+}
 
-/* Features Section */
+.introduction {
+  display: flex;
+  justify-content: space-between;
+  background-color: #d8d4d4;
+  padding: 10px;
+}
+
+.videoContainer, .textContainer {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.videoClass {
+  width: 100%;
+  height: auto;
+}
+
+.textContainer {
+  padding-left: 20px;
+}
+
+.textContainer h1 {
+  font-size: 60px;
+  color: #2e2d2d;
+}
+
+.textContainer p {
+  font-size: 32px;
+  color: #2e2d2d;
+  text-align: justify;
+}
+/* END OF INTRODUCTION SECTION */
+
+
+/* FEATURES SECTION */
 .features {
   display: flex;
   flex-direction: column;
@@ -312,7 +351,6 @@ body {
 .title-section {
   text-align: center;
   margin-bottom: 20px;
-  /* tulisan besar */
   font-size: 38px;
 }
 .title-container {
@@ -354,7 +392,10 @@ body {
   text-align: center;
 }
 /* END FEATURE SECTION */
+/* TESTIMONIAL SECTION */
 
+
+/* END TESTIMONIAL SECTION */
 /* ABOUT SECTION */
 .text-blk {
   margin-top: 0px;
