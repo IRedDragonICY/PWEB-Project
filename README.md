@@ -32,6 +32,7 @@ tabunganku - Menabung sejak muda, masa depan menjadi lebih mudah.
 
 ## Contributors
 
-+ [IRedDragonICY](github.com/IRedDragonICY)
-+ [rzarey](github.com/rzarey)
-+ [elnazizah11](github.com/elnazizah11)
++ [Mohammad Farid Hendianto](github.com/IRedDragonICY) - 2200018401
++ [rzarey](github.com/rzarey) - 2200018411
++ [Evinda Apriliani](https://github.com/EvindaAprl) - 2200018387
++ [Laila Nur Azizah](github.com/elnazizah11) - 2200018400
