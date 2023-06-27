@@ -32,12 +32,12 @@ body{
 .container .cover{
   position: absolute;
   top: 0;
-  left: 50%;
+  right: 50%;
   height: 100%;
   width: 50%;
   z-index: 98;
   transition: all 1s ease;
-  transform-origin: left;
+  transform-origin: right;
   transform-style: preserve-3d;
 }
 .container #flip:checked ~ .cover{
