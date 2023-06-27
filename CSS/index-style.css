@@ -149,7 +149,9 @@ nav a:hover {
     background-color: rgba(242, 242, 242, 0.8);
     padding: 10px 0;
   }
-
+  .mobile-menu-items.show {
+    display: block;
+  }
   .mobile-menu-items a {
     display: block;
     padding: 10px;

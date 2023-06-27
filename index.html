@@ -20,6 +20,15 @@
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
+// Mengambil elemen hamburger dan menu mobile
+var hamburger = document.querySelector('.hamburger');
+var mobileMenu = document.querySelector('.mobile-menu-items');
+
+// Menambahkan event listener ke hamburger
+hamburger.addEventListener('click', function() {
+  // Mengubah kelas CSS dari menu mobile saat hamburger diklik
+  mobileMenu.classList.toggle('show');
+});
       // Event listener for scroll event
       window.addEventListener("scroll", function () {
         // Get the current scroll position
@@ -30,7 +39,7 @@
         parallaxElement.style.transform =
           "translateY(" + scrollPosition * 0.2 + "px)";
       });
-    
+
       // Function to smoothly scroll to the top of the page
       function scrollToTop() {
         window.scrollTo({
@@ -38,23 +47,29 @@
           behavior: "smooth",
         });
       }
-    
+
       // Function to smoothly scroll to a specific section
       function scrollToSection(sectionId) {
         document.querySelector(sectionId).scrollIntoView({
           behavior: "smooth",
         });
       }
-    
+
       // Event listener for DOMContentLoaded event
       document.addEventListener("DOMContentLoaded", () => {
         // Select various elements
-        const videoContainer = document.querySelector(".introduction  .videoContainer");
-        const textContainer = document.querySelector(".introduction .textContainer");
+        const videoContainer = document.querySelector(
+          ".introduction  .videoContainer"
+        );
+        const textContainer = document.querySelector(
+          ".introduction .textContainer"
+        );
         const featuresVideoContainer = document.querySelectorAll(".video-row");
-        const featuresTitle = document.querySelector(".features .title-section");
+        const featuresTitle = document.querySelector(
+          ".features .title-section"
+        );
         const scrollYThreshold = [450, 1100, 1100, 800];
-    
+
         // Event listener for scroll event
         window.addEventListener("scroll", () => {
           // Show/hide elements based on scroll position
@@ -76,40 +91,39 @@
           }
         });
       });
-    
+
       // Initialize Slick carousel when document is ready
-      $(document).ready(function(){
-        $('.sponsor-carousel').slick({
+      $(document).ready(function () {
+        $(".sponsor-carousel").slick({
           slidesToShow: 6,
           slidesToScroll: 1,
           autoplay: true,
           autoplaySpeed: 3500,
           arrows: false,
           centerMode: true,
-          centerPadding: '0px', 
-          infinite: true, 
-          swipe: false, 
-          draggable: false, 
+          centerPadding: "0px",
+          infinite: true,
+          swipe: false,
+          draggable: false,
           responsive: [
             {
               breakpoint: 1024,
               settings: {
                 slidesToShow: 5,
-                slidesToScroll: 1
-              }
+                slidesToScroll: 1,
+              },
             },
             {
               breakpoint: 600,
               settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
+                slidesToScroll: 1,
+              },
+            },
+          ],
         });
       });
     </script>
-    
   </head>
   <body>
     <header>
@@ -263,18 +277,49 @@
     <section class="sponsor-section">
       <h2>Disponsori oleh</h2>
       <div class="sponsor-carousel">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/BRI.svg" alt="BRI">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/BSI.svg" alt="BSI">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/Mandiri.svg" alt="Mandiri">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/ShoopePay.webp" alt="ShoopePay">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/OVO.svg" alt="OVO">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/BCA.svg" alt="BCA">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/Dana.svg" alt="Dana">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/GoPay.svg" alt="GoPay">
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/BRI.svg"
+          alt="BRI"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/BSI.svg"
+          alt="BSI"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/Mandiri.svg"
+          alt="Mandiri"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/ShoopePay.webp"
+          alt="ShoopePay"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/OVO.svg"
+          alt="OVO"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/BCA.svg"
+          alt="BCA"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/Dana.svg"
+          alt="Dana"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/GoPay.svg"
+          alt="GoPay"
+        />
       </div>
     </section>
 
-    
     <!-- <section class="testimonial">
       <div class="container">
         <div class="testimonial-card" id="testimonial-card">
