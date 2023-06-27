@@ -116,6 +116,56 @@ nav a:hover {
   background-color: #0077b6;
   color: #fff;
 }
+
+@media only screen and (max-width: 600px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .mobile-menu-items {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(242, 242, 242, 0.8);
+    padding: 10px 0;
+  }
+
+  .mobile-menu-items a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .desktop-menu {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}
 /*  END OF NAVBAR */
 
 /* HERO SECTION */
@@ -499,10 +549,49 @@ body {
 .feature-video:hover {
   transform: translateY(0) scale(1.1);
 }
+
+@media only screen and (max-width: 600px) {
+  .video-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-container {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
 /* END FEATURE SECTION */
 /* SPONSOR SECTION */
+.sponsor-section {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
 
+.sponsor-section h2 {
+  font-size: 2em;
+  margin-bottom: 50px;
+}
 
+.sponsor-carousel {
+  overflow: auto;
+  width: 100%; /* Tambahkan ini */
+}
+
+.sponsor-logo {
+  flex: 0 0 auto;
+  width: 200x !important; 
+  height: 60px !important; 
+  object-fit: contain;
+  margin: 0 20px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.sponsor-logo:hover {
+  filter: grayscale(0%);
+}
 
 /* END SPONSOR SECTION */
 
