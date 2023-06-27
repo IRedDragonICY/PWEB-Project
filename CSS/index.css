@@ -6,14 +6,10 @@ html {
 .hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    visibility 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.show {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 /* NAVBAR  */
 nav {
   display: flex;
@@ -123,14 +119,42 @@ nav a:hover {
 /*  END OF NAVBAR */
 
 /* HERO SECTION */
-h1 {
-  font-size: 36px;
-  font-family: "Montserrat", sans-serif;
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-family: "Source Sans Pro", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: #f8c427;
   margin-top: 50px;
   margin-bottom: 50px;
   text-align: center;
+  animation: fade-in 1s ease-in-out, blink 1s infinite;
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 .hero {
   position: relative;
@@ -144,7 +168,6 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("assets/imgs/background-hero.jpg");
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -172,21 +195,6 @@ h1 {
   z-index: 1;
 }
 
-.hero-content h1 {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  animation: slideInDown 1s ease-in-out;
-  /* animasi untuk membuat tulisan kelap-kelip */
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
 .hero-content p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
@@ -212,7 +220,7 @@ h1 {
   color: #fff;
 }
 
-.hero-content h1,
+
 .hero-content p,
 .hero-content button {
   opacity: 0;
@@ -238,19 +246,8 @@ body {
 }
 
 .menu-box:last-child {
-  background-color: #1e7ca8
-  ;
+  background-color: #1e7ca8;
   color: white;
-}
-
-@keyframes blink {
-  from {
-    color: white;
-  }
-
-  to {
-    color: #f8c427;
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -310,18 +307,17 @@ body {
 /* END OF HERO SECTION  */
 /* INTRODUCTION SECTION */
 
-
 .introduction {
   display: flex;
-  height: 60vh;
+  height: auto;
   justify-content: space-between;
   background-color: #d8d4d4;
   padding: 10px;
   transition: 1s ease-in-out;
-
 }
 
-.videoContainer, .textContainer {
+.videoContainer,
+.textContainer {
   flex: 1;
   margin-right: 10px;
 }
@@ -357,16 +353,41 @@ body {
   transform: translateY(0);
 }
 
-
-/* Style untuk element yang akan dimunculkan */
 .videoContainer.show,
 .textContainer.show {
   opacity: 1;
   transition: opacity 1s ease-in;
 }
+@media (max-width: 768px) {
+  .introduction {
+    flex-direction: column;
+    height: auto;
+  }
 
+  .videoContainer,
+  .textContainer {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .textContainer h1 {
+    font-size: 40px;
+  }
+
+  .textContainer p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .feature-title {
+    font-size: 20px;
+  }
+  .feature-description {
+    font-size: 16px;
+  }
+}
 /* END OF INTRODUCTION SECTION */
-
 
 /* FEATURES SECTION */
 .features {
@@ -377,11 +398,15 @@ body {
   background-color: rgb(22, 132, 138);
   padding: 20px;
   color: #fff;
+  overflow: hidden;
+  padding-top: 50px;
 }
 .title-section {
   text-align: center;
   margin-bottom: 20px;
   font-size: 38px;
+  transform: translateY(-50px);
+  transition: all 0.5s ease-out;
 }
 .title-container {
   width: 100%;
@@ -392,6 +417,7 @@ body {
 .feature-video {
   width: 70%;
   border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .feature-title {
@@ -403,12 +429,53 @@ body {
   color: #14213d;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   display: inline-block;
+  max-width: 100%;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.feature-title:hover {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .feature-description {
   text-align: center;
-  font-size: 16px;
+  font-size: 24px;
   margin: 0 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .feature-title {
+    font-size: 20px;
+  }
+  
+  .feature-description {
+    font-size: 18px;
+    margin: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .feature-title {
+    font-size: 16px;
+  }
+  
+  .feature-description {
+    font-size: 16px;
+    margin: 0 5px;
+  }
 }
 
 .video-row {
@@ -420,10 +487,26 @@ body {
 .video-container {
   width: 80%;
   text-align: center;
+  transform: translateY(-10px);
+  transition: all 0.5s ease-out;
+}
+
+.video-row.show {
+  transform: translateY(0) scale(1);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-video:hover {
+  transform: translateY(0) scale(1.1);
 }
 /* END FEATURE SECTION */
-/* TESTIMONIAL SECTION */
+/* SPONSOR SECTION */
 
+
+
+/* END SPONSOR SECTION */
+
+/* TESTIMONIAL SECTION */
 
 /* END TESTIMONIAL SECTION */
 /* ABOUT SECTION */

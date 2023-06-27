@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="icon"
-      href="assets/imgs/logo.png"
-      type="image/png"
+      href="assets/imgs/logo.webp"
+      type="image/webp"
       sizes="16x16"
     />
     <title>Tabunganku</title>
@@ -38,21 +38,43 @@
       }
     </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const videoContainer = document.querySelector('.introduction  .videoContainer');
-  const textContainer = document.querySelector('.introduction .textContainer');
-  const scrollYThreshold = 450; 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > scrollYThreshold) {
-      videoContainer.classList.remove('hidden');
-      videoContainer.classList.add('show');
-      textContainer.classList.remove('hidden');
-      textContainer.classList.add('show');
-    }
-  });
-});
-  </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const videoContainer = document.querySelector(
+          ".introduction  .videoContainer"
+        );
+        const textContainer = document.querySelector(
+          ".introduction .textContainer"
+        );
+        const featuresVideoContainer = document.querySelectorAll(".video-row");
+        const featuresTitle = document.querySelector(
+          ".features .title-section"
+        );
+        const scrollYThreshold = [450, 1100, 1100, 800];
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > scrollYThreshold[0]) {
+            videoContainer.classList.remove("hidden");
+            videoContainer.classList.add("show");
+            textContainer.classList.remove("hidden");
+            textContainer.classList.add("show");
+          }
+          if (window.scrollY > scrollYThreshold[1]) {
+            featuresTitle.classList.remove("hidden");
+            featuresTitle.classList.add("show");
+          }
+          if (window.scrollY > scrollYThreshold[2]) {
+            featuresVideoContainer.forEach((videoRow) => {
+              videoRow.classList.remove("hidden");
+              videoRow.classList.add("show");
+            });
+          }
+        });
+      });
+
+
+    </script>
+
+
   </head>
 
   <body>
@@ -60,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <nav id="navbar" class="header-section">
         <div class="logo">
           <img
-            src="assets/imgs/logo.png"
+            src="assets/imgs/logo.webp"
             alt="logo"
             width="50px"
             height="50px"
@@ -87,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background-image: url('assets/imgs/background-hero.jpg');
+          background-image: url('assets/imgs/background-hero.webp');
           background-size: cover;
           background-position: center;
           z-index: -1;
@@ -102,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </section>
 
-    
     <section class="introduction">
       <div class="videoContainer hidden">
         <video
@@ -115,7 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <div class="textContainer hidden">
-        <h1>Apa itu <span style="color: #f8c427; display: inline-block;">TABUNGANKU</span></h1>        <p>
+        <h1>
+          Apa itu
+          <span style="color: #f8c427; display: inline-block">TABUNGANKU?</span>
+        </h1>
+        <p>
           Tabunganku adalah aplikasi tabungan sekolah yang dirancang khusus
           untuk memudahkan siswa dalam mengelola keuangan mereka <br />
           Jadi, tunggu apa lagi? Mulailah perjalanan keuanganmu dengan
@@ -123,11 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
         </p>
       </div>
     </section>
+
     <section id="features" class="features">
       <div>
-        <h2 class="title-section">Menabung, Sekarang Lebih Mudah</h2>
+        <h2 class="title-section hidden">Menabung, Sekarang Lebih Mudah</h2>
       </div>
-      <div class="video-row">
+      <div class="video-row hidden">
         <div class="video-container">
           <div class="video-wrapper">
             <video
@@ -172,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
               autoplay
               muted
               loop
-              style="filter: brightness(80%)"
+              style="filter: brightness(83%)"
             ></video>
           </div>
           <div class="video-details">
@@ -186,6 +212,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </section>
 
+
+    
     <!-- <section class="testimonial">
       <div class="container">
         <div class="testimonial-card" id="testimonial-card">
