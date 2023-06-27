@@ -1,6 +1,18 @@
+:root {
+  --main-color: #0077b6;
+  --main-font: "Source Sans Pro", sans-serif;
+  --transition-color: color 0.3s ease-in-out;
+  --transition-bg-color: background-color 0.3s ease-in-out;
+}
+
 html {
   scroll-behavior: smooth;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: var(--main-font);
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
 .hidden {
@@ -10,60 +22,31 @@ html {
     visibility 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* NAVBAR  */
+
+@keyframes slideIn {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/* Navbar */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(242, 242, 242, 0.8);
   padding: 10px;
-  font-family: "Source Sans Pro", sans-serif;
-  border-bottom: 1px solid #ccc;
+  font-family: var(--main-font);
+  border-bottom: 1px solid #ccc; /* Hapus baris ini */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  animation: fadeInNavbar 1s forwards;
 }
 
-.navbar-fixed {
-  opacity: 1;
-  transform: translateY(0%);
-  position: fixed;
-  top: 0;
-}
-
-.navbar-hidden {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-@keyframes fadeInNavbar {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-}
-
-nav a {
-  color: #333;
-  text-decoration: none;
-  margin-right: 20px;
-  font-size: 18px;
-  transition: color 0.3s ease-in-out;
-}
-
-nav a:hover {
-  color: #0077b6;
-}
 
 .logo {
   display: flex;
@@ -78,33 +61,37 @@ nav a:hover {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
-  color: #0077b6;
+  color: var(--main-color);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.menu a {
+.menu a, .menu-box {
   display: inline-block;
   padding: 10px;
   border: none;
-  color: #0077b6;
+  color: var(--main-color);
   font-weight: bold;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: var(--transition-bg-color), var(--transition-color);
+  text-decoration: none
 }
 
-.menu a:hover {
-  background-color: #0077b6;
+
+@keyframes slideIn {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.menu a:hover, .menu-box:hover {
+  background-color: var(--main-color);
   color: #fff;
   border-radius: 5px;
 }
 
 .menu-box {
-  display: inline-block;
-  padding: 10px;
-  border: none;
-  color: #0077b6;
-  font-weight: bold;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   box-sizing: border-box;
   width: 100px;
   text-align: center;
@@ -112,12 +99,15 @@ nav a:hover {
   border-radius: 5px;
 }
 
-.menu-box:hover {
-  background-color: #0077b6;
-  color: #fff;
+.desktop-menu {
+  order: 1;
 }
 
 @media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: row-reverse;
+  }
+
   .desktop-menu {
     display: none;
   }
@@ -127,34 +117,76 @@ nav a:hover {
   }
 
   .hamburger {
-    display: block;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    z-index: 10001;
+    margin-right: 10px;
+  }
+  
+  .hamburger span {
+    width: 2rem;
+    height: 0.25rem;
+    background: #333;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
   }
 
-  .hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: #333;
-    transition: all 0.3s ease-in-out;
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
   }
 
   .mobile-menu-items {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: rgba(242, 242, 242, 0.8);
-    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    z-index: 10002;
+    transition: left 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
   }
+  
   .mobile-menu-items.show {
-    display: block;
+    left: 0; 
   }
+  
+  .mobile-menu-items a {
+    color: #333;
+    display: block;
+    padding: 10px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: var(--transition-color);
+  }
+  
+  .mobile-menu-items a:hover {
+    color: var(--main-color);
+  }
+
   .mobile-menu-items a {
     display: block;
     padding: 10px;
+    margin-top: 30px;
     text-align: center;
   }
 }
@@ -162,19 +194,21 @@ nav a:hover {
 @media only screen and (min-width: 601px) {
   .desktop-menu {
     display: flex;
+    justify-content: flex-end;
   }
 
   .mobile-menu {
     display: none;
   }
 }
+
 /*  END OF NAVBAR */
 
 /* HERO SECTION */
 .hero-content h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: var(--main-font);
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #f8c427;
@@ -250,25 +284,25 @@ nav a:hover {
 .hero-content p {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: var(--main-font);
   animation: slideInUp 1s ease-in-out;
   text-shadow: 2px 2px black;
 }
 
 .hero-content button {
   background-color: #fff;
-  color: #0077b6;
+  color: var(--main-color);
   border: none;
   padding: 1rem 2rem;
   font-size: 1.2rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: var(--transition-bg-color), var(--transition-color);
   animation: slideInUp 1s ease-in-out;
 }
 
 .hero-content button:hover {
-  background-color: #0077b6;
+  background-color: var(--main-color);
   color: #fff;
 }
 
@@ -291,37 +325,12 @@ nav a:hover {
   }
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .menu-box:last-child {
   background-color: #1e7ca8;
   color: white;
 }
 
 @media only screen and (max-width: 768px) {
-  nav {
-    padding: 5px;
-  }
-
-  nav a {
-    font-size: 16px;
-    margin-right: 10px;
-  }
-
-  .logo h1 {
-    font-size: 20px;
-  }
-
-  .menu-box {
-    width: 80px;
-    margin-right: 10px;
-  }
-
-  /* CSS untuk menambahkan tampilan pada elemen <h1> */
   h1 {
     font-size: 24px;
     margin-top: 30px;
@@ -439,6 +448,8 @@ body {
     font-size: 16px;
   }
 }
+
+
 /* END OF INTRODUCTION SECTION */
 
 /* FEATURES SECTION */
