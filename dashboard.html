@@ -1,154 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Side Navigation Bar in HTML CSS JavaScript</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar">
-      <div class="logo_item">
-        <i class="bx bx-menu" id="sidebarOpen"></i>
-        <img src="images/logo.png" alt=""></i>User
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="CSS/style.css" />
+  <!-- Boxicons CSS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="icon" href="assets/imgs/logo.webp" type="image/webp" sizes="16x16" />
+  <title>Dashboard</title>
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="logo_item">
+      <i class="bx bx-menu" id="sidebarOpen"></i>
+      <img src="assets/imgs/logo.webp" alt="" />
+      TABUNGANKU
+    </div>
 
-      <div class="navbar_content">
-        <i class="bi bi-grid"></i>
-        <i class='bx bx-sun' id="darkLight"></i>
-        <i class='bx bx-bell' ></i>
-        <img src="assets/images/profile.png" alt="" class="profile" />
-      </div>
-    </nav>
-    <!-- sidebar -->
-    <nav class="sidebar">
-      <div class="menu_content">
-        <ul class="menu_items">
-          <div class="menu_title menu_dahsboard"></div>
-          <!-- start -->
-          <li class="item">
-            <div href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-                <i class="bx bx-home-alt"></i>
-              </span>
-              <span class="navlink">Home</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
-            <ul class="menu_items submenu">
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-            </ul>
-          </li>
-          <!-- end -->
-          <!-- start -->
-          <li class="item">
-            <div href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-                <i class="bx bx-grid-alt"></i>
-              </span>
-              <span class="navlink">Overview</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
-            <ul class="menu_items submenu">
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-              <a href="#" class="nav_link sublink">Nav Sub Link</a>
-            </ul>
-          </li>
-          <!-- end -->
-        </ul>
-        <ul class="menu_items">
-          <div class="menu_title menu_editor"></div>
-          <!-- Start -->
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bxs-magic-wand"></i>
-              </span>
-              <span class="navlink">Magic build</span>
-            </a>
-          </li>
-          <!-- End -->
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-loader-circle"></i>
-              </span>
-              <span class="navlink">Filters</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-filter"></i>
-              </span>
-              <span class="navlink">Filter</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-cloud-upload"></i>
-              </span>
-              <span class="navlink">Upload new</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="menu_items">
-          <div class="menu_title menu_setting"></div>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-flag"></i>
-              </span>
-              <span class="navlink">Notice board</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-medal"></i>
-              </span>
-              <span class="navlink">Award</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-cog"></i>
-              </span>
-              <span class="navlink">Setting</span>
-            </a>
-          </li>
-          <li class="item">
-            <a href="#" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-layer"></i>
-              </span>
-              <span class="navlink">Features</span>
-            </a>
-          </li>
-        </ul>
-        <!-- Sidebar Open / Close -->
-        <div class="bottom_content">
-          <div class="bottom expand_sidebar">
-            <span> Expand</span>
-            <i class='bx bx-log-in' ></i>
+    <div class="navbar_content">
+      <i class="bi bi-grid"></i>
+      <i class='bx bx-sun' id="darkLight"></i>
+      <i class='bx bx-bell'></i>
+      <p>EVINDA APRILIANI</p>
+      <img src="assets/images/profile.png" alt="" class="profile" />
+    </div>
+  </nav>
+  <!-- sidebar -->
+  <nav class="sidebar">
+    <div class="menu_content">
+      <ul class="menu_items">
+        <div class="menu_title menu_dahsboard"></div>
+        <!-- start -->
+        <li class="item">
+          <a href="#" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-home-alt"></i>
+            </span>
+            <span class="navlink">Home</span>
+          </a>
+        </li>
+        <!-- end -->
+        <!-- start -->
+        <li class="item">
+          <a href="#" class="nav_link">
+            <span class="navlink_icon">
+              <i class='bx bxs-objects-vertical-bottom'></i>
+            </span>
+            <span class="navlink">Overview</span>
+          </a>
+        </li>
+        <!-- end -->
+      </ul>
+      <ul class="menu_items">
+        <div class="menu_title menu_editor"></div>
+        <!-- Start -->
+        <li class="item">
+          <div href="#" class="nav_link submenu_item" data-menu="transaksi">
+            <span class="navlink_icon">
+              <i class="bx bx-transfer"></i>
+            </span>
+            <span class="navlink">Transaksi</span>
+            <i class="bx bx-chevron-right arrow-left"></i>
           </div>
-          <div class="bottom collapse_sidebar">
-            <span> Collapse</span>
-            <i class='bx bx-log-out'></i>
+          <ul class="menu_items submenu">
+            <a href="#" class="nav_link sublink">Penyetoran</a>
+            <a href="#" class="nav_link sublink">Penarikan</a>
+            <a href="#" class="nav_link sublink">Transfer</a>
+          </ul>
+        </li>
+        <!-- end -->
+        <!-- start -->
+        <li class="item">
+          <div href="#" class="nav_link submenu_item" data-menu="saldo">
+            <span class="navlink_icon">
+              <i class="bx bx-wallet"></i>
+            </span>
+            <span class="navlink">Saldo</span>
+            <i class="bx bx-chevron-right arrow-left"></i>
           </div>
+          <ul class="menu_items submenu">
+            <a href="#" class="nav_link sublink">Saldo Utama</a>
+            <a href="#" class="nav_link sublink">Rincian Saldo</a>
+          </ul>
+        </li>
+        <!-- end -->
+        <!-- start -->
+        <li class="item">
+          <div href="#" class="nav_link submenu_item" data-menu="riwayat">
+            <span class="navlink_icon">
+              <i class="bx bx-history"></i>
+            </span>
+            <span class="navlink">Riwayat</span>
+            <i class="bx bx-chevron-right arrow-left"></i>
+          </div>
+          <ul class="menu_items submenu">
+            <a href="#" class="nav_link sublink">Riwayat Transaksi</a>
+            <a href="#" class="nav_link sublink">Mutasi Rekening</a>
+          </ul>
+        </li>
+        <!-- end -->
+      </ul>
+      
+      <ul class="menu_items">
+        <!-- start -->
+        <div class="menu_title menu_setting"></div>
+        <li class="item">
+          <a href="#" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-medal"></i>
+            </span>
+            <span class="navlink">Award</span>
+          </a>
+        </li>
+        <!-- end -->
+        <!-- start -->
+        <li class="item">
+          <a href="#" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-cog"></i>
+            </span>
+            <span class="navlink">Setting</span>
+          </a>
+        </li>
+        <!-- end -->
+      </ul>
+      <!-- Bottom -->
+      <div class="bottom_content">
+        <div class="bottom expand_sidebar">
+          <span>Expand</span>
+          <i class='bx bx-log-in'></i>
+        </div>
+        <div class="bottom collapse_sidebar">
+          <a href="logout.php">Logout</a>
+          <i class='bx bx-log-out'></i>
         </div>
       </div>
-    </nav>
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </nav>
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
 </html>
