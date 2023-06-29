@@ -40,14 +40,10 @@ darkLight.addEventListener("click", () => {
 
 submenuItems.forEach((item, index) => {
   item.addEventListener("click", () => {
-    const menu = item.getAttribute("data-menu");
-    const submenu = document.querySelector(`.${menu}_submenu`); // Menemukan submenu yang sesuai berdasarkan atribut data-menu
-    submenu.classList.toggle("show_submenu");
+    item.classList.toggle("show_submenu");
     submenuItems.forEach((item2, index2) => {
       if (index !== index2) {
-        const otherMenu = item2.getAttribute("data-menu");
-        const otherSubmenu = document.querySelector(`.${otherMenu}_submenu`); // Menemukan submenu yang tidak sesuai dan menyembunyikannya
-        otherSubmenu.classList.remove("show_submenu");
+        item2.classList.remove("show_submenu");
       }
     });
   });
