@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title> Form Pendaftaran </title>
-    <link rel="stylesheet" href="/CSS/register.css">
+    <link rel="stylesheet" href="./CSS/register.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -38,7 +38,10 @@
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Masukan kata sandi" required>
+                <input type="password" placeholder="Masukan kata sandi" id="password-input" required>
+                <button type="button" id="password-toggle-btn" onclick="togglePasswordVisibility('password-input', 'password-toggle-btn')">
+                  <i class="fas fa-eye"></i>
+                </button>
               </div>
               <div class="text"><a href="#">Lupa kata sandi?</a></div>
               <div class="button input-box">
@@ -62,11 +65,17 @@
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Masukan password" required>
+                <input type="password" placeholder="Masukan password" id="password-input" required>
+                <button type="button" id="password-toggle-btn" onclick="togglePasswordVisibility('password-input', 'password-toggle-btn')">
+                  <i class="fas fa-eye"></i>
+                </button>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Masukan ulang password" required>
+                <input type="password" placeholder="Masukan ulang password" id="confirm-password-input" required>
+                <button type="button" id="confirm-password-toggle-btn" onclick="togglePasswordVisibility('confirm-password-input', 'confirm-password-toggle-btn')">
+                  <i class="fas fa-eye"></i>
+                </button>
               </div>
               <div class="button input-box">
                 <input type="submit" value="Masuk">
@@ -79,4 +88,19 @@
     </div>
   </div>
 </body>
+
+<script>
+
+function togglePasswordVisibility(inputId, buttonId) {
+  const passwordInput = document.getElementById(inputId);
+  const passwordToggleBtn = document.getElementById(buttonId);
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    passwordToggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+  } else {
+    passwordInput.type = "password";
+    passwordToggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+  }
+}
+</script>
 </html>
