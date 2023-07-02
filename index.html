@@ -54,7 +54,8 @@
         const textContainer = document.querySelector(".introduction .textContainer");
         const featuresVideoContainer = document.querySelectorAll(".video-row");
         const featuresTitle = document.querySelector(".features .title-section");
-        const scrollYThreshold = [450, 1100, 1100, 800];
+        const sponsorSection = document.querySelector(".sponsor-section");
+        const scrollYThreshold = [450, 1100, 1100, 1700];
     
         // Event listener for scroll event
         window.addEventListener("scroll", () => {
@@ -75,6 +76,11 @@
               videoRow.classList.add("show");
             });
           }
+          if (window.scrollY > scrollYThreshold[3]) {
+            sponsorSection.classList.remove("hidden");
+            sponsorSection.classList.add("show");
+          }
+
         });
       });
     
@@ -284,7 +290,7 @@
       </div>
     </section>
 
-    <section class="sponsor-section">
+    <section class="sponsor-section hidden">
       <h2>Disponsori oleh</h2>
       <div class="sponsor-carousel">
         <img class="sponsor-logo" src="assets/imgs/Sponsored/BRI.svg" alt="BRI">

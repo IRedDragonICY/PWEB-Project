@@ -582,6 +582,12 @@ nav {
   background-color: #f9f9f9;
 }
 
+/* membuat animasi section show fade in */
+.sponsor-section.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
 .sponsor-section h2 {
   font-size: 2em;
   margin-bottom: 50px;
@@ -589,7 +595,7 @@ nav {
 
 .sponsor-carousel {
   overflow: auto;
-  width: 100%; /* Tambahkan ini */
+  width: 100%; 
 }
 
 .sponsor-logo {
