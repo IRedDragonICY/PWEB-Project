@@ -54,26 +54,26 @@
     </div>
     <div class="signup-form">
       <div class="title">Daftar Akun</div>
-      <form action="#">
+      <form action="./PHP/register.php" method="POST">
         <div class="input-boxes">
           <div class="input-box">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Masukan nama Anda" id="name-input" required>
+            <input type="text" placeholder="Masukan nama Anda" id="name-input" name="name" required>
           </div>
           <div class="input-box">
             <i class="fas fa-envelope"></i>
-            <input type="text" placeholder="Masukan email Anda" id="email-input" required>
+            <input type="text" placeholder="Masukan email Anda" id="email-input" name="email" required>
           </div>
           <div class="input-box">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Masukan password" id="password-input" required>
+            <input type="password" placeholder="Masukan password" id="password-input" name="password" required>
             <button type="button" id="password-toggle-btn" onclick="togglePasswordVisibility('password-input', 'password-toggle-btn')">
               <i class="fas fa-eye"></i>
             </button>
           </div>
           <div class="input-box">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Masukan ulang password" id="confirm-password-input" required>
+            <input type="password" placeholder="Masukan ulang password" id="confirm-password-input" name="confirm_password" required>
             <button type="button" id="confirm-password-toggle-btn" onclick="togglePasswordVisibility('confirm-password-input', 'confirm-password-toggle-btn')">
               <i class="fas fa-eye"></i>
             </button>
