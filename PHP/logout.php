@@ -18,6 +18,6 @@
     session_destroy();
 
     // Redirect the user to the landing page
-    header("Location: logout.html");
+    header("Location: index.html");
     exit;
 ?>
