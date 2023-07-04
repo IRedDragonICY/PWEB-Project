@@ -12,7 +12,6 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src="images/frontImg.jpg" alt="">
         <div class="text">
           <span class="text-1">Menabung Dari Muda<br> Untuk Masa Tua</span>
           <span class="text-2">......</span>
@@ -20,7 +19,7 @@
         </div>
       </div>
       <div class="back">
-        <img class="backImg" src="images/backImg.jpg" alt="">
+        <!-- <img class="backImg" src="images/backImg.jpg" alt=""> -->
         <div class="text">
           <span class="text-1">1000 Mil Jauhnya <br> Dimulai Dari Langkah Pertama</span>
           <span class="text-2">Let's get started</span>
@@ -67,7 +66,7 @@
           <div class="input-box">
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Masukan password" id="password-input" name="password" required>
-            <button type="button" id="password-toggle-btn" onclick="togglePasswordVisibility('password-input', 'password-toggle-btn')">
+            <button type="button" id="password-toggle-btn" onclick="togglePasswordVisibility('password-input', 'password-toggle-btn1')">
               <i class="fas fa-eye"></i>
             </button>
           </div>
@@ -98,13 +97,14 @@
 function togglePasswordVisibility(inputId, buttonId) {
   const passwordInput = document.getElementById(inputId);
   const passwordToggleBtn = document.getElementById(buttonId);
-  if (passwordInput.type === "password") {
+  if (passwordInput.type === "password" ) {
     passwordInput.type = "text";
     passwordToggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
   } else {
     passwordInput.type = "password";
     passwordToggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
   }
+
 }
 </script>
 </html>
