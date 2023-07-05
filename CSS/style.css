@@ -12,19 +12,35 @@
   --grey-color: #707070;
   --grey-color-light: #aaa;
 }
+
+html, body {
+  height: 100%;
+}
+/* Wrap everything except footer */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 body {
   background-color: #e7f2fd;
   transition: all 0.5s ease;
 }
+
 body.dark {
   background-color: #333;
 }
+
 body.dark {
+  --black-color: #000;
   --white-color: #333;
-  --blue-color: #fff;
+  --blue-color: #a4e0f2;
   --grey-color: #f2f2f2;
   --grey-color-light: #aaa;
+  --white-color: #ffffff;
 }
+
 /* navbar */
 .navbar {
   position: fixed;
@@ -39,6 +55,7 @@ body.dark {
   z-index: 1000;
   box-shadow: 0 0 2px var(--grey-color-light);
 }
+
 .logo_item {
   display: flex;
   align-items: center;
@@ -47,33 +64,25 @@ body.dark {
   font-weight: 500;
   color: var(--blue-color);
 }
+
 .navbar img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
 }
 
-.search_bar input {
-  height: 100%;
-  width: 100%;
-  border-radius: 25px;
-  font-size: 18px;
-  outline: none;
-  background-color: var(--white-color);
-  color: var(--grey-color);
-  border: 1px solid var(--grey-color-light);
-  padding: 0 20px;
-}
 .navbar_content {
   display: flex;
   align-items: center;
   column-gap: 25px;
 }
+
 .navbar_content i {
   cursor: pointer;
   font-size: 20px;
   color: var(--grey-color);
 }
+
 /* sidebar */
 .sidebar {
   background-color: var(--white-color);
@@ -88,37 +97,53 @@ body.dark {
   box-shadow: 0 0 1px var(--grey-color-light);
   transition: all 0.5s ease;
 }
+
 .sidebar.close {
   padding: 60px 0;
   width: 80px;
 }
+
 .sidebar::-webkit-scrollbar {
   display: none;
 }
+
+/* Menu */
 .menu_content {
   position: relative;
 }
+
 .menu_title {
   margin: 15px 0;
   padding: 0 20px;
   font-size: 18px;
 }
-.sidebar.close .menu_title {
-  padding: 6px 30px;
-}
+
 .menu_title::before {
   color: var(--grey-color);
   white-space: nowrap;
 }
-.menu_dahsboard::before {
+
+.menu_items {
+  padding: 0;
+  list-style: none;
+}
+
+.menu_dashboard::before {
   content: "Dashboard";
 }
-.menu_editor::before {
-  content: "Editor";
+
+.menu_manage::before {
+  content: "Manage";
 }
+
 .menu_setting::before {
   content: "Setting";
 }
+
+.sidebar.close .menu_title {
+  padding: 6px 30px;
+}
+
 .sidebar.close .menu_title::before {
   content: "";
   position: absolute;
@@ -127,10 +152,7 @@ body.dark {
   border-radius: 12px;
   background: var(--grey-color-light);
 }
-.menu_items {
-  padding: 0;
-  list-style: none;
-}
+/* Navlink */
 .navlink_icon {
   position: relative;
   font-size: 22px;
@@ -140,6 +162,7 @@ body.dark {
   text-align: center;
   border-radius: 6px;
 }
+
 .navlink_icon::before {
   content: "";
   position: absolute;
@@ -147,9 +170,11 @@ body.dark {
   width: calc(100% + 100px);
   left: -20px;
 }
+
 .navlink_icon:hover {
   background: var(--blue-color);
 }
+
 .sidebar .nav_link {
   display: flex;
   align-items: center;
@@ -160,48 +185,67 @@ body.dark {
   color: var(--grey-color);
   white-space: nowrap;
 }
-.sidebar.close .navlink {
-  display: none;
-}
+
 .nav_link:hover {
   color: var(--white-color);
   background: var(--blue-color);
 }
+
+.sidebar.close .navlink {
+  display: none;
+}
+
 .sidebar.close .nav_link:hover {
   background: var(--white-color);
 }
-.submenu_item {
-  cursor: pointer;
+
+/* Sidebar open and close */
+#sidebarOpen {
+  display: none;
 }
+
+.sidebar.close .bottom_content {
+  width: 50px;
+  left: 15px;
+}
+
+.sidebar.close .bottom span {
+  display: none;
+}
+
+.sidebar.hoverable .collapse_sidebar {
+  display: none;
+}
+
+/* Submenu */
 .submenu {
   display: none;
 }
+
+.submenu .sublink {
+  padding: 15px 15px 15px 52px;
+}
+
+.submenu_item {
+  cursor: pointer;
+}
+
 .submenu_item .arrow-left {
   position: absolute;
   right: 10px;
   display: inline-block;
   margin-right: auto;
 }
+
 .sidebar.close .submenu {
   display: none;
 }
+
 .show_submenu ~ .submenu {
   display: block;
 }
-.show_submenu .arrow-left {
-  transform: rotate(90deg);
-}
-.submenu .sublink {
-  padding: 15px 15px 15px 52px;
-}
-.bottom_content {
-  position: fixed;
-  bottom: 60px;
-  left: 0;
-  width: 260px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
+
+/* Bottom */
 .bottom {
   position: absolute;
   display: flex;
@@ -215,25 +259,85 @@ body.dark {
   border-top: 1px solid var(--grey-color-light);
   background-color: var(--white-color);
 }
+
 .bottom i {
   font-size: 20px;
 }
+
 .bottom span {
   font-size: 18px;
 }
-.sidebar.close .bottom_content {
-  width: 50px;
-  left: 15px;
+
+.bottom_content {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 260px;
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
-.sidebar.close .bottom span {
+
+.bottom_content a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Main */
+.main {
+  margin-top: 50px;
+  padding: 20px;
+  margin-left: 260px;
+}
+.content {
   display: none;
 }
-.sidebar.hoverable .collapse_sidebar {
-  display: none;
+
+/* Main: Home Content */
+.content1, .content2, .content3 {
+  color: var(--black-color);
+  padding: 20px;
+  display: inline-block; 
+  height:250px;
+  width: 350px;
+  position: relative;
+  background-color: var(--white-color);
+  margin: 2px;
+  font-size: 35px;
 }
-#sidebarOpen {
-  display: none;
+.main .content1 { 
+  background-image: url(uang.png);
+  background-repeat: no-repeat; 
+  background-position: 100%;
+  background-size: contain;
 }
+
+/* Main: Overview Content */
+
+
+/* Footer */
+.footer {
+  background-color: var(--grey-color);
+  color: var(--white-color);
+  padding: 7px;
+  text-align: center;
+  width: 100%;
+  font-size: smaller;
+  position: fixed;
+  bottom: 0;
+  
+}
+.main,
+.footer {
+  transition: transform 0.5s ease;
+  transform-origin: left center;
+}
+
+.sidebar.close ~ .main,
+.sidebar.close ~ .footer {
+  transform: translateX(-100%);
+}
+
+/* For Screen Width under 768px */
 @media screen and (max-width: 768px) {
   #sidebarOpen {
     font-size: 25px;
@@ -250,5 +354,11 @@ body.dark {
   }
   .sidebar.close .bottom_content {
     left: -100%;
+  }
+  .main {
+    margin-left: 0;
+  }
+  .content1, .content2, .content3 {
+    width: 100%;
   }
 }
