@@ -4,16 +4,10 @@ const darkLight = document.querySelector("#darkLight");
 const sidebar = document.querySelector(".sidebar");
 const submenuItems = document.querySelectorAll(".submenu_item");
 const sidebarOpen = document.querySelector("#sidebarOpen");
-const sidebarClose = document.querySelector(".collapse_sidebar");
 const main = document.querySelector('.main');
 
 // Toggle sidebar when sidebarOpen is clicked
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
-
-// Add "close" and "hoverable" classes to sidebar when sidebarClose is clicked
-sidebarClose.addEventListener("click", () => {
-  sidebar.classList.add("close", "hoverable");
-});
 
 // Remove "close" class from sidebar on mouse enter if it has the "hoverable" class
 sidebar.addEventListener("mouseenter", () => {
