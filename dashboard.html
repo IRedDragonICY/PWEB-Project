@@ -10,6 +10,7 @@
   <title>Dashboard</title>
 </head>
 <body>
+  <div class="wrapper">
   <!-- navbar -->
   <nav class="navbar">
     <div class="logo_item">
@@ -17,33 +18,34 @@
       <img src="assets/imgs/logo.webp" alt="" />
       TABUNGANKU
     </div>
-
+    <!-- Profile -->
     <div class="navbar_content">
       <i class="bi bi-grid"></i>
       <i class='bx bx-sun' id="darkLight"></i>
       <i class='bx bx-bell'></i>
-      <p id="name"></p>
-      <img src="assets/images/profile.png" alt="" class="profile" />
+      <?php include 'insert.php'; echo $name; ?> 
+      <img src="<?php include 'setting.php'; echo $image_url; ?>" alt="" class="profile" />
     </div>
   </nav>
   <!-- sidebar -->
   <nav class="sidebar">
     <div class="menu_content">
+      <!-- Dashboard -->
       <ul class="menu_items">
-        <div class="menu_title menu_dahsboard"></div>
+        <div class="menu_title menu_dashboard"></div>
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link">
+          <a href="#" class="nav_link" onclick="changeContent('home')">
             <span class="navlink_icon">
               <i class="bx bx-home-alt"></i>
             </span>
             <span class="navlink">Home</span>
           </a>
-        </li>
+        </li>   
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link">
+          <a href="#" class="nav_link" onclick="changeContent('overview')">
             <span class="navlink_icon">
               <i class='bx bxs-objects-vertical-bottom'></i>
             </span>
@@ -52,71 +54,68 @@
         </li>
         <!-- end -->
       </ul>
+
+      <!-- Manage -->
       <ul class="menu_items">
-        <div class="menu_title menu_editor"></div>
+        <div class="menu_title menu_manage"></div>
         <!-- Start -->
         <li class="item">
           <div href="#" class="nav_link submenu_item" data-menu="transaksi">
             <span class="navlink_icon">
               <i class="bx bx-transfer"></i>
             </span>
-            <span class="navlink">Transaksi</span>
+            <span class="navlink">Transaction</span>
             <i class="bx bx-chevron-right arrow-left"></i>
           </div>
           <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink">Penyetoran</a>
-            <a href="#" class="nav_link sublink">Penarikan</a>
-            <a href="#" class="nav_link sublink">Transfer</a>
+            <a href="#" class="nav_link sublink" onclick="changeContent('deposit')">Deposit</a>
+            <a href="#" class="nav_link sublink" onclick="changeContent('withdraw')">Withdraw</a>
+            <a href="#" class="nav_link sublink" onclick="changeContent('transfer')">Transfer</a>
           </ul>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <div href="#" class="nav_link submenu_item" data-menu="saldo">
+          <div href="#" class="nav_link submenu_item" data-menu="balance">
             <span class="navlink_icon">
               <i class="bx bx-wallet"></i>
             </span>
-            <span class="navlink">Saldo</span>
+            <span class="navlink">Balance</span>
             <i class="bx bx-chevron-right arrow-left"></i>
           </div>
           <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink">Saldo Utama</a>
-            <a href="#" class="nav_link sublink">Rincian Saldo</a>
+            <a href="#" class="nav_link sublink" onclick="changeContent('mainBalance')">Main Balance</a>
+            <a href="#" class="nav_link sublink" onclick="changeContent('balanceDetails')">Balance Details</a>
           </ul>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <div href="#" class="nav_link submenu_item" data-menu="riwayat">
+          <a href="#" class="nav_link" onclick="changeContent('history')">
             <span class="navlink_icon">
               <i class="bx bx-history"></i>
             </span>
-            <span class="navlink">Riwayat</span>
-            <i class="bx bx-chevron-right arrow-left"></i>
-          </div>
-          <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink">Riwayat Transaksi</a>
-            <a href="#" class="nav_link sublink">Mutasi Rekening</a>
-          </ul>
-        </li>
+              <span class="navlink">History</span>
+          </a>
+        </li>   
         <!-- end -->
-      </ul>
-      
+
+      <!-- Settings -->
       <ul class="menu_items">
         <!-- start -->
         <div class="menu_title menu_setting"></div>
         <li class="item">
-          <a href="#" class="nav_link">
+          <a href="#" class="nav_link" onclick="changeContent('goals')">
             <span class="navlink_icon">
               <i class="bx bx-medal"></i>
             </span>
-            <span class="navlink">Award</span>
+            <span class="navlink">Saving Goals</span>
           </a>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link">
+          <a href="#" class="nav_link" onclick="changeContent('setting')">
             <span class="navlink_icon">
               <i class="bx bx-cog"></i>
             </span>
@@ -125,19 +124,90 @@
         </li>
         <!-- end -->
       </ul>
+
       <!-- Bottom -->
       <div class="bottom_content">
-        <div class="bottom expand_sidebar">
-          <span>Expand</span>
-          <i class='bx bx-log-in'></i>
-        </div>
         <div class="bottom collapse_sidebar">
-          <a href="logout.php">Logout</a>
-          <i class='bx bx-log-out'></i>
+          <a href="PHP/logout.php">
+            <span>Logout</span>
+            <i class='bx bx-log-out'></i>
+          </a>
         </div>
       </div>
-    </div>
   </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="content" id="homeContent">
+    <h1>Selamat datang, <?php include 'name.php'; echo $name; ?>!</h1>
+    <div class="content1">
+      <h5>Total Pemasukan</h5> <i class='bx bx-money'></i>
+      <?php include 'data.php'; echo $total_pemasukan; ?>
+    </div>
+    <div class="content2">
+      <h5>Total Pengeluaran</h5> <i class='bx bx-money'></i>
+      <?php include 'data.php'; echo $total_pengeluaran; ?>
+    </div>
+    <div class="content3">
+      <h5>Total balance</h5> <i class='bx bx-money'></i>
+      <?php include 'data.php'; echo $total_saldo; ?>
+    </div>
+  </div>
+  <!-- start -->
+  <div class="content" id="overviewContent">
+    <!-- Overview Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="depositContent">
+    <!-- Deposit Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="withdrawContent">
+    <!-- Withdraw Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="transferContent">
+    <!-- Transfer Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="mainBalanceContent">
+    <!-- Main Balance Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="balanceDetailsContent">
+    <!-- Balance Details Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="historyContent">
+    <!-- History Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="goalsContent">
+    <!-- Goals Content -->
+  </div>
+  <!-- end -->
+  <!-- start -->
+  <div class="content" id="settingContent">
+    <!-- Setting Content -->
+  </div>
+  <!-- end -->
+  </main>  
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <center>
+      <p>&copy; 2023 Tabunganku. All rights reserved.</p>
+    </center>
+  </footer>
+
   <!-- JavaScript -->
   <script src="js/script.js"></script>
 </body>
