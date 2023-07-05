@@ -1,27 +1,15 @@
-<!-- check database -->
 <?php
-include('connect.php');
-// check email and password
-$email = $_POST['email'];
-$password = $_POST['password'];
-$sql = "SELECT * FROM accountdb WHERE email='$email' AND password='$password'";
-$result = $conn->query($sql);
-echo $sql;
+$host = "localhost";
+$user = "admin";
+$pass = "admin";
+$db = "tabunganku";
+$conn = mysqli_connect($host, $user, $pass, $db) or die("Error " . mysqli_error($conn));
 
-// if email and password exist
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-      // set session
-      session_start();
-      $_SESSION['email'] = $email;
-      $_SESSION['name'] = $row['name'];
-      $_SESSION['role'] = $row['role'];
-      // redirect to dashboard
-      header("Location: ../dashboard.html");
-  }
-} else {
-  // redirect to login
-    
+if (isset($_POST["email"]) && isset($_POST["password"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $sql = "SELECT tabunganku FROM accountdb WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
+    echo mysqli_num_rows($result);
 }
-$conn->close();
+?>

@@ -25,7 +25,9 @@
         <div class="back">
           <!-- <img class="backImg" src="images/backImg.jpg" alt=""> -->
           <div class="text">
-            <span class="text-1">1000 Mil Jauhnya <br />Dimulai Dari Langkah Pertama</span>
+            <span class="text-1"
+              >1000 Mil Jauhnya <br />Dimulai Dari Langkah Pertama</span
+            >
             <span class="text-2">Let's get started</span>
           </div>
         </div>
@@ -64,8 +66,37 @@
                 </button>
               </div>
               <div class="text"><a href="#">Lupa kata sandi?</a></div>
+              <div id="msg-login" class="form-group"></div>
               <div class="button input-box">
                 <input type="submit" value="Masuk" id="login-button" />
+
+<script>
+  $(document).ready(function () {
+  $("#login-button").click(function (e) {
+    e.preventDefault();
+    var email = $("#email-input-login").val();
+    var password = $("#password-input-login").val();
+    $.ajax({
+      url: "./PHP/login-process.php",
+      data: { email: email, password: password },
+      type: "POST",
+      success: function (data) {
+        if (data == 1) {
+          // Password is correct, submit the form
+          $("#login-form").submit();
+          // goto dashboard.html
+          window.location.href = "./dashboard.html";
+        } else {
+          // Password is incorrect, show error message
+          $("#msg-login").html(
+            '<span class="text-danger">Email atau kata sandi salah!</span>'
+          );
+        }
+      },
+    });
+  });
+});
+</script>
               </div>
               <div class="text sign-up-text">
                 Belum memiliki akun? <label for="flip">Daftar sekarang</label>
@@ -84,87 +115,99 @@
                   name="name"
                   required
                 />
-
               </div>
               <script>
-$(document).ready(function() {
-  $("#name-input").blur(function(e) {
-    var uname = $(this).val();
-    if (uname == "") {
-      $("#msg").html("");
-      $("#register-button").attr("disabled", true);
-    } else {
-      $("#msg").html("checking...");
-      $.ajax({
-        url: "./PHP/check_username.php",
-        data: {username: uname},
-        type: "POST",
-        success: function(data) {
-          if(data > '0') {
-            $("#msg").html('<span class="text-danger">Nama sudah diambil!</span>');
-            $("#register-button").attr("disabled", true);
-          } else {
-            $("#msg").html('<span class="text-success">Nama tersedia!</span>');
-            $("#register-button").attr("disabled", false);
-          }
-        }
-      });
-    }
-  });
-});
+                $(document).ready(function () {
+                  $("#name-input").blur(function (e) {
+                    var uname = $(this).val();
+                    if (uname == "") {
+                      $("#msg").html("");
+                      $("#register-button").attr("disabled", true);
+                    } else if (uname.length < 4) {
+                      $("#msg").html(
+                        '<span class="text-danger">Nama harus lebih dari 4 karakter!</span>'
+                      );
+                      $("#register-button").attr("disabled", true);
+                    } else {
+                      $("#msg").html("checking...");
+                      $.ajax({
+                        url: "./PHP/check_username.php",
+                        data: { username: uname },
+                        type: "POST",
+                        success: function (data) {
+                          if (data > "0") {
+                            $("#msg").html(
+                              '<span class="text-danger">Nama sudah diambil!</span>'
+                            );
+                            $("#register-button").attr("disabled", true);
+                          } else {
+                            $("#msg").html(
+                              '<span class="text-success">Nama tersedia!</span>'
+                            );
+                            $("#register-button").attr("disabled", false);
+                          }
+                        },
+                      });
+                    }
+                  });
+                });
+              </script>
+              <div id="msg" class="form-group"></div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input
+                  type="text"
+                  placeholder="Masukan email Anda"
+                  id="email-input-register"
+                  name="email"
+                  required
+                  oninvalid="this.setCustomValidity('Masukan email yang valid')"
+                  onchange="this.setCustomValidity('')"
+                />
+              </div>
+              <div id="msg-email" class="form-group"></div>
 
-</script>
-<div id="msg" class="form-group"></div>
+              <script>
+                $(document).ready(function () {
+                  $("#email-input-register").blur(function (e) {
+                    var email = $(this).val();
+                    if (email == "") {
+                      $("#msg-email").html("");
+                      $("#register-button").attr("disabled", true);
+                    } else if (!isValidEmail(email)) {
+                      $("#msg-email").html(
+                        '<span class="text-danger">Email is not valid!</span>'
+                      );
+                      $("#register-button").attr("disabled", true);
+                    } else {
+                      $("#msg-email").html("checking...");
+                      $.ajax({
+                        url: "./PHP/check_email.php",
+                        data: { email: email },
+                        type: "POST",
+                        success: function (data) {
+                          if (data > "0") {
+                            $("#msg-email").html(
+                              '<span class="text-danger">Email is already taken!</span>'
+                            );
+                            $("#register-button").attr("disabled", true);
+                          } else {
+                            $("#msg-email").html(
+                              '<span class="text-success">Email is available!</span>'
+                            );
+                            $("#register-button").attr("disabled", false);
+                          }
+                        },
+                      });
+                    }
+                  });
 
-<div class="input-box">
-  <i class="fas fa-envelope"></i>
-  <input
-    type="text"
-    placeholder="Masukan email Anda"
-    id="email-input-register"
-    name="email"
-    required
-    oninvalid="this.setCustomValidity('Masukan email yang valid')"
-    onchange="this.setCustomValidity('')"
-  />
-</div>
-<div id="msg-email" class="form-group"></div>
-
-<script>
-  $(document).ready(function() {
-    $("#email-input-register").blur(function(e) {
-      var email = $(this).val();
-      if (email == "") {
-        $("#msg-email").html("");
-        $("#register-button").attr("disabled", true);
-      } else if (!isValidEmail(email)) {
-        $("#msg-email").html('<span class="text-danger">Email is not valid!</span>');
-        $("#register-button").attr("disabled", true);
-      } else {
-        $("#msg-email").html("checking...");
-        $.ajax({
-          url: "./PHP/check_email.php",
-          data: {email: email},
-          type: "POST",
-          success: function(data) {
-            if(data > '0') {
-              $("#msg-email").html('<span class="text-danger">Email is already taken!</span>');
-              $("#register-button").attr("disabled", true);
-            } else {
-              $("#msg-email").html('<span class="text-success">Email is available!</span>');
-              $("#register-button").attr("disabled", false);
-            }
-          }
-        });
-      }
-    });
-
-    function isValidEmail(email) {
-      var emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-      return emailRegex.test(email);
-    }
-  });
-</script>
+                  function isValidEmail(email) {
+                    var emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+                    return emailRegex.test(email);
+                  }
+                });
+              </script>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <input
@@ -224,14 +267,12 @@ $(document).ready(function() {
       }
     </script>
     <script>
-      document.getElementById("register-button").addEventListener("click", function(event) {
-        event.preventDefault(); 
-        window.location.href = "dashboard.html";
-      });
+      document
+        .getElementById("register-button")
+        .addEventListener("click", function (event) {
+          event.preventDefault();
+          window.location.href = "dashboard.html";
+        });
     </script>
-
-
-
-
   </body>
 </html>

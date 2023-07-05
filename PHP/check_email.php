@@ -3,7 +3,7 @@ $host = "localhost";
 $user = "admin";
 $pass = "admin";
 $db = "tabunganku";
-$conn = mysqli_connect($host, $user, $pass, $db) or die("Error " . mysqli_error($con));
+$conn = mysqli_connect($host, $user, $pass, $db) or die("Error " . mysqli_error($conn));
 
 if (isset($_POST["email"]))
 {
