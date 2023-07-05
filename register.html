@@ -84,8 +84,9 @@
                   name="name"
                   required
                 />
-                <div id="msg" class="form-group"></div>
-                <script>
+
+              </div>
+              <script>
 $(document).ready(function() {
   $("#name-input").blur(function(e) {
     var uname = $(this).val();
@@ -100,10 +101,10 @@ $(document).ready(function() {
         type: "POST",
         success: function(data) {
           if(data > '0') {
-            $("#msg").html('<span class="text-danger">Username is already taken!</span>');
+            $("#msg").html('<span class="text-danger">Nama sudah diambil!</span>');
             $("#register-button").attr("disabled", true);
           } else {
-            $("#msg").html('<span class="text-success">Username is available!</span>');
+            $("#msg").html('<span class="text-success">Nama tersedia!</span>');
             $("#register-button").attr("disabled", false);
           }
         }
@@ -113,20 +114,57 @@ $(document).ready(function() {
 });
 
 </script>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input
-                  type="text"
-                  placeholder="Masukan email Anda"
-                  id="email-input-register"
-                  name="email"
-                  required
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                  oninvalid="this.setCustomValidity('Masukan email yang valid')"
-                  onchange="this.setCustomValidity('')"
-                />
-              </div>
+<div id="msg" class="form-group"></div>
+
+<div class="input-box">
+  <i class="fas fa-envelope"></i>
+  <input
+    type="text"
+    placeholder="Masukan email Anda"
+    id="email-input-register"
+    name="email"
+    required
+    oninvalid="this.setCustomValidity('Masukan email yang valid')"
+    onchange="this.setCustomValidity('')"
+  />
+</div>
+<div id="msg-email" class="form-group"></div>
+
+<script>
+  $(document).ready(function() {
+    $("#email-input-register").blur(function(e) {
+      var email = $(this).val();
+      if (email == "") {
+        $("#msg-email").html("");
+        $("#register-button").attr("disabled", true);
+      } else if (!isValidEmail(email)) {
+        $("#msg-email").html('<span class="text-danger">Email is not valid!</span>');
+        $("#register-button").attr("disabled", true);
+      } else {
+        $("#msg-email").html("checking...");
+        $.ajax({
+          url: "./PHP/check_email.php",
+          data: {email: email},
+          type: "POST",
+          success: function(data) {
+            if(data > '0') {
+              $("#msg-email").html('<span class="text-danger">Email is already taken!</span>');
+              $("#register-button").attr("disabled", true);
+            } else {
+              $("#msg-email").html('<span class="text-success">Email is available!</span>');
+              $("#register-button").attr("disabled", false);
+            }
+          }
+        });
+      }
+    });
+
+    function isValidEmail(email) {
+      var emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      return emailRegex.test(email);
+    }
+  });
+</script>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <input
@@ -187,12 +225,7 @@ $(document).ready(function() {
     </script>
     <script>
       document.getElementById("register-button").addEventListener("click", function(event) {
-        event.preventDefault(); // Menghentikan pengiriman form secara default
-
-        // Lakukan validasi form di sini
-        // ...
-
-        // Jika semua validasi sukses, alihkan ke halaman dashboard.html
+        event.preventDefault(); 
         window.location.href = "dashboard.html";
       });
     </script>

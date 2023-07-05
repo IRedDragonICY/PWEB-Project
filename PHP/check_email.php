@@ -5,10 +5,10 @@ $pass = "admin";
 $db = "tabunganku";
 $conn = mysqli_connect($host, $user, $pass, $db) or die("Error " . mysqli_error($con));
 
-if (isset($_POST["username"]))
+if (isset($_POST["email"]))
 {
-    $username = $_POST["username"];
-    $sql = "SELECT tabunganku FROM accountdb WHERE name='$username'";
+    $email = $_POST["email"];
+    $sql = "SELECT tabunganku FROM accountdb WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
     echo mysqli_num_rows($result);
 }
