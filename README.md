@@ -32,6 +32,12 @@ tabunganku - Menabung sejak muda, masa depan menjadi lebih mudah.
 
 ## Contributors
 
+<a href="https://github.com/IRedDragonICY/PWEB-Project/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=IRedDragonICY/PWEB-Project" />
+</a>
+
+
+
 + [Mohammad Farid Hendianto](https://www.github.com/IRedDragonICY) - 2200018401 (Founder/ Full Stack)
 + [Reyhanssan Islamey](https://github.com/rzarey) - 2200018411 (Co-Leader/Web Developer)
 + [Evinda Apriliani](https://github.com/EvindaAprl) - 2200018387 (Web Developer)
