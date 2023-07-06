@@ -9,7 +9,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- include jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -82,12 +81,9 @@
       type: "POST",
       success: function (data) {
         if (data == 1) {
-          // Password is correct, submit the form
           $("#login-form").submit();
-          // goto dashboard.html
           window.location.href = "./dashboard.html";
         } else {
-          // Password is incorrect, show error message
           $("#msg-login").html(
             '<span class="text-danger">Email atau kata sandi salah!</span>'
           );
@@ -193,7 +189,7 @@
                             $("#register-button").attr("disabled", true);
                           } else {
                             $("#msg-email").html(
-                              '<span class="text-success">Email is available!</span>'
+                              '<span class="text-success">Email Tersedia!</span>'
                             );
                             $("#register-button").attr("disabled", false);
                           }
@@ -208,71 +204,108 @@
                   }
                 });
               </script>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input
-                  type="password"
-                  placeholder="Masukan password"
-                  id="password-input-register"
-                  name="password"
-                  required
-                />
-                <button
-                  type="button"
-                  id="password-toggle-btn-register"
-                  onclick="togglePasswordVisibility('password-input-register', 'password-toggle-btn-register')"
-                >
-                  <i class="fas fa-eye"></i>
-                </button>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input
-                  type="password"
-                  placeholder="Masukan ulang password"
-                  id="confirm-password-input"
-                  name="confirm_password"
-                  required
-                />
-                <button
-                  type="button"
-                  id="confirm-password-toggle-btn"
-                  onclick="togglePasswordVisibility('confirm-password-input', 'confirm-password-toggle-btn')"
-                >
-                  <i class="fas fa-eye"></i>
-                </button>
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Daftar" id="register-button" />
-              </div>
-              <div class="text sign-up-text">
-                Sudah memiliki akun? <label for="flip">Masuk sekarang</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      function togglePasswordVisibility(inputId, buttonId) {
-        const passwordInput = document.getElementById(inputId);
-        const passwordToggleBtn = document.getElementById(buttonId);
-        if (passwordInput.type === "password") {
-          passwordInput.type = "text";
-          passwordToggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
-        } else {
-          passwordInput.type = "password";
-          passwordToggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
-        }
-      }
-    </script>
-    <script>
-      document
-        .getElementById("register-button")
-        .addEventListener("click", function (event) {
-          event.preventDefault();
-          window.location.href = "dashboard.html";
-        });
-    </script>
+<div class="input-box">
+  <i class="fas fa-lock"></i>
+  <input
+    type="password"
+    placeholder="Masukan password"
+    id="password-input-register"
+    name="password"
+    required
+  />
+  <button
+    type="button"
+    id="password-toggle-btn-register"
+    onclick="togglePasswordVisibility('password-input-register', 'password-toggle-btn-register')"
+  >
+    <i class="fas fa-eye"></i>
+  </button>
+</div>
+<div class="input-box">
+  <i class="fas fa-lock"></i>
+  <input
+    type="password"
+    placeholder="Masukan ulang password"
+    id="confirm-password-input"
+    name="confirm_password"
+    required
+    oninput="checkPasswordMatch()"
+  />
+  <button
+    type="button"
+    id="confirm-password-toggle-btn"
+    onclick="togglePasswordVisibility('confirm-password-input', 'confirm-password-toggle-btn')"
+  >
+    <i class="fas fa-eye"></i>
+  </button>
+</div>
+<div id="msg-confirm-password" class="form-group"></div>
+<div class="button input-box">
+  <input type="submit" value="Daftar" id="register-button" disabled />
+</div>
+<div class="text sign-up-text">
+  Sudah memiliki akun? <label for="flip">Masuk sekarang</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function checkPasswordMatch() {
+    var password = $("#password-input-register").val();
+    var confirm_password = $("#confirm-password-input").val();
+    if (password !== confirm_password) {
+      $("#msg-confirm-password").html('<span class="text-danger">Password tidak sama!</span>');
+      $("#register-button").attr("disabled", true);
+    } else {
+      $("#msg-confirm-password").html('');
+      $("#register-button").attr("disabled", false);
+    }
+  }
+
+  document.getElementById("register-button").addEventListener("click", function (event) {
+    event.preventDefault();
+    var name = $("#name-input").val();
+    var email = $("#email-input-register").val();
+    var password = $("#password-input-register").val();
+    var confirm_password = $("#confirm-password-input").val();
+    if (name == "" || email == "" || password == "") {
+            $("#register-button").attr("disabled", true);
+    }
+    if (password !== confirm_password) {
+      $("#msg-confirm-password").html('<span class="text-danger">Password tidak sama!</span>');
+      return;
+    } else {
+      $("#msg-confirm-password").html('');
+    }
+    $.ajax({
+      url: "./PHP/register-process.php",
+      data: {
+        name: name,
+        email: email,
+        password: password,
+      },
+      type: "POST",
+      success: function(data) {
+    alert("Registrasi berhasil!");
+    window.location.href = "./dashboard.html";
+  },
+    });
+  });
+</script>
+        <script>
+          function togglePasswordVisibility(inputId, buttonId) {
+            const passwordInput = document.getElementById(inputId);
+            const passwordToggleBtn = document.getElementById(buttonId);
+            if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              passwordToggleBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+              passwordInput.type = "password";
+              passwordToggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+          }
+        </script>
   </body>
 </html>

@@ -4,14 +4,15 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "INSERT INTO accountdb (name, email, password, role)
-VALUES ('$name', '$email', '$password', 0)";
+$stmt = $conn->prepare("INSERT INTO accountdb (name, email, password, role) VALUES (?, ?, ?, 0)");
+$stmt->bind_param("sss", $name, $email, $password);
 
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute()) {
   echo "User berhasil didaftarkan";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $stmt->error;
 }
 
-header("Location: ../dashboard.html");
+$stmt->close();
+$conn->close();
 ?>

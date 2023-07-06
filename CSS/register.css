@@ -5,14 +5,18 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
-body{
+
+
+body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 30px;
-  box-shadow: #333 ;
-  background-color: #007BFF; /* Ubah warna latar belakang */
+  box-shadow: #333;
+  background-image: url("../assets/imgs/background-login.jpg");
+  background-size: cover;
+  background-position: center;
 }
 .container{
   position: relative;
@@ -56,7 +60,7 @@ body{
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #007BFF; /* Ubah warna latar belakang */
+  background: #007BFF; 
   opacity: 0.5;
   z-index: 12;
 }
@@ -120,7 +124,7 @@ body{
   bottom: 0;
   height: 3px;
   width: 25px;
-  background: #007BFF; /* Ubah warna latar belakang */
+  background: #007BFF; 
 }
 .forms .signup-form  .title:before{
   width: 20px;
@@ -158,11 +162,11 @@ body{
 }
 .form-content .input-box input:focus,
 .form-content .input-box input:valid{
-  border-color: #007BFF; /* Ubah warna latar belakang */
+  border-color: #007BFF; 
 }
 .form-content .input-box i{
   position: absolute;
-  color: #007BFF; /* Ubah warna latar belakang */
+  color: #007BFF; 
   font-size: 17px;
 }
 .forms .form-content .text{
@@ -182,17 +186,17 @@ body{
 }
 .forms .form-content .button input{
   color: #fff;
-  background: #007BFF; /* Ubah warna latar belakang */
+  background: #007BFF; 
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
   transition: all 0.4s ease;
 }
 .forms .form-content .button input:hover{
-  background: #0056b3; /* Ubah warna latar belakang */
+  background: #0056b3;
 }
 .forms .form-content label{
-  color: #007BFF; /* Ubah warna latar belakang */
+  color: #007BFF; 
   cursor: pointer;
 }
 .forms .form-content label:hover{
