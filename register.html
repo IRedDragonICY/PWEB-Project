@@ -202,7 +202,7 @@
             );
             $("#register-button").attr("disabled", true);
           } else {
-            $("#msg").html("checking...");
+            $("#msg").html("mengecek...");
             $.post("./PHP/check_username.php", { username: uname }).done(
               function (data) {
                 if (data > "0") {
@@ -232,7 +232,7 @@
             );
             $("#register-button").attr("disabled", true);
           } else {
-            $("#msg-email").html("checking...");
+            $("#msg-email").html("mengecek...");
             $.post("./PHP/check_email.php", { email: email }).done(function (
               data
             ) {
