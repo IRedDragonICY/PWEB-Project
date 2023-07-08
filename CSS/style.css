@@ -290,7 +290,6 @@ body.dark {
   margin-left: 260px;
 }
 .content {
-  display: none;
   color: var(--grey-color);
 }
 .content .title{

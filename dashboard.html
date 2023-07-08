@@ -35,7 +35,7 @@
         <div class="menu_title menu_dashboard"></div>
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('home')">
+          <a href="#home" class="nav_link" onclick="changeContent('home')">
             <span class="navlink_icon">
               <i class="bx bx-home-alt"></i>
             </span>
@@ -45,11 +45,11 @@
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('overview')">
+          <a href="#overview" class="nav_link" onclick="changeContent('overview')">
             <span class="navlink_icon">
               <i class='bx bxs-objects-vertical-bottom'></i>
             </span>
-            <span class="navlink">Overview</span>
+            <span class="navlink">Statistik</span>
           </a>
         </li>
         <!-- end -->
@@ -64,13 +64,13 @@
             <span class="navlink_icon">
               <i class="bx bx-transfer"></i>
             </span>
-            <span class="navlink">Transaction</span>
+            <span class="navlink">Transaksi</span>
             <i class="bx bx-chevron-right arrow-left"></i>
           </div>
           <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink" onclick="changeContent('deposit')">Deposit</a>
-            <a href="#" class="nav_link sublink" onclick="changeContent('withdraw')">Withdraw</a>
-            <a href="#" class="nav_link sublink" onclick="changeContent('transfer')">Transfer</a>
+            <a href="#deposit" class="nav_link sublink" onclick="changeContent('deposit')">Setor Tunai</a>
+            <a href="#withdraw" class="nav_link sublink" onclick="changeContent('withdraw')">Tarik Tunai</a>
+            <a href="#transfer" class="nav_link sublink" onclick="changeContent('transfer')">Transfer</a>
           </ul>
         </li>
         <!-- end -->
@@ -80,22 +80,22 @@
             <span class="navlink_icon">
               <i class="bx bx-wallet"></i>
             </span>
-            <span class="navlink">Balance</span>
+            <span class="navlink">Saldo</span>
             <i class="bx bx-chevron-right arrow-left"></i>
           </div>
           <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink" onclick="changeContent('mainBalance')">Main Balance</a>
-            <a href="#" class="nav_link sublink" onclick="changeContent('balanceDetails')">Balance Details</a>
+            <a href="#mainBalance" class="nav_link sublink" onclick="changeContent('mainBalance')">Saldo Utama</a>
+            <a href="#balanceDetails" class="nav_link sublink" onclick="changeContent('balanceDetails')">Rincian Saldo</a>
           </ul>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('history')">
+          <a href="#history" class="nav_link" onclick="changeContent('history')">
             <span class="navlink_icon">
               <i class="bx bx-history"></i>
             </span>
-              <span class="navlink">History</span>
+              <span class="navlink">Riwayat</span>
           </a>
         </li>   
         <!-- end -->
@@ -105,7 +105,7 @@
         <!-- start -->
         <div class="menu_title menu_setting"></div>
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('goals')">
+          <a href="#goals" class="nav_link" onclick="changeContent('goals')">
             <span class="navlink_icon">
               <i class="bx bx-medal"></i>
             </span>
@@ -115,11 +115,11 @@
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('setting')">
+          <a href="#setting" class="nav_link" onclick="changeContent('setting')">
             <span class="navlink_icon">
               <i class="bx bx-cog"></i>
             </span>
-            <span class="navlink">Setting</span>
+            <span class="navlink">Pengaturan</span>
           </a>
         </li>
         <!-- end -->
@@ -129,7 +129,7 @@
       <div class="bottom_content">
         <div class="bottom collapse_sidebar">
           <a href="PHP/logout.php">
-            <span>Logout</span>
+            <span>Keluar</span>
             <i class='bx bx-log-out'></i>
           </a>
         </div>
@@ -193,7 +193,7 @@
   </div>
 
   <!-- Overview Content -->
-  <div class="content" id="overviewContent">
+  <div class="content" id="overviewContent" style="display: none;">
     <h1 class="title">
       <i class='bx bxl-graphql'></i>
       &nbspAktivitas
@@ -217,7 +217,7 @@
   <!-- end -->
 
   <!-- Deposit Content -->
-  <div class="content" id="depositContent">
+  <div class="content" id="depositContent" style="display: none;">
     <h1 class="title">
       <i class='bx bxs-bank'></i>
       &nbspSetor Tunai
@@ -259,7 +259,7 @@
   <!-- end -->
   
   <!-- Withdraw Content -->
-  <div class="content" id="withdrawContent">
+  <div class="content" id="withdrawContent" style="display: none;">
     <h1 class="title">
       <i class='bx bxs-bank'></i>
       &nbspTarik Tunai
@@ -302,7 +302,7 @@
   <!-- end -->
   
   <!-- Transfer Content -->
-  <div class="content" id="transferContent">
+  <div class="content" id="transferContent" style="display: none;">
     <h1 class="title">
       <i class='bx bxs-bank'></i>
       &nbspTransfer Uang
@@ -343,7 +343,7 @@
   <!-- end -->
   
   <!-- Main Balance Content -->
-  <div class="content" id="mainBalanceContent">
+  <div class="content" id="mainBalanceContent" style="display: none;">
     <h1 class="title">
       <i class='bx bx-wallet'></i>
       &nbspSaldo Utama
@@ -352,7 +352,7 @@
   <!-- end -->
   
   <!-- Balance Details Content -->
-  <div class="content" id="balanceDetailsContent">
+  <div class="content" id="balanceDetailsContent" style="display: none;">
     <h1 class="title">
       <i class='bx bx-wallet'></i>
       &nbspRincian Saldo
@@ -361,7 +361,7 @@
   <!-- end -->
   
   <!-- History Content -->
-  <div class="content" id="historyContent">
+  <div class="content" id="historyContent" style="display: none;">
     <h1 class="title">
       <i class='bx bx-time-five' ></i>
       &nbspRiwayat
@@ -417,13 +417,13 @@
   <!-- end -->
   
   <!-- start -->
-  <div class="content" id="goalsContent">
+  <div class="content" id="goalsContent" style="display: none;">
     <!-- Goals Content -->
   </div>
   <!-- end -->
   
   <!-- Setting Content -->
-  <div class="content" id="settingContent">
+  <div class="content" id="settingContent" style="display: none;">
     <h1 class="title">
       <i class='bx bxs-user-account'></i>
       &nbspPusat Akun
