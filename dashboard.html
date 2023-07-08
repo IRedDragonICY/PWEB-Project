@@ -95,120 +95,261 @@
             <span class="navlink_icon">
               <i class="bx bx-history"></i>
             </span>
-              <span class="navlink">History</span>
+            <span class="navlink">History</span>
           </a>
         </li>   
         <!-- end -->
-
       <!-- Settings -->
       <ul class="menu_items">
         <!-- start -->
         <div class="menu_title menu_setting"></div>
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('goals')">
-            <span class="navlink_icon">
-              <i class="bx bx-medal"></i>
-            </span>
-            <span class="navlink">Saving Goals</span>
-          </a>
-        </li>
-        <!-- end -->
-        <!-- start -->
-        <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('setting')">
-            <span class="navlink_icon">
-              <i class="bx bx-cog"></i>
-            </span>
-            <span class="navlink">Setting</span>
-          </a>
-        </li>
-        <!-- end -->
-      </ul>
-
-      <!-- Bottom -->
-      <div class="bottom_content">
-        <div class="bottom collapse_sidebar">
-          <a href="PHP/logout.php">
-            <span>Logout</span>
-            <i class='bx bx-log-out'></i>
-          </a>
+          <li class="item">
+            <a href="#" class="nav_link" onclick="changeContent('goals')">
+              <span class="navlink_icon">
+                <i class="bx bx-medal"></i>
+              </span>
+              <span class="navlink">Saving Goals</span>
+            </a>
+          </li>
+          <!-- end -->
+          <!-- start -->
+          <li class="item">
+            <a href="#" class="nav_link" onclick="changeContent('setting')">
+              <span class="navlink_icon">
+                <i class="bx bx-cog"></i>
+              </span>
+              <span class="navlink">Setting</span>
+            </a>
+          </li>
+          <!-- end -->
+        </ul>
+  
+        <!-- Bottom -->
+        <div class="bottom_content">
+          <div class="bottom collapse_sidebar">
+            <a href="PHP/logout.php">
+              <span>Logout</span>
+              <i class='bx bx-log-out'></i>
+            </a>
+          </div>
+        </div>
+    </nav>
+  
+    <!-- Main Content -->
+    <main class="main">
+      <div class="content" id="homeContent">
+        <h1>Selamat datang, <?php include 'name.php'; echo $name; ?>!</h1>
+        <div class="content1">
+          <h5>Total Pemasukan</h5> <i class='bx bx-money'></i>
+          <?php include 'data.php'; echo $total_pemasukan; ?>
+        </div>
+        <div class="content2">
+          <h5>Total Pengeluaran</h5> <i class='bx bx-money'></i>
+          <?php include 'data.php'; echo $total_pengeluaran; ?>
+        </div>
+        <div class="content3">
+          <h5>Total Balance</h5> <i class='bx bx-money'></i>
+          <?php include 'data.php'; echo $total_saldo; ?>
+        </div>
+      </div>      
+    <!-- start -->
+    <div class="content" id="overviewContent">
+      <h2>Overview</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total Income</h5>
+              <p class="card-text"><?php echo number_format($total_income, 2); ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total Expense</h5>
+              <p class="card-text"><?php echo number_format($total_expense, 2); ?></p>
+            </div>
+          </div>
         </div>
       </div>
-  </nav>
-
-  <!-- Main Content -->
-  <main class="main">
-    <div class="content" id="homeContent">
-    <h1>Selamat datang, <?php include 'name.php'; echo $name; ?>!</h1>
-    <div class="content1">
-      <h5>Total Pemasukan</h5> <i class='bx bx-money'></i>
-      <?php include 'data.php'; echo $total_pemasukan; ?>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Current Balance</h5>
+          <p class="card-text"><?php echo number_format($current_balance, 2); ?></p>
+        </div>
+      </div>
     </div>
-    <div class="content2">
-      <h5>Total Pengeluaran</h5> <i class='bx bx-money'></i>
-      <?php include 'data.php'; echo $total_pengeluaran; ?>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="depositContent">
+      <h2>Deposit</h2>
+      <form action="deposit.php" method="POST">
+        <label for="amount">Jumlah:</label>
+        <input type="number" name="amount" id="amount" required>
+        <button type="submit">Deposit</button>
+      </form>
     </div>
-    <div class="content3">
-      <h5>Total balance</h5> <i class='bx bx-money'></i>
-      <?php include 'data.php'; echo $total_saldo; ?>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="withdrawContent">
+      <h2>Withdraw</h2>
+      <form action="withdraw.php" method="POST">
+        <label for="amount">Jumlah:</label>
+        <input type="number" name="amount" id="amount" required>
+        <button type="submit">Withdraw</button>
+      </form>
     </div>
-  </div>
-  <!-- start -->
-  <div class="content" id="overviewContent">
-    <!-- Overview Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="depositContent">
-    <!-- Deposit Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="withdrawContent">
-    <!-- Withdraw Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="transferContent">
-    <!-- Transfer Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="mainBalanceContent">
-    <!-- Main Balance Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="balanceDetailsContent">
-    <!-- Balance Details Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="historyContent">
-    <!-- History Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="goalsContent">
-    <!-- Goals Content -->
-  </div>
-  <!-- end -->
-  <!-- start -->
-  <div class="content" id="settingContent">
-    <!-- Setting Content -->
-  </div>
-  <!-- end -->
-  </main>  
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <center>
-      <p>&copy; 2023 Tabunganku. All rights reserved.</p>
-    </center>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
-</body>
-</html>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="transferContent">
+      <h2>Transfer</h2>
+      <form action="transfer.php" method="POST">
+        <label for="amount">Jumlah:</label>
+        <input type="number" name="amount" id="amount" required>
+        <label for="recipient">Penerima:</label>
+        <input type="text" name="recipient" id="recipient" required>
+        <button type="submit">Transfer</button>
+      </form>
+    </div>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="mainBalanceContent">
+      <h2>Main Balance</h2>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Main Balance</h5>
+          <p class="card-text"><?php echo number_format($main_balance, 2); ?></p>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="balanceDetailsContent">
+      <h2>Balance Details</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <tr>
+              <td><?php echo $row['date']; ?></td>
+              <td><?php echo $row['description']; ?></td>
+              <td><?php echo number_format($row['amount'], 2); ?></td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
+    <!-- end -->
+    <!-- start -->
+            
+    <div class="content" id="historyContent">
+      <h2>Transaction History</h2> 
+      <table class="table"> 
+       <thead> <tr> 
+         <th>Date</th> 
+         <th>Description</th> 
+         <th>Type</th> 
+         <th>Amount</th> 
+       </tr> 
+     </thead> 
+     <tbody> 
+       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+          <tr> <td>
+           <?php echo $row['date']; ?>
+         </td> 
+         <td>
+           <?php echo $row['description']; ?>
+         </td> <td>
+           <?php echo ucfirst($row['type']); ?>
+         </td> <td>
+           <?php echo number_format($row['amount'], 2); ?>
+         </td> </tr> 
+         <?php } ?> 
+       </tbody> 
+     </table> 
+   </div>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="goalsContent">
+      <h2>Saving Goals</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Current Goal</h5>
+              <p class="card-text">Save <?php echo number_format($current_goal, 2); ?></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Progress</h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <?php echo $progress_percentage; ?>%" aria-valuenow="<?php echo $progress_percentage; ?>" aria-valuemin="0" aria-valuemax="100">
+                  <?php echo $progress_percentage; ?>%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Add New Goal</h5>
+          <form action="add_goal.php" method="post">
+            <div class="form-group">
+              <label for="goal_amount">Amount</label>
+              <input type="number" class="form-control" id="goal_amount" name="goal_amount" step="0.01" required>
+            </div>
+            <div class="form-group">
+              <label for="goal_description">Description</label>
+              <input type="text" class="form-control" id="goal_description" name="goal_description" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Goal</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+    <!-- start -->
+    <div class="content" id="settingContent">
+      <h2>Account Settings</h2>
+      <form action="update_profile.php" method="post">
+        <div class="form-group">
+          <label for="full_name">Full Name</label>
+          <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo $full_name; ?>" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Leave blank to keep current password">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+      </form>
+    </div>
+    <!-- end -->
+    </main>  
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <center>
+        <p>&copy; 2023 Tabunganku. All rights reserved.</p>
+      </center>
+    </footer>
+  
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
+  </html>

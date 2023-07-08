@@ -26,7 +26,7 @@ body {
   padding: 40px 30px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   perspective: 2700px;
-  border-radius: 1%;
+  border-radius: 3%;
 }
 .container .cover{
   position: absolute;
@@ -49,6 +49,8 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
+  /* border-radius: 5%; */
+
 }
 .cover .back{
   transform: rotateY(180deg);
@@ -61,8 +63,11 @@ body {
   height: 100%;
   width: 100%;
   background: #007BFF; 
-  opacity: 0.5;
+  opacity: 0.1;
   z-index: 12;
+  transition: all 0.4s ease;
+  /* round sisi */
+  border-radius: 3%;
 }
 .container .cover::after{
   opacity: 0.3;
@@ -75,6 +80,9 @@ body {
   width: 100%;
   object-fit: cover;
   z-index: 10;
+  /* round sisi */
+  border-radius: 3%;
+  
 }
 .container .cover .text{
   position: absolute;
