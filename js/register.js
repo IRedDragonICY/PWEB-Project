@@ -48,7 +48,6 @@ $(document).ready(function () {
       );
       $("#register-button").attr("disabled", true);
     }
-    // nama tidak boleh mengandung karakter spesial
     else if (uname.match(/[^a-zA-Z0-9\-\/]/)) {
       $("#msg").html(
         '<span class="text-danger">Nama tidak boleh mengandung karakter spesial!</span>'
@@ -112,24 +111,58 @@ $(document).ready(function () {
     var email = $("#email-input-register").val();
     var password = $("#password-input-register").val();
     var confirm_password = $("#confirm-password-input").val();
+    var isValid = true;
     if (name == "" || email == "" || password == "") {
       $("#register-button").attr("disabled", true);
+      isValid = false;
     }
+
+
     if (password !== confirm_password) {
       $("#msg-confirm-password").html(
         '<span class="text-danger">Password tidak sama!</span>'
       );
-      return;
-    } else {
+      isValid = false;
+    
+    }
+        // password tidak harus lebih dari 8 karakter
+        else if (password.length < 8) {
+            $("#msg-confirm-password").html(
+                '<span class="text-danger">Password harus lebih dari 8 karakter!</span>'
+            );
+            $("#register-button").attr("disabled", true);
+            isValid = false;
+        }
+        else if (password.indexOf(" ") >= 0) {
+            $("#msg-confirm-password").html(
+                '<span class="text-danger">Password tidak boleh mengandung spasi!</span>'
+            );
+            $("#register-button").attr("disabled", true);
+            isValid = false;
+            
+        }
+        // password harus mengandung 1 karakter spesial
+        else if (!password.match(/[^a-zA-Z0-9\-\/]/)) {
+            $("#msg-confirm-password").html(
+                '<span class="text-danger">Password harus mengandung 1 karakter spesial!</span>'
+            );
+            $("#register-button").attr("disabled", true);
+            isValid = false;
+            }
+    
+    else {
       $("#msg-confirm-password").html("");
     }
-    $.post("./PHP/register-process.php", {
-      name: name,
-      email: email,
-      password: password,
-    }).done(function (data) {
-      alert("Registrasi berhasil!");
-      window.location.href = "./dashboard.html";
-    });
+    if (isValid) {
+      $.post("./PHP/register-process.php", {
+        name: name,
+        email: email,
+        password: password,
+      }).done(function (data) {
+        alert("Registrasi berhasil!");
+        window.location.href = "./dashboard.html";
+      });
+    }
   });
 });
+
