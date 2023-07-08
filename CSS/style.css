@@ -133,7 +133,7 @@ body.dark {
 }
 
 .menu_manage::before {
-  content: "Manage";
+  content: "Kelola";
 }
 
 .menu_setting::before {
@@ -300,9 +300,9 @@ body.dark {
   border-radius: 10px;
   color: var(--grey-color);
   justify-content: center;
+  padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 /* Main: Home Content */
 .home-content1, .home-content2, .home-content3 {
   color: var(--black-color);
@@ -323,7 +323,7 @@ body.dark {
   background-position: 100%;
   background-size: contain;
 }
-.recent-title{
+.recent-title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -336,6 +336,15 @@ body.dark {
   padding: 10px;
   color: var(--grey-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.history-content {
+  white-space: nowrap;
+  overflow: auto;
+  width: 100%;
+}
+.data {
+  display: inline-block;
+  padding: 14px;
 }
 
 /* Main: Overview Content */
@@ -561,14 +570,15 @@ button[type="submit"]:hover {
   margin-right: 5px;
 }
 .setting-content {
+  margin-top: 30px;
+  padding: 20px;
   display: inline-block;
   color: var(--grey-color);
   justify-content: space-between;
   align-items: center;
-  width: 96%;
+  width:95%;
   background-color: var(--white-color);
   border-radius: 15px;
-  padding: 10px 50px;
   position: absolute;
   top: 1100px;
   left: auto;
@@ -665,16 +675,31 @@ input[type="password"] {
   .sidebar.close {
     left: -100%;
   }
-  .search_bar {
-    display: none;
-  }
   .sidebar.close .bottom_content {
     left: -100%;
   }
   .main {
     margin-left: 0;
   }
-  .content1, .content2, .content3 {
+  .home-content1, .home-content2, .home-content3, .graph1 .chart1, .chart2, .content .graph2 .chart3 {
     width: 100%;
+  }
+  .deposit-content, .withdraw-content, .transfer-content {
+    flex-direction: column;
+    padding-left: 0px;
+  }
+  .setting-content {
+    margin-top: 80px;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .setting-content {
+    margin-top: 80px;
+    width: 90%;
+  }
+  .list-setting .setting-title .text {
+    display: none;
   }
 }
