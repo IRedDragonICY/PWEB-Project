@@ -291,6 +291,7 @@ body.dark {
 }
 .content {
   color: var(--grey-color);
+  display: none;
 }
 .content .title{
   display: flex;
