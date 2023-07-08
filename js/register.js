@@ -113,9 +113,12 @@ $(document).ready(function () {
     var confirm_password = $("#confirm-password-input").val();
     var isValid = true;
     if (name == "" || email == "" || password == "") {
-      $("#register-button").attr("disabled", true);
-      isValid = false;
-    }
+        $("#register-button").attr("disabled", true);
+        isValid = false;
+        $("#msg-confirm-password").html(
+          '<span class="text-danger">Harap isi semua kolom!</span>'
+        );
+      }
 
 
     if (password !== confirm_password) {
