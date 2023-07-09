@@ -353,3 +353,441 @@
     <script src="js/script.js"></script>
   </body>
   </html>
+        <li class="item">
+          <a href="#" class="nav_link" onclick="changeContent('goals')">
+            <span class="navlink_icon">
+              <i class="bx bx-medal"></i>
+            </span>
+            <span class="navlink">Saving Goals</span>
+          </a>
+        </li>
+        <!-- end -->
+        <!-- start -->
+        <li class="item">
+          <a href="#" class="nav_link" onclick="changeContent('setting')">
+            <span class="navlink_icon">
+              <i class="bx bx-cog"></i>
+            </span>
+            <span class="navlink">Setting</span>
+          </a>
+        </li>
+        <!-- end -->
+      </ul>
+
+      <!-- Bottom -->
+      <div class="bottom_content">
+        <div class="bottom collapse_sidebar">
+          <a href="PHP/logout.php">
+            <span>Logout</span>
+            <i class='bx bx-log-out'></i>
+          </a>
+        </div>
+      </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="content" id="homeContent">
+    <h1 class="title">
+      <i class='bx bx-tachometer'></i>
+      &nbspSelamat datang, <?php include 'name.php'; echo $name; ?>!</h1>
+    <div class="home-content1">
+      <i class='bx bx-money'></i> <h5>Total Pemasukan</h5> 
+      <?php include 'data.php'; echo $total_pemasukan; ?>
+    </div>
+    <div class="home-content2">
+      <i class='bx bx-money-withdraw'></i> <h5>Total Pengeluaran</h5>
+      <?php include 'data.php'; echo $total_pengeluaran; ?>
+    </div>
+    <div class="home-content3">
+      <i class='bx bx-coin-stack'></i> <h5>Total Saldo</h5> 
+      <?php include 'data.php'; echo $total_saldo; ?>
+    </div>
+    <h3 class="recent-title">
+      <i class='bx bx-time-five' ></i>
+      &nbspAktivitas Terbaru
+    </h3>
+    <div class="history-content">
+      <div class="data date">
+        <h5 class="data-title">Tanggal</h5>
+        <span class="data-list">2023-07-01</span>
+        <span class="data-list">2023-06-21</span>
+        <span class="data-list">2023-06-11</span>
+      </div>
+      <div class="data debit">
+        <h5 class="data-title">Transaksi</h5>
+        <span class="data-list">Transfer</span>
+        <span class="data-list">Pemasukan</span>
+        <span class="data-list">Pengeluaran</span>
+      </div>
+      <div class="data kredit">
+        <h5 class="data-title">Jumlah</h5>
+        <span class="data-list">Rp. 7.000.000</span>
+        <span class="data-list">Rp. 500.000</span>
+        <span class="data-list">Rp. 1.500.000</span>
+      </div>
+      <div class="data saldo">
+        <h5 class="data-title">Saldo</h5>
+        <span class="data-list">Rp. 7.000.000</span>
+        <span class="data-list">Rp. 7.500.000</span>
+        <span class="data-list">Rp. 7.500.000</span>
+      </div>
+      <div class="data status">
+        <h5 class="data-title">Status</h5>
+        <span class="data-list">Berhasil</span>
+        <span class="data-list">Berhasil</span>
+        <span class="data-list">Gagal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overview Content -->
+  <div class="content" id="overviewContent">
+    <h1 class="title">
+      <i class='bx bxl-graphql'></i>
+      &nbspAktivitas
+    </h1>
+    <div class="graph1">
+      <div class="chart1">
+        <canvas id="depositChart" height="130px"></canvas>
+      </div>
+      <div class="chart2">
+        <canvas id="withdrawChart" height="130px"></canvas>
+      </div>
+    </div>
+    <div class="graph2">
+      <div class="chart3">
+        <canvas id="overviewChart" height="80px"></canvas>
+      </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  <script src="js/chart.js"></script>
+  </div>
+  <!-- end -->
+
+  <!-- Deposit Content -->
+  <div class="content" id="depositContent">
+    <h1 class="title">
+      <i class='bx bxs-bank'></i>
+      &nbspSetor Tunai
+    </h1>
+    <div class="deposit-content">
+      <div class="form-group">
+        <label for="amount">Jumlah:</label>
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" />
+      </div>
+      <div class="form-group">
+        <label for="balance">Saldo Aktif:</label>
+        <span id="balance">Rp 1.000.000</span>
+      </div>      
+      <div class="form-group">
+        <label for="category">Kategori:</label>
+        <select id="category" name="category">
+          <option value="">Pilih kategori</option>
+          <option value="belanja">Belanja</option>
+          <option value="hiburan">Hiburan</option>
+          <option value="kebutuhan">Kebutuhan</option>
+          <option value="kesehatan">Kesehatan</option>
+          <option value="makanan-minuman">Makanan & Minuman</option>
+          <option value="olahraga">Olahraga</option>
+          <option value="pendidikan">Pendidikan</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="note">Catatan:</label>
+        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" />
+      </div>
+      <button type="submit">Setor</button>
+    </div>
+  </div>
+  <!-- end -->
+  
+  <!-- Withdraw Content -->
+  <div class="content" id="withdrawContent">
+    <h1 class="title">
+      <i class='bx bxs-bank'></i>
+      &nbspTarik Tunai
+    </h1>
+    <div class="withdraw-content">
+      <div class="form-group">
+        <label for="amount">Jumlah:</label>
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" />
+      </div>
+      <div class="form-group">
+        <label for="balance">Saldo Aktif:</label>
+        <span id="balance">Rp 1.000.000</span>
+      </div>      
+      <div class="form-group">
+        <label for="category">Kategori:</label>
+        <select id="category" name="category">
+          <option value="">Pilih kategori</option>
+          <option value="belanja">Belanja</option>
+          <option value="hiburan">Hiburan</option>
+          <option value="kebutuhan">Kebutuhan</option>
+          <option value="kesehatan">Kesehatan</option>
+          <option value="makanan-minuman">Makanan & Minuman</option>
+          <option value="olahraga">Olahraga</option>
+          <option value="pendidikan">Pendidikan</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="note">Catatan:</label>
+        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" />
+      </div>
+      <button type="submit">Ambil</button>
+    </div>
+    
+  </div>
+  <!-- end -->
+  
+  <!-- Transfer Content -->
+  <div class="content" id="transferContent">
+    <h1 class="title">
+      <i class='bx bxs-bank'></i>
+      &nbspTransfer Uang
+    </h1>
+    <div class="transfer-content">
+      <div class="form-group">
+        <label for="amount">Jumlah:</label>
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" />
+      </div>
+      <div class="form-group">
+        <label for="balance">Saldo Aktif:</label>
+        <span id="balance">Rp 1.000.000</span>
+      </div>      
+      <div class="form-group">
+        <label for="category">Kategori:</label>
+        <select id="category" name="category">
+          <option value="">Pilih kategori</option>
+          <option value="belanja">Belanja</option>
+          <option value="hiburan">Hiburan</option>
+          <option value="kebutuhan">Kebutuhan</option>
+          <option value="kesehatan">Kesehatan</option>
+          <option value="makanan-minuman">Makanan & Minuman</option>
+          <option value="olahraga">Olahraga</option>
+          <option value="pendidikan">Pendidikan</option>
+        </select>
+      </div> 
+      <div class="form-group">
+        <label for="note">Catatan:</label>
+        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" />
+      </div>
+      <button type="submit">Transfer</button>
+    </div>    
+  </div>
+  <!-- end -->
+  
+  <!-- Main Balance Content -->
+  <div class="content" id="mainBalanceContent">
+    <h1 class="title">
+      <i class='bx bx-wallet'></i>
+      &nbspSaldo Utama
+    </h1>
+  </div>
+  <!-- end -->
+  
+  <!-- Balance Details Content -->
+  <div class="content" id="balanceDetailsContent">
+    <h1 class="title">
+      <i class='bx bx-wallet'></i>
+      &nbspRincian Saldo
+    </h1>
+  </div>
+  <!-- end -->
+  
+  <!-- History Content -->
+  <div class="content" id="historyContent">
+    <h1 class="title">
+      <i class='bx bx-time-five' ></i>
+      &nbspRiwayat
+    </h1>
+    <div class="history-content">
+      <div class="data date">
+        <h5 class="data-title">Tanggal</h5>
+        <span class="data-list">2023-07-01</span>
+        <span class="data-list">2023-06-21</span>
+        <span class="data-list">2023-06-11</span>
+        <span class="data-list">DLL</span>
+        <span class="data-list">.</span>
+        <span class="data-list">.</span>
+      </div>
+      <div class="data debit">
+        <h5 class="data-title">Transaksi</h5>
+        <span class="data-list">Transfer</span>
+        <span class="data-list">Pemasukan</span>
+        <span class="data-list">Pengeluaran</span>
+        <span class="data-list">DLL</span>
+        <span class="data-list">.</span>
+        <span class="data-list">.</span>
+      </div>
+      <div class="data kredit">
+        <h5 class="data-title">Jumlah</h5>
+        <span class="data-list">Rp. -</span>
+        <span class="data-list">Rp. 500.000</span>
+        <span class="data-list">Rp. 1.500.000</span>
+        <span class="data-list">DLL</span>
+        <span class="data-list">.</span>
+        <span class="data-list">.</span>
+      </div>
+      <div class="data saldo">
+        <h5 class="data-title">Saldo</h5>
+        <span class="data-list">Rp. 7.000.000</span>
+        <span class="data-list">Rp. 7.500.000</span>
+        <span class="data-list">Rp. 7.500.000</span>
+        <span class="data-list">DLL</span>
+        <span class="data-list">.</span>
+        <span class="data-list">.</span>
+      </div>
+      <div class="data status">
+        <h5 class="data-title">Status</h5>
+        <span class="data-list">Berhasil</span>
+        <span class="data-list">Berhasil</span>
+        <span class="data-list">Gagal</span>
+        <span class="data-list">DLL</span>
+        <span class="data-list">.</span>
+        <span class="data-list">.</span>
+      </div>
+    </div>
+  </div>
+  <!-- end -->
+  
+  <!-- start -->
+  <div class="content" id="goalsContent">
+    <!-- Goals Content -->
+  </div>
+  <!-- end -->
+  
+  <!-- Setting Content -->
+  <div class="content" id="settingContent">
+    <h1 class="title">
+      <i class='bx bxs-user-account'></i>
+      &nbspPusat Akun
+    </h1>
+    <div class="list">
+      <h3 class="list-setting">
+        <span class="setting-title active"><i class='bx bx-cog'></i>&nbspProfil Akun</span>
+        <span class="setting-title"><i class='bx bxs-user-account'></i>&nbspPengaturan Akun</span>
+        <span class="setting-title"><i class='bx bx-lock-alt'></i>&nbspPengaturan Password</span>
+      </h3>
+    </div>
+    <div class="setting-content active">
+      <div class="form-profile">
+        <label>Foto Profil</label>
+        <img src="path_to_profile_picture.jpg" alt="Foto Profil" class="profile-picture">
+      </div>
+      <div class="form-profile">
+        <label>NIS (Nomor Induk Siswa)</label>
+        <p class="form-control">1234567890</p>
+      </div>
+      <div class="form-profile">
+        <label>Tanggal Lahir</label>
+        <p class="form-control">2005-01-01</p>
+      </div>
+      <div class="form-profile">
+        <label>Jenis Kelamin</label>
+        <p class="form-control">Laki-Laki</p>
+      </div>
+      <div class="form-profile">
+        <label>Kelas/Jenjang</label>
+        <p class="form-control">XII IPA</p>
+      </div>
+      <div class="form-profile">
+        <label>Sekolah</label>
+        <p class="form-control">SMA Negeri 1</p>
+      </div>
+      <div class="form-profile">
+        <label>Kontak Orang Tua/Wali</label>
+        <p class="form-control">+91 9876543210</p>
+      </div>
+      <div class="form-profile">
+        <label>Alamat</label>
+        <p class="form-control">Alamat lengkap siswa</p>
+      </div>       
+    </div>
+    <div class="setting-content">
+      <div class="form-profile">
+        <label for="foto-profil">Foto Profil</label>
+        <input type="file" id="foto-profil" class="form-control">
+      </div>
+      <div class="form-profile">
+        <label for="nis">NIS (Nomor Induk Siswa)</label>
+        <input type="text" id="nis" class="form-control" value="1234567890">
+      </div>
+      <div class="form-profile">
+        <label for="tanggal-lahir">Tanggal Lahir</label>
+        <input type="date" id="tanggal-lahir" class="form-control" value="2005-01-01">
+      </div>
+      <div class="form-profile">
+        <label for="jenis-kelamin">Jenis Kelamin</label>
+        <select id="jenis-kelamin" class="form-control">
+          <option value="laki-laki">Laki-Laki</option>
+          <option value="perempuan">Perempuan</option>
+        </select>
+      </div>
+      <div class="form-profile">
+        <label for="kelas-jenjang">Kelas/Jenjang</label>
+        <input type="text" id="kelas-jenjang" class="form-control" value="XII IPA">
+      </div>
+      <div class="form-profile">
+        <label for="sekolah">Sekolah</label>
+        <input type="text" id="sekolah" class="form-control" value="SMA Negeri 1">
+      </div>
+      <div class="form-profile">
+        <label for="kontak-ortu">Kontak Orang Tua/Wali</label>
+        <input type="text" id="kontak-ortu" class="form-control" value="+91 9876543210">
+      </div>
+      <div class="form-profile">
+        <label for="alamat">Alamat</label>
+        <textarea id="alamat" class="form-control" rows="4">Alamat lengkap siswa</textarea>
+      </div>
+         
+      <button class="btn btn-primary">Update</button>
+      <button class="btn btn-light">Cancel</button>
+    </div>
+    <div class="setting-content">
+      <div class="form-profile">
+        <label>Password Lama</label>
+        <input type="password" class="form-control">
+      </div>
+      <div class="form-profile">
+        <label>Password Baru</label>
+        <input type="password" class="form-control">
+      </div>
+      <div class="form-profile">
+        <label>Konfirmasi Password Baru</label>
+        <input type="password" class="form-control">
+      </div>
+      <button class="btn btn-primary">Update</button>
+      <button class="btn btn-light">Cancel</button>
+    </div>
+    <script src="js/settings.js"></script>
+  </div>
+  <!-- end -->
+  </main>  
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <center>
+      <p>&copy; 2023 Tabunganku. All rights reserved.</p>
+    </center>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
