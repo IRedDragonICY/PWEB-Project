@@ -401,6 +401,8 @@ nav {
   font-size: 32px;
   color: #2e2d2d;
   text-align: justify;
+  /* mengganti font family */
+  font-family: "Montserrat", sans-serif;
 }
 
 .section-animation {

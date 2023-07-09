@@ -21,6 +21,8 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* position: relative;
+  position: center; */
 }
 
 body {
@@ -258,6 +260,7 @@ body.dark {
   color: var(--grey-color);
   border-top: 1px solid var(--grey-color-light);
   background-color: var(--white-color);
+  text-emphasis-position: center;
 }
 
 .bottom i {

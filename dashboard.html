@@ -139,20 +139,20 @@
     <!-- Main Content -->
     <main class="main">
       <div class="content" id="homeContent">
-        <h1>Selamat datang, <?php include 'name.php'; echo $name; ?>!</h1>
+        <h1>Selamat datang, <?php echo $name; ?>!</h1>
         <div class="content1">
           <h5>Total Pemasukan</h5> <i class='bx bx-money'></i>
-          <?php include 'data.php'; echo $total_pemasukan; ?>
+          <?php echo $total_pemasukan; ?>
         </div>
         <div class="content2">
           <h5>Total Pengeluaran</h5> <i class='bx bx-money'></i>
-          <?php include 'data.php'; echo $total_pengeluaran; ?>
+          <?php echo $total_pengeluaran; ?>
         </div>
         <div class="content3">
           <h5>Total Balance</h5> <i class='bx bx-money'></i>
-          <?php include 'data.php'; echo $total_saldo; ?>
+          <?php echo $total_saldo; ?>
         </div>
-      </div>      
+      </div>
     <!-- start -->
     <div class="content" id="overviewContent">
       <h2>Overview</h2>
@@ -295,8 +295,8 @@
               <h5 class="card-title">Progress</h5>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: <?php echo $progress_percentage; ?>%" aria-valuenow="<?php echo $progress_percentage; ?>" aria-valuemin="0" aria-valuemax="100">
-                  <?php echo $progress_percentage; ?>%
-                </div>
+                  <?php echo number_format($progress_percentage, 2); ?>%
+                </div>              
               </div>
             </div>
           </div>
@@ -464,7 +464,6 @@
   <script src="js/chart.js"></script>
   </div>
   <!-- end -->
-
   <!-- Deposit Content -->
   <div class="content" id="depositContent">
     <h1 class="title">
@@ -664,13 +663,6 @@
     </div>
   </div>
   <!-- end -->
-  
-  <!-- start -->
-  <div class="content" id="goalsContent">
-    <!-- Goals Content -->
-  </div>
-  <!-- end -->
-  
   <!-- Setting Content -->
   <div class="content" id="settingContent">
     <h1 class="title">
