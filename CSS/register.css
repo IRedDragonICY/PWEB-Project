@@ -262,3 +262,54 @@ body {
     display: none;
   }
 }
+
+/* CSS untuk pop-up */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup {
+  background-color: #fff;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup h2 {
+  text-align: center;
+}
+
+.terms-container {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.scrollable-content {
+  max-height: 100%;
+}
+
+.terms-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.terms-buttons button {
+  margin: 0 10px;
+}
