@@ -413,10 +413,7 @@ form {
   align-items: flex-start;
 }
 
-input[type="text"],
-select,
-textarea,
-input[type="password"] {
+input[type="text"], select, textarea, input[type="password"] {
   width: 100%;
   padding: 20px;
   border: 1px solid #ccc;
@@ -425,10 +422,7 @@ input[type="password"] {
   margin-top: 5px;
 }
 
-input[type="text"]:focus,
-select:focus,
-textarea:focus,
-input[type="password"]:focus {
+input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus {
   outline: none;
   border-color: #0066ff;
   box-shadow: 0 0 5px #0066ff;
@@ -440,6 +434,7 @@ button[type="submit"] {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
+  margin: 10px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -447,7 +442,6 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0052cc;
 }
-
 
 /* Manage: Balance */
 .balance-content1, .balance-content2, .balance-content3 {
