@@ -451,13 +451,6 @@ button[type="submit"]:hover {
   transition: background-color 0.3s ease;
 }
 
-.box-content .balance-content1 { 
-  background-image: url(uang.png);
-  background-repeat: no-repeat; 
-  background-position: 100%;
-  background-size: contain;
-}
-
 .balance-content1:hover, .balance-content2:hover, .balance-content3:hover {
   background-color: #ebebeb;
 }
@@ -658,7 +651,7 @@ input[type="password"] {
   .main {
     margin-left: 0;
   }
-  .home-content1, .home-content2, .home-content3, .graph1 .chart1, .chart2, .content .graph2 .chart3 {
+  .home-content1, .home-content2, .home-content3, .graph1 .chart1, .chart2, .content .graph2 .chart3, .balance-content1, .balance-content2, .balance-content3 {
     width: 100%;
   }
   .deposit-content, .withdraw-content, .transfer-content {
