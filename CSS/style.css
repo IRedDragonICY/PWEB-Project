@@ -384,37 +384,51 @@ body.dark {
 }
 
 /* Manage: Deposit, Withdraw */
-.deposit-content, .withdraw-content{
+.deposit-content,
+.withdraw-content {
   display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  justify-content: space-between;
   background-color: var(--white-color);
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
-  width: 45%; 
-  margin-bottom: 15px;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-}
-
-input[type="text"], select, textarea, input[type="password"] {
+form {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
+}
+
+.form-group {
+  margin: 10px;
+}
+.label-right {
+  text-align: right;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input[type="text"],
+select,
+textarea,
+input[type="password"] {
+  width: 100%;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+  margin-top: 5px;
 }
 
-input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus {
+input[type="text"]:focus,
+select:focus,
+textarea:focus,
+input[type="password"]:focus {
   outline: none;
   border-color: #0066ff;
   box-shadow: 0 0 5px #0066ff;
@@ -433,6 +447,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #0052cc;
 }
+
 
 /* Manage: Balance */
 .balance-content1, .balance-content2, .balance-content3 {

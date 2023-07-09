@@ -94,17 +94,19 @@
         </li>   
         <!-- end -->
         <!-- Settings -->
-        <!-- start -->
-        <li class="item">
-          <a href="#setting" class="nav_link" data-content="setting" data-title="Pengaturan">
-            <span class="navlink_icon">
-              <i class="bx bx-cog"></i>
-            </span>
-            <span class="navlink">Pengaturan</span>
-          </a>
-        </li>
-        <!-- end -->
-      </ul>
+        <ul class="menu_items">
+          <div class="menu_title menu_setting"></div>
+          <!-- start -->
+          <li class="item">
+            <a href="#setting" class="nav_link" data-content="setting" data-title="Pengaturan">
+              <span class="navlink_icon">
+                <i class="bx bx-cog"></i>
+              </span>
+              <span class="navlink">Pengaturan</span>
+            </a>
+          </li>
+          <!-- end -->
+        </ul>
 
       <!-- Bottom -->
       <div class="bottom_content">
@@ -203,33 +205,35 @@
       &nbspSetor Tunai
     </h1>
     <div class="deposit-content">
-      <div class="form-group">
-        <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" required />
-      </div>
-      <div class="form-group">
-        <label for="balance">Saldo Aktif:</label>
-        <span id="balance">Rp 1.000.000</span>
-      </div>      
-      <div class="form-group">
-        <label for="category">Kategori:</label>
-        <select id="category" name="category" required>
-          <option value="">Pilih kategori</option>
-          <option value="makanan">Makanan</option>
-          <option value="hiburan">Hiburan</option>
-          <option value="kesehatan">Kesehatan</option>
-          <option value="pendidikan">Pendidikan</option>
-        </select>
-      </div>      
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" required />
-      </div>
-      <div class="form-group">
-        <label for="note">Catatan:</label>
-        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
-      </div>
-      <button type="submit">Setor</button>
+      <form action="deposit.php" method="POST">
+        <div class="form-group">
+          <label for="amount">Jumlah:</label>
+          <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" required />
+        </div>
+        <div class="form-group">
+          <label for="balance">Saldo Aktif:</label>
+          <span id="balance">Rp 1.000.000</span>
+        </div>      
+        <div class="form-group">
+          <label for="category">Kategori:</label>
+          <select id="category" name="category" required>
+            <option value="">Pilih kategori</option>
+            <option value="makanan">Makanan</option>
+            <option value="hiburan">Hiburan</option>
+            <option value="kesehatan">Kesehatan</option>
+            <option value="pendidikan">Pendidikan</option>
+          </select>
+        </div>      
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" required />
+        </div>
+        <div class="form-group">
+          <label for="note">Catatan:</label>
+          <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
+        </div>
+        <button type="submit">Setor</button>
+      </form>
     </div>
   </div>
   <!-- end -->
@@ -241,35 +245,36 @@
       &nbspTarik Tunai
     </h1>
     <div class="withdraw-content">
-      <div class="form-group">
-        <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" required />
-      </div>
-      <div class="form-group">
-        <label for="balance">Saldo Aktif:</label>
-        <span id="balance">Rp 1.000.000</span>
-      </div>      
-      <div class="form-group">
-        <label for="category">Kategori:</label>
-        <select id="category" name="category" required>
-          <option value="">Pilih kategori</option>
-          <option value="makanan">Makanan</option>
-          <option value="hiburan">Hiburan</option>
-          <option value="kesehatan">Kesehatan</option>
-          <option value="pendidikan">Pendidikan</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" required />
-      </div>
-      <div class="form-group">
-        <label for="note">Catatan:</label>
-        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
-      </div>
-      <button type="submit">Ambil</button>
+      <form action="withdraw.php" method="POST">
+        <div class="form-group">
+          <label for="amount">Jumlah:</label>
+          <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah penarikan" required />
+        </div>
+        <div class="form-group">
+          <label for="balance">Saldo Aktif:</label>
+          <span id="balance">Rp 1.000.000</span>
+        </div>      
+        <div class="form-group">
+          <label for="category">Kategori:</label>
+          <select id="category" name="category" required>
+            <option value="">Pilih kategori</option>
+            <option value="makanan">Makanan</option>
+            <option value="hiburan">Hiburan</option>
+            <option value="kesehatan">Kesehatan</option>
+            <option value="pendidikan">Pendidikan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Masukkan password" required />
+        </div>
+        <div class="form-group">
+          <label for="note">Catatan:</label>
+          <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
+        </div>
+        <button type="submit">Ambil</button>
+      </form>
     </div>
-    
   </div>
   <!-- end --> 
   
