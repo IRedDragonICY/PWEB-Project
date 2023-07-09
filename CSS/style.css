@@ -320,7 +320,7 @@ body.dark {
   margin: 2px;
   font-size: 25px;
   border-radius: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .main .home-content1 { 
@@ -353,7 +353,7 @@ body.dark {
 
 .data {
   display: inline-block;
-  padding: 14px;
+  padding: 10px;
 }
 
 /* Overview Content */
@@ -442,17 +442,17 @@ button[type="submit"]:hover {
 .balance-content1, .balance-content2, .balance-content3 {
   color: var(--grey-color);
   padding: 20px;
-  display: inline-block; 
-  height: 200px;
+  display: inline-block;
   width: calc(100% / 2 - 7px);
   position: relative;
   background-color: var(--white-color);
   margin: 2px;
   border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .box-content .balance-content1 { 
@@ -460,6 +460,10 @@ button[type="submit"]:hover {
   background-repeat: no-repeat; 
   background-position: 100%;
   background-size: contain;
+}
+
+.balance-content1:hover, .balance-content2:hover, .balance-content3:hover {
+  background-color: #ebebeb;
 }
 
 /* Manage: History */
@@ -471,7 +475,7 @@ button[type="submit"]:hover {
   width: 100%;
   background-color: var(--white-color);
   border-radius: 15px;
-  padding: 15px 20px;
+  padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
