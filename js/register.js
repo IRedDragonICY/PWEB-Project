@@ -1,4 +1,64 @@
-// Toggle password visibility
+function openPopupAgreement() {
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closePopupAgreement() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function disagree() {
+  var checkbox = document.getElementById("agree-checkbox");
+  checkbox.checked = false;
+  closePopupAgreement();
+  updateAgreeLabel();
+}
+
+function agree() {
+  closePopupAgreement();
+  updateAgreeLabel();
+}
+
+function updateAgreeLabel() {
+  var checkbox = document.getElementById("agree-checkbox");
+  var agreeLabel = document.querySelector(".agree-label");
+  if (checkbox.checked) {
+    agreeLabel.classList.add("checked");
+  } else {
+    agreeLabel.classList.remove("checked");
+  }
+}
+
+// Fungsi untuk memeriksa apakah checkbox "Syarat dan Ketentuan" sudah dicentang
+function checkAgreement() {
+  var checkbox = document.getElementById("agree-checkbox");
+  var registerButton = document.getElementById("register-button");
+  if (checkbox.checked) {
+    registerButton.disabled = false;
+  } else {
+    registerButton.disabled = true;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Event listener untuk checkbox "Syarat dan Ketentuan"
+  var checkbox = document.getElementById("agree-checkbox");
+  checkbox.addEventListener("change", function () {
+    updateAgreeLabel();
+    checkAgreement();
+    if (this.checked) {
+      openPopupAgreement();
+    } else {
+      closePopupAgreement();
+    }
+  });
+
+  // Event listener untuk teks "Syarat dan Ketentuan"
+  var termsLink = document.querySelector(".agree-label");
+  termsLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    openPopupAgreement();
+  });
+});
 function togglePasswordVisibility(inputId, buttonId) {
   const passwordInput = document.getElementById(inputId);
   const passwordToggleBtn = document.getElementById(buttonId);
@@ -10,6 +70,7 @@ function togglePasswordVisibility(inputId, buttonId) {
     passwordToggleBtn.innerHTML = '<i class="fas fa-eye"></i>';
   }
 }
+
 $(document).ready(function () {
   // Login form submission
   $("#login-button").click(function (e) {
@@ -70,7 +131,7 @@ $(document).ready(function () {
       });
     }
   });
-
+  
   $("#email-input-register").blur(function (e) {
     var email = $(this).val();
     if (email == "") {
@@ -97,6 +158,13 @@ $(document).ready(function () {
         }
       });
     }
+    $("#password-input-register").keyup(function () {
+      checkPassword();
+    });
+  
+    $("#confirm-password-input").keyup(function () {
+      checkPassword();
+    });
   });
 
   function isValidEmail(email) {
@@ -104,6 +172,48 @@ $(document).ready(function () {
     return emailRegex.test(email);
   }
 
+  
+  function checkPassword() {
+    var password = $("#password-input-register").val();
+    var confirm_password = $("#confirm-password-input").val();
+    var isValid = true;
+  
+    if (password.length < 8) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password harus lebih dari 8 karakter!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else if (password.indexOf(" ") >= 0) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password tidak boleh mengandung spasi!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else if (!password.match(/[^a-zA-Z0-9\-\/]/)) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password harus mengandung 1 karakter spesial!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else {
+      $("#msg-confirm-password").html("");
+      $("#register-button").attr("disabled", false);
+    }
+  
+    if (password !== confirm_password) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password tidak sama!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else {
+      $("#msg-confirm-password").html("");
+      $("#register-button").attr("disabled", false);
+    }
+  
+    return isValid;
+  }
   // Registration form submission
   $("#register-button").click(function (event) {
     event.preventDefault();
@@ -112,47 +222,47 @@ $(document).ready(function () {
     var password = $("#password-input-register").val();
     var confirm_password = $("#confirm-password-input").val();
     var isValid = true;
-    if (name == "" || email == "" || password == "") {
+    if (name == "" || email == "" || password == "" || confirm_password == "") {
       $("#register-button").attr("disabled", true);
       isValid = false;
-    }
-
-
-    if (password !== confirm_password) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Harap isi semua kolom!</span>'
+      );
+    } else if (password !== confirm_password) {
       $("#msg-confirm-password").html(
         '<span class="text-danger">Password tidak sama!</span>'
       );
       isValid = false;
-    
-    }
-        // password tidak harus lebih dari 8 karakter
-        else if (password.length < 8) {
-            $("#msg-confirm-password").html(
-                '<span class="text-danger">Password harus lebih dari 8 karakter!</span>'
-            );
-            $("#register-button").attr("disabled", true);
-            isValid = false;
-        }
-        else if (password.indexOf(" ") >= 0) {
-            $("#msg-confirm-password").html(
-                '<span class="text-danger">Password tidak boleh mengandung spasi!</span>'
-            );
-            $("#register-button").attr("disabled", true);
-            isValid = false;
-            
-        }
-        // password harus mengandung 1 karakter spesial
-        else if (!password.match(/[^a-zA-Z0-9\-\/]/)) {
-            $("#msg-confirm-password").html(
-                '<span class="text-danger">Password harus mengandung 1 karakter spesial!</span>'
-            );
-            $("#register-button").attr("disabled", true);
-            isValid = false;
-            }
-    
-    else {
+    } else if (password.length < 8) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password harus lebih dari 8 karakter!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else if (password.indexOf(" ") >= 0) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password tidak boleh mengandung spasi!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else if (!password.match(/[^a-zA-Z0-9\-\/]/)) {
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Password harus mengandung 1 karakter spesial!</span>'
+      );
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+    } else {
       $("#msg-confirm-password").html("");
     }
+
+    if (!$("#agree-checkbox").is(":checked")) {
+      $("#register-button").attr("disabled", true);
+      isValid = false;
+      $("#msg-confirm-password").html(
+        '<span class="text-danger">Harap setujui syarat dan ketentuan!</span>'
+      );
+      }
+
     if (isValid) {
       $.post("./PHP/register-process.php", {
         name: name,
@@ -165,4 +275,3 @@ $(document).ready(function () {
     }
   });
 });
-

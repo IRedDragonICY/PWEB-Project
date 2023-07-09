@@ -13,8 +13,8 @@
   <div class="wrapper">
   <!-- navbar -->
   <nav class="navbar">
+    <i class="bx bx-menu" id="sidebarOpen"></i>
     <div class="logo_item">
-      <i class="bx bx-menu" id="sidebarOpen"></i>
       <img src="assets/imgs/logo.webp" alt="" />
       TABUNGANKU
     </div>
@@ -35,7 +35,7 @@
         <div class="menu_title menu_dashboard"></div>
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('home')">
+          <a href="#home" class="nav_link" data-content="home" data-title="Home">
             <span class="navlink_icon">
               <i class="bx bx-home-alt"></i>
             </span>
@@ -45,11 +45,11 @@
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('overview')">
+          <a href="#overview" class="nav_link" data-content="overview" data-title="Aktivitas">
             <span class="navlink_icon">
               <i class='bx bxs-objects-vertical-bottom'></i>
             </span>
-            <span class="navlink">Overview</span>
+            <span class="navlink">Aktivitas</span>
           </a>
         </li>
         <!-- end -->
@@ -64,295 +64,38 @@
             <span class="navlink_icon">
               <i class="bx bx-transfer"></i>
             </span>
-            <span class="navlink">Transaction</span>
+            <span class="navlink">Transaksi</span>
             <i class="bx bx-chevron-right arrow-left"></i>
           </div>
           <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink" onclick="changeContent('deposit')">Deposit</a>
-            <a href="#" class="nav_link sublink" onclick="changeContent('withdraw')">Withdraw</a>
-            <a href="#" class="nav_link sublink" onclick="changeContent('transfer')">Transfer</a>
+            <a href="#deposit" class="nav_link sublink" data-content="deposit" data-title="Penyetoran">Penyetoran</a>
+            <a href="#withdraw" class="nav_link sublink" data-content="withdraw" data-title="Penarikan">Penarikan</a>
           </ul>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <div href="#" class="nav_link submenu_item" data-menu="balance">
+          <a href="#balanceDetails" class="nav_link sublink" data-content="balanceDetails" data-title="Rincian Saldo">
             <span class="navlink_icon">
               <i class="bx bx-wallet"></i>
             </span>
-            <span class="navlink">Balance</span>
-            <i class="bx bx-chevron-right arrow-left"></i>
-          </div>
-          <ul class="menu_items submenu">
-            <a href="#" class="nav_link sublink" onclick="changeContent('mainBalance')">Main Balance</a>
-            <a href="#" class="nav_link sublink" onclick="changeContent('balanceDetails')">Balance Details</a>
-          </ul>
+              <span class="navlink">Rincian Saldo</span>
+          </a>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('history')">
+          <a href="#history" class="nav_link" data-content="history" data-title="Riwayat">
             <span class="navlink_icon">
               <i class="bx bx-history"></i>
             </span>
-            <span class="navlink">History</span>
+              <span class="navlink">History</span>
           </a>
         </li>   
         <!-- end -->
       <!-- Settings -->
       <ul class="menu_items">
-        <!-- start -->
         <div class="menu_title menu_setting"></div>
-        <li class="item">
-          <li class="item">
-            <a href="#" class="nav_link" onclick="changeContent('goals')">
-              <span class="navlink_icon">
-                <i class="bx bx-medal"></i>
-              </span>
-              <span class="navlink">Saving Goals</span>
-            </a>
-          </li>
-          <!-- end -->
-          <!-- start -->
-          <li class="item">
-            <a href="#" class="nav_link" onclick="changeContent('setting')">
-              <span class="navlink_icon">
-                <i class="bx bx-cog"></i>
-              </span>
-              <span class="navlink">Setting</span>
-            </a>
-          </li>
-          <!-- end -->
-        </ul>
-  
-        <!-- Bottom -->
-        <div class="bottom_content">
-          <div class="bottom collapse_sidebar">
-            <a href="PHP/logout.php">
-              <span>Logout</span>
-              <i class='bx bx-log-out'></i>
-            </a>
-          </div>
-        </div>
-    </nav>
-  
-    <!-- Main Content -->
-    <main class="main">
-      <div class="content" id="homeContent">
-        <h1>Selamat datang, <?php echo $name; ?>!</h1>
-        <div class="content1">
-          <h5>Total Pemasukan</h5> <i class='bx bx-money'></i>
-          <?php echo $total_pemasukan; ?>
-        </div>
-        <div class="content2">
-          <h5>Total Pengeluaran</h5> <i class='bx bx-money'></i>
-          <?php echo $total_pengeluaran; ?>
-        </div>
-        <div class="content3">
-          <h5>Total Balance</h5> <i class='bx bx-money'></i>
-          <?php echo $total_saldo; ?>
-        </div>
-      </div>
-    <!-- start -->
-    <div class="content" id="overviewContent">
-      <h2>Overview</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Total Income</h5>
-              <p class="card-text"><?php echo number_format($total_income, 2); ?></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Total Expense</h5>
-              <p class="card-text"><?php echo number_format($total_expense, 2); ?></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Current Balance</h5>
-          <p class="card-text"><?php echo number_format($current_balance, 2); ?></p>
-        </div>
-      </div>
-    </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="depositContent">
-      <h2>Deposit</h2>
-      <form action="deposit.php" method="POST">
-        <label for="amount">Jumlah:</label>
-        <input type="number" name="amount" id="amount" required>
-        <button type="submit">Deposit</button>
-      </form>
-    </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="withdrawContent">
-      <h2>Withdraw</h2>
-      <form action="withdraw.php" method="POST">
-        <label for="amount">Jumlah:</label>
-        <input type="number" name="amount" id="amount" required>
-        <button type="submit">Withdraw</button>
-      </form>
-    </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="transferContent">
-      <h2>Transfer</h2>
-      <form action="transfer.php" method="POST">
-        <label for="amount">Jumlah:</label>
-        <input type="number" name="amount" id="amount" required>
-        <label for="recipient">Penerima:</label>
-        <input type="text" name="recipient" id="recipient" required>
-        <button type="submit">Transfer</button>
-      </form>
-    </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="mainBalanceContent">
-      <h2>Main Balance</h2>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Main Balance</h5>
-          <p class="card-text"><?php echo number_format($main_balance, 2); ?></p>
-        </div>
-      </div>
-    </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="balanceDetailsContent">
-      <h2>Balance Details</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-            <tr>
-              <td><?php echo $row['date']; ?></td>
-              <td><?php echo $row['description']; ?></td>
-              <td><?php echo number_format($row['amount'], 2); ?></td>
-            </tr>
-          <?php } ?>
-        </tbody>
-      </table>
-    </div>
-    <!-- end -->
-    <!-- start -->
-            
-    <div class="content" id="historyContent">
-      <h2>Transaction History</h2> 
-      <table class="table"> 
-       <thead> <tr> 
-         <th>Date</th> 
-         <th>Description</th> 
-         <th>Type</th> 
-         <th>Amount</th> 
-       </tr> 
-     </thead> 
-     <tbody> 
-       <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-          <tr> <td>
-           <?php echo $row['date']; ?>
-         </td> 
-         <td>
-           <?php echo $row['description']; ?>
-         </td> <td>
-           <?php echo ucfirst($row['type']); ?>
-         </td> <td>
-           <?php echo number_format($row['amount'], 2); ?>
-         </td> </tr> 
-         <?php } ?> 
-       </tbody> 
-     </table> 
-   </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="goalsContent">
-      <h2>Saving Goals</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Current Goal</h5>
-              <p class="card-text">Save <?php echo number_format($current_goal, 2); ?></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Progress</h5>
-              <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: <?php echo $progress_percentage; ?>%" aria-valuenow="<?php echo $progress_percentage; ?>" aria-valuemin="0" aria-valuemax="100">
-                  <?php echo number_format($progress_percentage, 2); ?>%
-                </div>              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Add New Goal</h5>
-          <form action="add_goal.php" method="post">
-            <div class="form-group">
-              <label for="goal_amount">Amount</label>
-              <input type="number" class="form-control" id="goal_amount" name="goal_amount" step="0.01" required>
-            </div>
-            <div class="form-group">
-              <label for="goal_description">Description</label>
-              <input type="text" class="form-control" id="goal_description" name="goal_description" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Add Goal</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- end -->
-    <!-- start -->
-    <div class="content" id="settingContent">
-      <h2>Account Settings</h2>
-      <form action="update_profile.php" method="post">
-        <div class="form-group">
-          <label for="full_name">Full Name</label>
-          <input type="text" class="form-control" id="full_name" name="full_name" value="<?php echo $full_name; ?>" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Leave blank to keep current password">
-        </div>
-        <button type="submit" class="btn btn-primary">Update Profile</button>
-      </form>
-    </div>
-    <!-- end -->
-    </main>  
-    </div>
-    <!-- Footer -->
-    <footer class="footer">
-      <center>
-        <p>&copy; 2023 Tabunganku. All rights reserved.</p>
-      </center>
-    </footer>
-  
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
-  </body>
-  </html>
         <li class="item">
           <a href="#" class="nav_link" onclick="changeContent('goals')">
             <span class="navlink_icon">
@@ -364,11 +107,11 @@
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <a href="#" class="nav_link" onclick="changeContent('setting')">
+          <a href="#setting" class="nav_link" data-content="setting" data-title="Pengaturan">
             <span class="navlink_icon">
               <i class="bx bx-cog"></i>
             </span>
-            <span class="navlink">Setting</span>
+            <span class="navlink">Pengaturan</span>
           </a>
         </li>
         <!-- end -->
@@ -378,7 +121,7 @@
       <div class="bottom_content">
         <div class="bottom collapse_sidebar">
           <a href="PHP/logout.php">
-            <span>Logout</span>
+            <span>Keluar</span>
             <i class='bx bx-log-out'></i>
           </a>
         </div>
@@ -416,9 +159,9 @@
       </div>
       <div class="data debit">
         <h5 class="data-title">Transaksi</h5>
-        <span class="data-list">Transfer</span>
-        <span class="data-list">Pemasukan</span>
-        <span class="data-list">Pengeluaran</span>
+        <span class="data-list">Penyetoran</span>
+        <span class="data-list">Penyetoran</span>
+        <span class="data-list">Penarikan</span>
       </div>
       <div class="data kredit">
         <h5 class="data-title">Jumlah</h5>
@@ -449,15 +192,15 @@
     </h1>
     <div class="graph1">
       <div class="chart1">
-        <canvas id="depositChart" height="130px"></canvas>
+        <canvas id="depositChart"></canvas>
       </div>
       <div class="chart2">
-        <canvas id="withdrawChart" height="130px"></canvas>
+        <canvas id="withdrawChart"></canvas>
       </div>
     </div>
     <div class="graph2">
       <div class="chart3">
-        <canvas id="overviewChart" height="80px"></canvas>
+        <canvas id="overviewChart"></canvas>
       </div>
     </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
@@ -473,7 +216,7 @@
     <div class="deposit-content">
       <div class="form-group">
         <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" />
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" required />
       </div>
       <div class="form-group">
         <label for="balance">Saldo Aktif:</label>
@@ -481,25 +224,21 @@
       </div>      
       <div class="form-group">
         <label for="category">Kategori:</label>
-        <select id="category" name="category">
+        <select id="category" name="category" required>
           <option value="">Pilih kategori</option>
-          <option value="belanja">Belanja</option>
+          <option value="makanan">Makanan</option>
           <option value="hiburan">Hiburan</option>
-          <option value="kebutuhan">Kebutuhan</option>
           <option value="kesehatan">Kesehatan</option>
-          <option value="makanan-minuman">Makanan & Minuman</option>
-          <option value="olahraga">Olahraga</option>
           <option value="pendidikan">Pendidikan</option>
         </select>
+      </div>      
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required />
       </div>
-      
       <div class="form-group">
         <label for="note">Catatan:</label>
         <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" />
       </div>
       <button type="submit">Setor</button>
     </div>
@@ -515,7 +254,7 @@
     <div class="withdraw-content">
       <div class="form-group">
         <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" />
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" required />
       </div>
       <div class="form-group">
         <label for="balance">Saldo Aktif:</label>
@@ -523,81 +262,27 @@
       </div>      
       <div class="form-group">
         <label for="category">Kategori:</label>
-        <select id="category" name="category">
+        <select id="category" name="category" required>
           <option value="">Pilih kategori</option>
-          <option value="belanja">Belanja</option>
+          <option value="makanan">Makanan</option>
           <option value="hiburan">Hiburan</option>
-          <option value="kebutuhan">Kebutuhan</option>
           <option value="kesehatan">Kesehatan</option>
-          <option value="makanan-minuman">Makanan & Minuman</option>
-          <option value="olahraga">Olahraga</option>
           <option value="pendidikan">Pendidikan</option>
         </select>
       </div>
-      
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required />
+      </div>
       <div class="form-group">
         <label for="note">Catatan:</label>
         <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" />
       </div>
       <button type="submit">Ambil</button>
     </div>
     
   </div>
-  <!-- end -->
-  
-  <!-- Transfer Content -->
-  <div class="content" id="transferContent">
-    <h1 class="title">
-      <i class='bx bxs-bank'></i>
-      &nbspTransfer Uang
-    </h1>
-    <div class="transfer-content">
-      <div class="form-group">
-        <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" />
-      </div>
-      <div class="form-group">
-        <label for="balance">Saldo Aktif:</label>
-        <span id="balance">Rp 1.000.000</span>
-      </div>      
-      <div class="form-group">
-        <label for="category">Kategori:</label>
-        <select id="category" name="category">
-          <option value="">Pilih kategori</option>
-          <option value="belanja">Belanja</option>
-          <option value="hiburan">Hiburan</option>
-          <option value="kebutuhan">Kebutuhan</option>
-          <option value="kesehatan">Kesehatan</option>
-          <option value="makanan-minuman">Makanan & Minuman</option>
-          <option value="olahraga">Olahraga</option>
-          <option value="pendidikan">Pendidikan</option>
-        </select>
-      </div> 
-      <div class="form-group">
-        <label for="note">Catatan:</label>
-        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" />
-      </div>
-      <button type="submit">Transfer</button>
-    </div>    
-  </div>
-  <!-- end -->
-  
-  <!-- Main Balance Content -->
-  <div class="content" id="mainBalanceContent">
-    <h1 class="title">
-      <i class='bx bx-wallet'></i>
-      &nbspSaldo Utama
-    </h1>
-  </div>
-  <!-- end -->
+  <!-- end --> 
   
   <!-- Balance Details Content -->
   <div class="content" id="balanceDetailsContent">
@@ -605,9 +290,36 @@
       <i class='bx bx-wallet'></i>
       &nbspRincian Saldo
     </h1>
+    <div class="box-content">
+      <div class="balance-content1">
+        <h3 class="sub-title"><i class='bx bx-bowl-rice'></i>&nbspMakanan</h3>
+        <span>Total Pemasukan<br></span>
+        <span>Total Pengeluaran<br></span>
+        <span>Total Saldo<br></span>
+      </div>
+      <div class="balance-content2">
+        <h3 class="sub-title"><i class='bx bx-movie-play'></i>&nbspHiburan</h3>
+        <span>Total Pemasukan<br></span>
+        <span>Total Pengeluaran<br></span>
+        <span>Total Saldo<br></span>
+      </div>
+      <div class="balance-content3">
+        <h3 class="sub-title"><i class='bx bx-health'></i>&nbspKesehatan</h3> 
+        <span>Total Pemasukan<br></span>
+        <span>Total Pengeluaran<br></span>
+        <span>Total Saldo<br></span>
+      </div>
+      <div class="balance-content3">
+        <h3 class="sub-title"><i class='bx bx-book'></i>&nbspPendidikan</h3> 
+        <span>Total Pemasukan<br></span>
+        <span>Total Pengeluaran<br></span>
+        <span>Total Saldo<br></span>
+      </div>
+    </div>
   </div>
   <!-- end -->
   
+  <!-- History Content -->
   <!-- History Content -->
   <div class="content" id="historyContent">
     <h1 class="title">
@@ -671,11 +383,11 @@
     </h1>
     <div class="list">
       <h3 class="list-setting">
-        <span class="setting-title active"><i class='bx bx-cog'></i>&nbspProfil Akun</span>
-        <span class="setting-title"><i class='bx bxs-user-account'></i>&nbspPengaturan Akun</span>
-        <span class="setting-title"><i class='bx bx-lock-alt'></i>&nbspPengaturan Password</span>
+        <span class="setting-title active"><i class='bx bx-cog'></i><span class="text">Profil Akun</span></span>
+        <span class="setting-title"><i class='bx bxs-user-account'></i><span class="text">Pengaturan Akun</span></span>
+        <span class="setting-title"><i class='bx bx-lock-alt'></i><span class="text">Pengaturan Password</span></span>
       </h3>
-    </div>
+    </div>    
     <div class="setting-content active">
       <div class="form-profile">
         <label>Foto Profil</label>
@@ -683,31 +395,31 @@
       </div>
       <div class="form-profile">
         <label>NIS (Nomor Induk Siswa)</label>
-        <p class="form-control">1234567890</p>
+        <p class="form-control">-</p>
       </div>
       <div class="form-profile">
         <label>Tanggal Lahir</label>
-        <p class="form-control">2005-01-01</p>
+        <p class="form-control">-</p>
       </div>
       <div class="form-profile">
         <label>Jenis Kelamin</label>
-        <p class="form-control">Laki-Laki</p>
+        <p class="form-control">-</p>
       </div>
       <div class="form-profile">
         <label>Kelas/Jenjang</label>
-        <p class="form-control">XII IPA</p>
+        <p class="form-control">-</p>
       </div>
       <div class="form-profile">
         <label>Sekolah</label>
-        <p class="form-control">SMA Negeri 1</p>
+        <p class="form-control">-</p>
       </div>
       <div class="form-profile">
         <label>Kontak Orang Tua/Wali</label>
-        <p class="form-control">+91 9876543210</p>
+        <p class="form-control">+62 -</p>
       </div>
       <div class="form-profile">
         <label>Alamat</label>
-        <p class="form-control">Alamat lengkap siswa</p>
+        <p class="form-control">-</p>
       </div>       
     </div>
     <div class="setting-content">
@@ -717,11 +429,11 @@
       </div>
       <div class="form-profile">
         <label for="nis">NIS (Nomor Induk Siswa)</label>
-        <input type="text" id="nis" class="form-control" value="1234567890">
+        <input type="text" id="nis" class="form-control" placeholder="Masukkan NIS">
       </div>
       <div class="form-profile">
         <label for="tanggal-lahir">Tanggal Lahir</label>
-        <input type="date" id="tanggal-lahir" class="form-control" value="2005-01-01">
+        <input type="date" id="tanggal-lahir" class="form-control" placeholder="yyyy-mm-dd">
       </div>
       <div class="form-profile">
         <label for="jenis-kelamin">Jenis Kelamin</label>
@@ -732,19 +444,19 @@
       </div>
       <div class="form-profile">
         <label for="kelas-jenjang">Kelas/Jenjang</label>
-        <input type="text" id="kelas-jenjang" class="form-control" value="XII IPA">
+        <input type="text" id="kelas-jenjang" class="form-control" placeholder="Masukkan kelas/jenjang">
       </div>
       <div class="form-profile">
         <label for="sekolah">Sekolah</label>
-        <input type="text" id="sekolah" class="form-control" value="SMA Negeri 1">
+        <input type="text" id="sekolah" class="form-control" placeholder="Masukkan nama sekolah">
       </div>
       <div class="form-profile">
         <label for="kontak-ortu">Kontak Orang Tua/Wali</label>
-        <input type="text" id="kontak-ortu" class="form-control" value="+91 9876543210">
+        <input type="text" id="kontak-ortu" class="form-control" placeholder="+62 812 3456 789">
       </div>
       <div class="form-profile">
         <label for="alamat">Alamat</label>
-        <textarea id="alamat" class="form-control" rows="4">Alamat lengkap siswa</textarea>
+        <textarea id="alamat" class="form-control" rows="4" placeholder="Masukkan alamat lengkap siswa"></textarea>
       </div>
          
       <button class="btn btn-primary">Update</button>
@@ -753,15 +465,15 @@
     <div class="setting-content">
       <div class="form-profile">
         <label>Password Lama</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" placeholder="Masukkan password lama" required>
       </div>
       <div class="form-profile">
         <label>Password Baru</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" placeholder="Masukkan password baru" required>
       </div>
       <div class="form-profile">
         <label>Konfirmasi Password Baru</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" placeholder="Masukkan ulang password baru" required>
       </div>
       <button class="btn btn-primary">Update</button>
       <button class="btn btn-light">Cancel</button>

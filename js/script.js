@@ -5,7 +5,6 @@ const sidebar = document.querySelector(".sidebar");
 const submenuItems = document.querySelectorAll(".submenu_item");
 const sidebarOpen = document.querySelector("#sidebarOpen");
 const main = document.querySelector('.main');
-
 // Toggle sidebar when sidebarOpen is clicked
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
@@ -52,20 +51,6 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
-// Function to change the content based on the navbar selection
-function changeContent(navbar) {
-  var content = document.getElementById('content');
-  content.innerHTML = '';
-
-  if (navbar === 'content1') {
-    content.innerHTML = 'Konten 1';
-  } else if (navbar === 'content2') {
-    content.innerHTML = 'Konten 2';
-  } else if (navbar === 'content3') {
-    content.innerHTML = 'Konten 3';
-  }
-}
-
 // Function to adjust the width of the main content area based on the sidebar state and window width
 function adjustMainWidth() {
   const sidebarWidth = sidebar.offsetWidth;
@@ -89,18 +74,41 @@ sidebar.addEventListener('transitionend', () => {
   adjustMainWidth();
 });
 
-// Function to change the content based on the contentId parameter
-function changeContent(contentId) {
+// Function to change content and title
+function changeContentAndTitle(contentId, newTitle) {
   var contents = document.getElementsByClassName('content');
+  var titleElement = document.getElementsByTagName('title')[0];
 
-  // Hide all content elements
   for (var i = 0; i < contents.length; i++) {
     contents[i].style.display = 'none';
   }
 
-  // Show the content element with the corresponding contentId
   var contentToShow = document.getElementById(contentId + 'Content');
   if (contentToShow) {
     contentToShow.style.display = 'block';
+    titleElement.innerHTML = newTitle;
+  }
+
+  window.location.hash = contentId;
+}
+
+// Function to execute on page load
+function onPageLoad() {
+  var navLinks = document.querySelectorAll('nav a');
+
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      changeContentAndTitle(this.getAttribute('data-content'), this.getAttribute('data-title'));
+    });
+  });
+
+  var hash = window.location.hash.substr(1) || 'home';
+
+  var activeLink = document.querySelector('nav a[href="#' + hash + '"]');
+  if (activeLink) {
+    activeLink.click();
   }
 }
+
+window.onload = onPageLoad;
