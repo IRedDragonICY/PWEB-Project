@@ -228,7 +228,6 @@
                 <br>
                 6.1. Segala sengketa yang timbul dari atau terkait dengan layanan tabungan siswa ini akan diselesaikan secara musyawarah untuk mencapai mufakat yang baik antara Universitas Ahmad Dahlan, siswa, dan orang tua/wali yang terkait.
               </p>
-              <!-- Tambahkan konten syarat dan ketentuan lainnya sesuai kebutuhan -->
             </div>
           </div>
 
@@ -241,17 +240,14 @@
     </div>
     
     <script>
-      // Fungsi untuk menampilkan pop-up
       function openPopup() {
         document.getElementById("overlay").style.display = "flex";
       }
     
-      // Fungsi untuk menutup pop-up
       function closePopup() {
         document.getElementById("overlay").style.display = "none";
       }
     
-      // Fungsi untuk menangani ketika pengguna tidak setuju
       function disagree() {
         var checkbox = document.getElementById("agree-checkbox");
         checkbox.checked = false;
@@ -259,13 +255,11 @@
         updateAgreeLabel();
       }
     
-      // Fungsi untuk menangani ketika pengguna setuju
       function agree() {
         closePopup();
         updateAgreeLabel();
       }
     
-      // Fungsi untuk memperbarui tampilan tanda setuju
       function updateAgreeLabel() {
         var checkbox = document.getElementById("agree-checkbox");
         var agreeLabel = document.querySelector(".agree-label");
