@@ -5,32 +5,16 @@ const sidebar = document.querySelector(".sidebar");
 const submenuItems = document.querySelectorAll(".submenu_item");
 const sidebarOpen = document.querySelector("#sidebarOpen");
 const main = document.querySelector('.main');
+
 // Toggle sidebar when sidebarOpen is clicked
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-// Remove "close" class from sidebar on mouse enter if it has the "hoverable" class
-sidebar.addEventListener("mouseenter", () => {
-  if (sidebar.classList.contains("hoverable")) {
-    sidebar.classList.remove("close");
-  }
-});
-
-// Add "close" class to sidebar on mouse leave if it has the "hoverable" class
-sidebar.addEventListener("mouseleave", () => {
-  if (sidebar.classList.contains("hoverable")) {
-    sidebar.classList.add("close");
-  }
-});
-
-// Toggle dark mode and update icon when darkLight is clicked
-darkLight.addEventListener("click", () => {
-  body.classList.toggle("dark");
-  if (body.classList.contains("dark")) {
-    darkLight.classList.replace("bx-sun", "bx-moon");
-  } else {
-    darkLight.classList.replace("bx-moon", "bx-sun");
-  }
-});
+// Add or remove "close" class to sidebar based on window width
+if (window.innerWidth < 768) {
+  sidebar.classList.add("close");
+} else {
+  sidebar.classList.remove("close");
+}
 
 // Toggle submenu visibility when submenu item is clicked
 submenuItems.forEach((item, index) => {
@@ -44,12 +28,15 @@ submenuItems.forEach((item, index) => {
   });
 });
 
-// Add or remove "close" class to sidebar based on window width
-if (window.innerWidth < 768) {
-  sidebar.classList.add("close");
-} else {
-  sidebar.classList.remove("close");
-}
+// Toggle dark mode and update icon when darkLight is clicked
+darkLight.addEventListener("click", () => {
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    darkLight.classList.replace("bx-sun", "bx-moon");
+  } else {
+    darkLight.classList.replace("bx-moon", "bx-sun");
+  }
+});
 
 // Function to adjust the width of the main content area based on the sidebar state and window width
 function adjustMainWidth() {
@@ -92,7 +79,7 @@ function changeContentAndTitle(contentId, newTitle) {
   window.location.hash = contentId;
 }
 
-// Function to execute on page load
+// Function to keep the content on page load
 function onPageLoad() {
   var navLinks = document.querySelectorAll('nav a');
 

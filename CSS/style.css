@@ -326,13 +326,6 @@ body.dark {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.main .home-content1 { 
-  background-image: url(uang.png);
-  background-repeat: no-repeat; 
-  background-position: 100%;
-  background-size: contain;
-}
-
 .recent-title {
   display: flex;
   align-items: center;
