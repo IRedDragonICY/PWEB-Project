@@ -240,23 +240,23 @@
     </div>
     
     <script>
-      function openPopup() {
+      function openPopupAgreement() {
         document.getElementById("overlay").style.display = "flex";
       }
     
-      function closePopup() {
+      function closePopupAgreement() {
         document.getElementById("overlay").style.display = "none";
       }
     
       function disagree() {
         var checkbox = document.getElementById("agree-checkbox");
         checkbox.checked = false;
-        closePopup();
+        closePopupAgreement();
         updateAgreeLabel();
       }
     
       function agree() {
-        closePopup();
+        closePopupAgreement();
         updateAgreeLabel();
       }
     
@@ -287,17 +287,17 @@
         updateAgreeLabel();
         checkAgreement();
         if (this.checked) {
-          openPopup();
+          openPopupAgreement();
         } else {
-          closePopup();
+          closePopupAgreement();
         }
       });
     
       // Event listener untuk teks "Syarat dan Ketentuan"
-      var termsLink = document.querySelector("a");
+      var termsLink = document.querySelector("agree-checkbox");
       termsLink.addEventListener("click", function (event) {
         event.preventDefault();
-        openPopup();
+        openPopupAgreement();
       });
     </script>
     
