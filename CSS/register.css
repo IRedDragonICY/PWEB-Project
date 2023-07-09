@@ -216,7 +216,7 @@ body {
   color: #fff;
   background: #007BFF; 
   border-radius: 6px;
-  padding: 10px 20px; /* Ubah angka ini sesuai dengan kebutuhan Anda */
+  padding: 10px 20px; 
   cursor: pointer;
   transition: all 0.4s ease;
 }
