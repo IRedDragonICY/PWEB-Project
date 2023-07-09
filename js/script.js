@@ -97,5 +97,76 @@ function onPageLoad() {
     activeLink.click();
   }
 }
-
 window.onload = onPageLoad;
+
+// Create a function to make AJAX calls
+async function fetchData() {
+  // Files to be called by AJAX
+  var urls = [
+    "connect.php",
+    "config.php",
+    "deposit.php",
+    "withdraw.php",
+    "balance.php"
+  ];
+
+  // Use Promise.all to make parallel AJAX calls
+  var responses = await Promise.all(urls.map(url => fetch(url)));
+
+  // Retrieve data from JSON response of each AJAX call
+  var data = await Promise.all(responses.map(response => response.json()));
+
+  // Display the data in HTML
+  displayData(data);
+}
+
+// Function to display data in HTML
+function displayData(data) {
+  var container = document.getElementById("dataContainer");
+
+  // Display name from connect.php
+  var name = data[0].name;
+  var nameElement = document.createElement("p");
+  nameElement.textContent = name;
+  container.appendChild(nameElement);
+
+  // Display photo from config.php
+  var photo = data[1].photo;
+  var photoElement = document.createElement("img");
+  photoElement.src = photo;
+  container.appendChild(photoElement);
+
+  // Display totalDeposit from deposit.php
+  var totalDeposit = data[2].totalDeposit;
+  var totalDepositElement = document.createElement("p");
+  totalDepositElement.textContent = totalDeposit;
+  container.appendChild(totalDepositElement);
+
+  // Display totalWithdraw from withdraw.php
+  var totalWithdraw = data[3].totalWithdraw;
+  var totalWithdrawElement = document.createElement("p");
+  totalWithdrawElement.textContent = totalWithdraw;
+  container.appendChild(totalWithdrawElement);
+
+  // Display balances from balance.php
+  var balances = data[4].balances;
+
+  // Display makananBalance
+  var makananBalanceElement = document.getElementById("makananBalance");
+  makananBalanceElement.textContent = "Rp " + balances.makanan;
+
+  // Display hiburanBalance
+  var hiburanBalanceElement = document.getElementById("hiburanBalance");
+  hiburanBalanceElement.textContent = "Rp " + balances.hiburan;
+
+  // Display kesehatanBalance
+  var kesehatanBalanceElement = document.getElementById("kesehatanBalance");
+  kesehatanBalanceElement.textContent = "Rp " + balances.kesehatan;
+
+  // Display pendidikanBalance
+  var pendidikanBalanceElement = document.getElementById("pendidikanBalance");
+  pendidikanBalanceElement.textContent = "Rp " + balances.pendidikan;
+}
+
+// Call the fetchData function when the page loads
+window.onload = fetchData;

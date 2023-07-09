@@ -23,7 +23,7 @@
       <i class="bi bi-grid"></i>
       <i class='bx bx-sun' id="darkLight"></i>
       <i class='bx bx-bell'></i>
-      <?php include 'insert.php'; echo $name; ?> 
+      <span id="name"></span> 
       <img src="<?php include 'setting.php'; echo $image_url; ?>" alt="" class="profile" />
     </div>
   </nav>
@@ -124,14 +124,14 @@
     <div class="content" id="homeContent">
     <h1 class="title">
       <i class='bx bx-tachometer'></i>
-      &nbspSelamat datang, <?php include 'name.php'; echo $name; ?>!</h1>
+      &nbspSelamat datang <span id="name"></span>!</h1>
     <div class="home-content1">
       <i class='bx bx-money'></i> <h5>Total Pemasukan</h5> 
-      <?php include 'data.php'; echo $total_pemasukan; ?>
+      <span>Rp 0 <?php include 'deposit.php'; echo $totalDeposit; ?></span>
     </div>
     <div class="home-content2">
       <i class='bx bx-money-withdraw'></i> <h5>Total Pengeluaran</h5>
-      <?php include 'data.php'; echo $total_pengeluaran; ?>
+      <span>Rp 0 <?php include 'withdraw.php'; echo $totalWithdraw; ?></span>
     </div>
     <div class="home-content3">
       <i class='bx bx-coin-stack'></i> <h5>Total Saldo</h5> 
@@ -144,33 +144,18 @@
     <div class="history-content">
       <div class="data date">
         <h5 class="data-title">Tanggal</h5>
-        <span class="data-list">2023-07-01</span>
-        <span class="data-list">2023-06-21</span>
-        <span class="data-list">2023-06-11</span>
       </div>
       <div class="data debit">
         <h5 class="data-title">Transaksi</h5>
-        <span class="data-list">Penyetoran</span>
-        <span class="data-list">Penyetoran</span>
-        <span class="data-list">Penarikan</span>
       </div>
       <div class="data kredit">
         <h5 class="data-title">Jumlah</h5>
-        <span class="data-list">Rp. 7.000.000</span>
-        <span class="data-list">Rp. 500.000</span>
-        <span class="data-list">Rp. 1.500.000</span>
       </div>
       <div class="data saldo">
         <h5 class="data-title">Saldo</h5>
-        <span class="data-list">Rp. 7.000.000</span>
-        <span class="data-list">Rp. 7.500.000</span>
-        <span class="data-list">Rp. 7.500.000</span>
       </div>
       <div class="data status">
         <h5 class="data-title">Status</h5>
-        <span class="data-list">Berhasil</span>
-        <span class="data-list">Berhasil</span>
-        <span class="data-list">Gagal</span>
       </div>
     </div>
   </div>
@@ -212,7 +197,7 @@
         </div>
         <div class="form-group">
           <label for="balance">Saldo Aktif:</label>
-          <span id="balance">Rp 1.000.000</span>
+          <span id="balance">Rp 0<?php include 'balance.php'; echo $total_amount; ?>  ?></span>
         </div>      
         <div class="form-group">
           <label for="category">Kategori:</label>
@@ -252,7 +237,7 @@
         </div>
         <div class="form-group">
           <label for="balance">Saldo Aktif:</label>
-          <span id="balance">Rp 1.000.000</span>
+          <span id="balance">Rp 0<?php include 'balance.php'; echo $total_amount; ?>  ?></span>
         </div>      
         <div class="form-group">
           <label for="category">Kategori:</label>
@@ -287,27 +272,27 @@
     <div class="box-content">
       <div class="balance-content1">
         <h3 class="sub-title"><i class='bx bx-bowl-rice'></i>&nbspMakanan</h3>
-        <span>Total Penyetoran<br></span>
-        <span>Total Penarikan<br></span>
-        <span>Total Saldo<br></span>
+        <span>Total Penyetoran<br>Rp 0</span>
+        <span>Total Penarikan<br>Rp 0</span>
+        <span>Total Saldo<br><span id="makananBalance"></span></span>
       </div>
       <div class="balance-content2">
         <h3 class="sub-title"><i class='bx bx-movie-play'></i>&nbspHiburan</h3>
-        <span>Total Penyetoran<br></span>
-        <span>Total Penarikan<br></span>
-        <span>Total Saldo<br></span>
+        <span>Total Penyetoran<br>Rp 0</span>
+        <span>Total Penarikan<br>Rp 0</span>
+        <span>Total Saldo<br><span id="hiburanBalance"></span></span>
       </div>
       <div class="balance-content3">
         <h3 class="sub-title"><i class='bx bx-health'></i>&nbspKesehatan</h3> 
-        <span>Total Penyetoran<br></span>
-        <span>Total Penarikan<br></span>
-        <span>Total Saldo<br></span>
+        <span>Total Penyetoran<br>Rp 0</span>
+        <span>Total Penarikan<br>Rp 0</span>
+        <span>Total Saldo<br><span id="kesehatanBalance"></span></span>
       </div>
       <div class="balance-content3">
         <h3 class="sub-title"><i class='bx bx-book'></i>&nbspPendidikan</h3> 
-        <span>Total Penyetoran<br></span>
-        <span>Total Penarikan<br></span>
-        <span>Total Saldo<br></span>
+        <span>Total Penyetoran<br>Rp 0</span>
+        <span>Total Penarikan<br>Rp 0</span>
+        <span>Total Saldo<br><span id="pendidikanBalance"></span></span>
       </div>
     </div>
   </div>
@@ -322,48 +307,18 @@
     <div class="history-content">
       <div class="data date">
         <h5 class="data-title">Tanggal</h5>
-        <span class="data-list">2023-07-01</span>
-        <span class="data-list">2023-06-21</span>
-        <span class="data-list">2023-06-11</span>
-        <span class="data-list">DLL</span>
-        <span class="data-list">.</span>
-        <span class="data-list">.</span>
       </div>
       <div class="data debit">
         <h5 class="data-title">Transaksi</h5>
-        <span class="data-list">Transfer</span>
-        <span class="data-list">Pemasukan</span>
-        <span class="data-list">Pengeluaran</span>
-        <span class="data-list">DLL</span>
-        <span class="data-list">.</span>
-        <span class="data-list">.</span>
       </div>
       <div class="data kredit">
         <h5 class="data-title">Jumlah</h5>
-        <span class="data-list">Rp. -</span>
-        <span class="data-list">Rp. 500.000</span>
-        <span class="data-list">Rp. 1.500.000</span>
-        <span class="data-list">DLL</span>
-        <span class="data-list">.</span>
-        <span class="data-list">.</span>
       </div>
       <div class="data saldo">
         <h5 class="data-title">Saldo</h5>
-        <span class="data-list">Rp. 7.000.000</span>
-        <span class="data-list">Rp. 7.500.000</span>
-        <span class="data-list">Rp. 7.500.000</span>
-        <span class="data-list">DLL</span>
-        <span class="data-list">.</span>
-        <span class="data-list">.</span>
       </div>
       <div class="data status">
         <h5 class="data-title">Status</h5>
-        <span class="data-list">Berhasil</span>
-        <span class="data-list">Berhasil</span>
-        <span class="data-list">Gagal</span>
-        <span class="data-list">DLL</span>
-        <span class="data-list">.</span>
-        <span class="data-list">.</span>
       </div>
     </div>
   </div>
