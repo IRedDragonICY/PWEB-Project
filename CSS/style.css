@@ -422,6 +422,16 @@ input[type="text"], select, textarea, input[type="password"] {
   margin-top: 5px;
 }
 
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  height: auto;
+  margin-top: 5px;
+}
+
 input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus {
   outline: none;
   border-color: #0066ff;
