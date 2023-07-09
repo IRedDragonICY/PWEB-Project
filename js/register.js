@@ -1,3 +1,64 @@
+function openPopupAgreement() {
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closePopupAgreement() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function disagree() {
+  var checkbox = document.getElementById("agree-checkbox");
+  checkbox.checked = false;
+  closePopupAgreement();
+  updateAgreeLabel();
+}
+
+function agree() {
+  closePopupAgreement();
+  updateAgreeLabel();
+}
+
+function updateAgreeLabel() {
+  var checkbox = document.getElementById("agree-checkbox");
+  var agreeLabel = document.querySelector(".agree-label");
+  if (checkbox.checked) {
+    agreeLabel.classList.add("checked");
+  } else {
+    agreeLabel.classList.remove("checked");
+  }
+}
+
+// Fungsi untuk memeriksa apakah checkbox "Syarat dan Ketentuan" sudah dicentang
+function checkAgreement() {
+  var checkbox = document.getElementById("agree-checkbox");
+  var registerButton = document.getElementById("register-button");
+  if (checkbox.checked) {
+    registerButton.disabled = false;
+  } else {
+    registerButton.disabled = true;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Event listener untuk checkbox "Syarat dan Ketentuan"
+  var checkbox = document.getElementById("agree-checkbox");
+  checkbox.addEventListener("change", function () {
+    updateAgreeLabel();
+    checkAgreement();
+    if (this.checked) {
+      openPopupAgreement();
+    } else {
+      closePopupAgreement();
+    }
+  });
+
+  // Event listener untuk teks "Syarat dan Ketentuan"
+  var termsLink = document.querySelector(".agree-label");
+  termsLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    openPopupAgreement();
+  });
+});
 function togglePasswordVisibility(inputId, buttonId) {
   const passwordInput = document.getElementById(inputId);
   const passwordToggleBtn = document.getElementById(buttonId);
