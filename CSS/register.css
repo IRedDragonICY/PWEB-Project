@@ -278,7 +278,7 @@ body {
 }
 
 .popup {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.75);
   width: 80%;
   max-width: 600px;
   padding: 20px;
@@ -298,8 +298,10 @@ body {
   border-radius: 5px;
   padding: 10px;
   margin-top: 20px;
+  text-align: justify;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
 }
-
 .scrollable-content {
   max-height: 100%;
 }
@@ -312,4 +314,6 @@ body {
 
 .terms-buttons button {
   margin: 0 10px;
+  background: #007BFF; 
+  color: #fff;
 }
