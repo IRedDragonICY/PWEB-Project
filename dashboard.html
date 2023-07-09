@@ -13,8 +13,8 @@
   <div class="wrapper">
   <!-- navbar -->
   <nav class="navbar">
+    <i class="bx bx-menu" id="sidebarOpen"></i>
     <div class="logo_item">
-      <i class="bx bx-menu" id="sidebarOpen"></i>
       <img src="assets/imgs/logo.webp" alt="" />
       TABUNGANKU
     </div>
@@ -70,23 +70,17 @@
           <ul class="menu_items submenu">
             <a href="#deposit" class="nav_link sublink" data-content="deposit" data-title="Penyetoran">Penyetoran</a>
             <a href="#withdraw" class="nav_link sublink" data-content="withdraw" data-title="Penarikan">Penarikan</a>
-            <a href="#transfer" class="nav_link sublink" data-content="transfer" data-title="Transfer">Transfer</a>
           </ul>
         </li>
         <!-- end -->
         <!-- start -->
         <li class="item">
-          <div href="#" class="nav_link submenu_item" data-menu="balance">
+          <a href="#balanceDetails" class="nav_link sublink" data-content="balanceDetails" data-title="Rincian Saldo">
             <span class="navlink_icon">
               <i class="bx bx-wallet"></i>
             </span>
-            <span class="navlink">Saldo</span>
-            <i class="bx bx-chevron-right arrow-left"></i>
-          </div>
-          <ul class="menu_items submenu">
-            <a href="#mainBalance" class="nav_link sublink" data-content="mainBalance" data-title="Saldo Utama">Saldo Utama</a>
-            <a href="#balanceDetails" class="nav_link sublink" data-content="balanceDetails" data-title="Rincian Saldo">Rincian Saldo</a>
-          </ul>
+              <span class="navlink">Rincian Saldo</span>
+          </a>
         </li>
         <!-- end -->
         <!-- start -->
@@ -157,9 +151,9 @@
       </div>
       <div class="data debit">
         <h5 class="data-title">Transaksi</h5>
-        <span class="data-list">Transfer</span>
-        <span class="data-list">Pemasukan</span>
-        <span class="data-list">Pengeluaran</span>
+        <span class="data-list">Penyetoran</span>
+        <span class="data-list">Penyetoran</span>
+        <span class="data-list">Penarikan</span>
       </div>
       <div class="data kredit">
         <h5 class="data-title">Jumlah</h5>
@@ -190,15 +184,15 @@
     </h1>
     <div class="graph1">
       <div class="chart1">
-        <canvas id="depositChart" height="130px"></canvas>
+        <canvas id="depositChart"></canvas>
       </div>
       <div class="chart2">
-        <canvas id="withdrawChart" height="130px"></canvas>
+        <canvas id="withdrawChart"></canvas>
       </div>
     </div>
     <div class="graph2">
       <div class="chart3">
-        <canvas id="overviewChart" height="80px"></canvas>
+        <canvas id="overviewChart"></canvas>
       </div>
     </div>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
@@ -215,7 +209,7 @@
     <div class="deposit-content">
       <div class="form-group">
         <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" />
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah setoran" required />
       </div>
       <div class="form-group">
         <label for="balance">Saldo Aktif:</label>
@@ -223,17 +217,14 @@
       </div>      
       <div class="form-group">
         <label for="category">Kategori:</label>
-        <select id="category" name="category">
+        <select id="category" name="category" required>
           <option value="">Pilih kategori</option>
-          <option value="belanja">Belanja</option>
+          <option value="makanan">Makanan</option>
           <option value="hiburan">Hiburan</option>
-          <option value="kebutuhan">Kebutuhan</option>
           <option value="kesehatan">Kesehatan</option>
-          <option value="makanan-minuman">Makanan & Minuman</option>
-          <option value="olahraga">Olahraga</option>
           <option value="pendidikan">Pendidikan</option>
         </select>
-      </div>
+      </div>      
       
       <div class="form-group">
         <label for="note">Catatan:</label>
@@ -241,7 +232,7 @@
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" />
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required />
       </div>
       <button type="submit">Setor</button>
     </div>
@@ -257,7 +248,7 @@
     <div class="withdraw-content">
       <div class="form-group">
         <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" />
+        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" required />
       </div>
       <div class="form-group">
         <label for="balance">Saldo Aktif:</label>
@@ -265,14 +256,11 @@
       </div>      
       <div class="form-group">
         <label for="category">Kategori:</label>
-        <select id="category" name="category">
+        <select id="category" name="category" required>
           <option value="">Pilih kategori</option>
-          <option value="belanja">Belanja</option>
+          <option value="makanan">Makanan</option>
           <option value="hiburan">Hiburan</option>
-          <option value="kebutuhan">Kebutuhan</option>
           <option value="kesehatan">Kesehatan</option>
-          <option value="makanan-minuman">Makanan & Minuman</option>
-          <option value="olahraga">Olahraga</option>
           <option value="pendidikan">Pendidikan</option>
         </select>
       </div>
@@ -283,63 +271,13 @@
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" />
+        <input type="password" id="password" name="password" placeholder="Masukkan password" required />
       </div>
       <button type="submit">Ambil</button>
     </div>
     
   </div>
-  <!-- end -->
-  
-  <!-- Transfer Content -->
-  <div class="content" id="transferContent">
-    <h1 class="title">
-      <i class='bx bxs-bank'></i>
-      &nbspTransfer Uang
-    </h1>
-    <div class="transfer-content">
-      <div class="form-group">
-        <label for="amount">Jumlah:</label>
-        <input type="text" id="amount" name="amount" placeholder="Masukkan jumlah transfer" />
-      </div>
-      <div class="form-group">
-        <label for="balance">Saldo Aktif:</label>
-        <span id="balance">Rp 1.000.000</span>
-      </div>      
-      <div class="form-group">
-        <label for="category">Kategori:</label>
-        <select id="category" name="category">
-          <option value="">Pilih Kategori</option>
-          <option value="belanja">Belanja</option>
-          <option value="hiburan">Hiburan</option>
-          <option value="kebutuhan">Kebutuhan</option>
-          <option value="kesehatan">Kesehatan</option>
-          <option value="makanan-minuman">Makanan & Minuman</option>
-          <option value="olahraga">Olahraga</option>
-          <option value="pendidikan">Pendidikan</option>
-        </select>
-      </div> 
-      <div class="form-group">
-        <label for="note">Catatan:</label>
-        <textarea id="note" name="note" placeholder="Masukkan catatan"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan password" />
-      </div>
-      <button type="submit">Transfer</button>
-    </div>    
-  </div>
-  <!-- end -->
-  
-  <!-- Main Balance Content -->
-  <div class="content" id="mainBalanceContent">
-    <h1 class="title">
-      <i class='bx bx-wallet'></i>
-      &nbspSaldo Utama
-    </h1>
-  </div>
-  <!-- end -->
+  <!-- end --> 
   
   <!-- Balance Details Content -->
   <div class="content" id="balanceDetailsContent">
@@ -496,15 +434,15 @@
     <div class="setting-content">
       <div class="form-profile">
         <label>Password Lama</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" required>
       </div>
       <div class="form-profile">
         <label>Password Baru</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" required>
       </div>
       <div class="form-profile">
         <label>Konfirmasi Password Baru</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" required>
       </div>
       <button class="btn btn-primary">Update</button>
       <button class="btn btn-light">Cancel</button>

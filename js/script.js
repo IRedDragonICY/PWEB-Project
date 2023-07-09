@@ -51,20 +51,6 @@ if (window.innerWidth < 768) {
   sidebar.classList.remove("close");
 }
 
-// Function to change the content based on the navbar selection
-function changeContent(navbar) {
-  var content = document.getElementById('content');
-  content.innerHTML = '';
-
-  if (navbar === 'content1') {
-    content.innerHTML = 'Konten 1';
-  } else if (navbar === 'content2') {
-    content.innerHTML = 'Konten 2';
-  } else if (navbar === 'content3') {
-    content.innerHTML = 'Konten 3';
-  }
-}
-
 // Function to adjust the width of the main content area based on the sidebar state and window width
 function adjustMainWidth() {
   const sidebarWidth = sidebar.offsetWidth;

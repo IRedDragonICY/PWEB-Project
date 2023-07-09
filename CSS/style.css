@@ -8,7 +8,7 @@
 }
 :root {
   --white-color: #fff;
-  --blue-color: #4070f4;
+  --blue-color: #6a8ef0;
   --grey-color: #707070;
   --grey-color-light: #aaa;
 }
@@ -29,14 +29,15 @@ body {
 }
 
 body.dark {
-  background-color: #333;
+  background-color: #404040;
+  color: var(--white-color);
 }
 
 body.dark {
   --black-color: #000;
   --white-color: #333;
-  --blue-color: #a4e0f2;
-  --grey-color: #f2f2f2;
+  --blue-color: #093fe1;
+  --grey-color: #000000;
   --grey-color-light: #aaa;
   --white-color: #ffffff;
 }
@@ -289,10 +290,12 @@ body.dark {
   padding: 20px;
   margin-left: 260px;
 }
+
 .content {
   color: var(--grey-color);
   display: none;
 }
+
 .content .title{
   display: flex;
   align-items: center;
@@ -304,9 +307,10 @@ body.dark {
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 /* Main: Home Content */
 .home-content1, .home-content2, .home-content3 {
-  color: var(--black-color);
+  color: var(--grey-color);
   padding: 20px;
   display: inline-block; 
   height: 200px;
@@ -318,12 +322,14 @@ body.dark {
   border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .main .home-content1 { 
   background-image: url(uang.png);
   background-repeat: no-repeat; 
   background-position: 100%;
   background-size: contain;
 }
+
 .recent-title {
   display: flex;
   align-items: center;
@@ -338,17 +344,19 @@ body.dark {
   color: var(--grey-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .history-content {
   white-space: nowrap;
   overflow: auto;
   width: 100%;
 }
+
 .data {
   display: inline-block;
   padding: 14px;
 }
 
-/* Main: Overview Content */
+/* Overview Content */
 .graph1 .chart1, .chart2 {
   display: inline-block;
   flex-direction: column;
@@ -371,8 +379,16 @@ body.dark {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Deposit Content */
-.deposit-content {
+.chart1 canvas, .chart2 canvas {
+  height: 130px;
+}
+
+.chart3 canvas {
+  height: 50px;
+}
+
+/* Manage: Deposit, Withdraw */
+.deposit-content, .withdraw-content{
   display: flex;
   justify-content: space-between; 
   align-items: center;
@@ -382,27 +398,32 @@ body.dark {
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .form-group {
   width: 45%; 
   margin-bottom: 15px;
 }
+
 label {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
 }
+
 input[type="text"], select, textarea, input[type="password"] {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
 }
+
 input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus {
   outline: none;
   border-color: #0066ff;
   box-shadow: 0 0 5px #0066ff;
 }
+
 button[type="submit"] {
   background-color: #0066ff;
   color: #fff;
@@ -412,99 +433,13 @@ button[type="submit"] {
   font-size: 16px;
   cursor: pointer;
 }
+
 button[type="submit"]:hover {
   background-color: #0052cc;
 }
 
-/* Withdraw Content */
-.withdraw-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; 
-  background-color: var(--white-color);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.form-group {
-  width: 45%; 
-  margin-bottom: 15px;
-}
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-}
-input[type="text"], select, textarea, input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus {
-  outline: none;
-  border-color: #0066ff;
-  box-shadow: 0 0 5px #0066ff;
-}
-button[type="submit"] {
-  background-color: #0066ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-button[type="submit"]:hover {
-  background-color: #0052cc;
-}
+/* Manage: Balance */
 
-/* Transfer Content */
-.transfer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; 
-  background-color: var(--white-color);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.form-group {
-  width: 45%; 
-  margin-bottom: 15px;
-}
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  display: block;
-}
-input[type="text"], select, textarea, input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-input[type="text"]:focus, select:focus, textarea:focus, input[type="password"]:focus {
-  outline: none;
-  border-color: #0066ff;
-  box-shadow: 0 0 5px #0066ff;
-}
-button[type="submit"] {
-  background-color: #0066ff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-button[type="submit"]:hover {
-  background-color: #0052cc;
-}
 
 /* Manage: History */
 .history-content{
@@ -518,16 +453,19 @@ button[type="submit"]:hover {
   padding: 15px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .data{
   display: flex;
   flex-direction: column;
   margin: 0 15px;
 }
+
 .data-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 5px;
 }
+
 .data-list {
   font-size: 14px;
   font-weight: 500;
@@ -544,10 +482,12 @@ button[type="submit"]:hover {
   user-select: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .list-setting {
   display: flex;
   gap: 10px;
 }
+
 .setting-title {
   display: flex;
   align-items: center;
@@ -559,17 +499,21 @@ button[type="submit"]:hover {
   cursor: pointer;
   transition: background-color 0.1s ease;
 }
+
 .setting-title.active {
   color: var(--white-color);
   background-color: var(--blue-color);
 }
+
 .setting-title:hover {
   color: var(--white-color);
   background-color: var(--blue-color);
 }
+
 .bx {
   margin-right: 5px;
 }
+
 .setting-content {
   margin-top: 30px;
   padding: 20px;
@@ -586,36 +530,43 @@ button[type="submit"]:hover {
   content-visibility: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .setting-content.active {
   top: 160px;
   content-visibility: visible;
 }
+
 .form-profile {
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
 }
+
 label {
   font-weight: bold;
 }
-input[type="text"],
-textarea {
+
+input[type="text"], textarea {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 textarea {
   resize: vertical;
 }
+
 input[type="password"] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .form-control:focus {
   outline: none;
   border-color: var(--blue-color);
 }
+
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -624,19 +575,23 @@ input[type="password"] {
   text-align: center;
   cursor: pointer;
 }
+
 .btn-primary {
   background-color: var(--blue-color);
   color: var(--white-color);
   border: none;
 }
+
 .btn-primary:hover {
   background-color: #0069d9;
 }
+
 .btn-light {
   background-color: #f8f9fa;
   color: #000000;
   border: 1px solid #ced4da;
 }
+
 .btn-light:hover {
   background-color: #e2e6ea;
 }
@@ -650,9 +605,9 @@ input[type="password"] {
   width: 100%;
   font-size: smaller;
   position: fixed;
-  bottom: 0;
-  
+  bottom: 0;  
 }
+
 .main,
 .footer {
   transition: transform 0.5s ease;
@@ -689,18 +644,29 @@ input[type="password"] {
     flex-direction: column;
     padding-left: 0px;
   }
+  .form-group {
+    width: 100%; 
+    margin: 10px;
+  }
   .setting-content {
     margin-top: 80px;
     width: 95%;
   }
 }
 
+/* For Screen Width under 600px */
 @media screen and (max-width: 600px) {
   .setting-content {
     margin-top: 80px;
     width: 90%;
   }
   .list-setting .setting-title .text {
+    display: none;
+  }
+  .chart1 canvas, .chart2 canvas, .chart3 canvas {
+    height: 200px;
+  }
+  .logo_item {
     display: none;
   }
 }
