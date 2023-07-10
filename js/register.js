@@ -6,6 +6,9 @@ function closePopupAgreement() {
   document.getElementById("overlay").style.display = "none";
 }
 
+function forgotPassword() {
+  alert("Silahkan hubungi admin untuk reset password Anda.");
+}
 function disagree() {
   var checkbox = document.getElementById("agree-checkbox");
   checkbox.checked = false;
