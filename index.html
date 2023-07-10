@@ -22,7 +22,6 @@
     <script src="./js/index.js"></script>
     <script src="./js/lazyload.js"></script>
     <script src="./js/preload.js"></script>
-
   </head>
   <body>
     <header>
@@ -41,7 +40,7 @@
           <a href="#">Home</a>
           <a href="#features" onclick="scrollToSection('#features')">Fitur</a>
           <a href="#about" onclick="scrollToSection('#about')">Tentang</a>
-          <a href="#" class="menu-box">Login</a>
+          <a href="register.html" class="menu-box">Login</a>
           <a href="register.html" class="menu-box">Daftar</a>
         </div>
         <div class="menu mobile-menu">
@@ -52,33 +51,37 @@
           </div>
           <div class="mobile-menu-items">
             <div class="close-menu">
-                <i class="fas fa-times"></i>
-            </div>            
+              <i class="fas fa-times"></i>
+            </div>
             <div>
               <a href="#">Home</a>
-              <a href="#features" onclick="scrollToSection('#features')">Fitur</a>
+              <a href="#features" onclick="scrollToSection('#features')"
+                >Fitur</a
+              >
               <a href="#about" onclick="scrollToSection('#about')">Tentang</a>
               <a href="register.html" class="menu-box">Daftar</a>
               <a href="#" class="menu-box">Login</a>
             </div>
           </div>
         </div>
-      </div>
-    </nav> 
+      </nav>
       <script>
-      var hamburger = document.querySelector('.hamburger');
-      var mobileMenu = document.querySelector('.mobile-menu-items');
-      
-      hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('show');
-      });
-      document.querySelector('.close-menu').addEventListener('click', function() {
-  document.querySelector('.mobile-menu-items').classList.remove('show');
-  document.querySelector('.hamburger').classList.remove('active');
-});
+        var hamburger = document.querySelector(".hamburger");
+        var mobileMenu = document.querySelector(".mobile-menu-items");
+
+        hamburger.addEventListener("click", function () {
+          hamburger.classList.toggle("active");
+          mobileMenu.classList.toggle("show");
+        });
+        document
+          .querySelector(".close-menu")
+          .addEventListener("click", function () {
+            document
+              .querySelector(".mobile-menu-items")
+              .classList.remove("show");
+            document.querySelector(".hamburger").classList.remove("active");
+          });
       </script>
-      
     </header>
 
     <section class="hero">
@@ -196,18 +199,49 @@
     <section class="sponsor-section hidden">
       <h2>Disponsori oleh</h2>
       <div class="sponsor-carousel">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/BRI.svg" alt="BRI">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/BSI.svg" alt="BSI">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/Mandiri.svg" alt="Mandiri">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/ShoopePay.webp" alt="ShoopePay">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/OVO.svg" alt="OVO">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/BCA.svg" alt="BCA">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/Dana.svg" alt="Dana">
-        <img class="sponsor-logo" src="assets/imgs/Sponsored/GoPay.svg" alt="GoPay">
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/BRI.svg"
+          alt="BRI"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/BSI.svg"
+          alt="BSI"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/Mandiri.svg"
+          alt="Mandiri"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/ShoopePay.webp"
+          alt="ShoopePay"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/OVO.svg"
+          alt="OVO"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/BCA.svg"
+          alt="BCA"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/Dana.svg"
+          alt="Dana"
+        />
+        <img
+          class="sponsor-logo"
+          src="assets/imgs/Sponsored/GoPay.svg"
+          alt="GoPay"
+        />
       </div>
     </section>
 
-  
     <section class="about" id="about">
       <div class="responsive-container-block outer-container">
         <div class="responsive-container-block inner-container">
