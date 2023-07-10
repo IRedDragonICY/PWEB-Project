@@ -38,10 +38,10 @@ body.dark {
 body.dark {
   --black-color: #000;
   --white-color: #333;
-  --blue-color: #093fe1;
-  --grey-color: #000000;
+  --blue-color: #001657;
+  --grey-color: #ffffff;
   --grey-color-light: #aaa;
-  --white-color: #ffffff;
+  --white-color: #2f2f2f;
 }
 
 /* navbar */
@@ -352,37 +352,6 @@ body.dark {
   padding: 10px;
 }
 
-/* Overview Content */
-.graph1 .chart1, .chart2 {
-  display: inline-block;
-  flex-direction: column;
-  border-radius: 15px;
-  width: calc(100% / 2 - 3px);
-  padding: 10px 20px;
-  background-color: var(--white-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.content .graph2 .chart3 {
-  display: flex;
-  margin: 0 0 10px 0;
-  color: var(--grey-color);
-  justify-content: space-between;
-  border-radius: 15px;
-  width: 100%;
-  padding: 10px 20px;
-  background-color: var(--white-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.chart1 canvas, .chart2 canvas {
-  height: 130px;
-}
-
-.chart3 canvas {
-  height: 50px;
-}
-
 /* Manage: Deposit, Withdraw */
 .deposit-content,
 .withdraw-content {
@@ -631,8 +600,8 @@ input[type="password"] {
 
 /* Footer */
 .footer {
-  background-color: var(--grey-color);
-  color: var(--white-color);
+  background-color: #333;
+  color: white;
   padding: 7px;
   text-align: center;
   width: 100%;
@@ -670,7 +639,7 @@ input[type="password"] {
   .main {
     margin-left: 0;
   }
-  .home-content1, .home-content2, .home-content3, .graph1 .chart1, .chart2, .content .graph2 .chart3, .balance-content1, .balance-content2, .balance-content3 {
+  .home-content1, .home-content2, .home-content3, .balance-content1, .balance-content2, .balance-content3 {
     width: 100%;
   }
   .deposit-content, .withdraw-content, .transfer-content {
@@ -695,9 +664,6 @@ input[type="password"] {
   }
   .list-setting .setting-title .text {
     display: none;
-  }
-  .chart1 canvas, .chart2 canvas, .chart3 canvas {
-    height: 200px;
   }
   .logo_item {
     display: none;
