@@ -11,6 +11,7 @@
   --blue-color: #6a8ef0;
   --grey-color: #707070;
   --grey-color-light: #aaa;
+  --light-color: #ebebeb;
 }
 
 html, body {
@@ -21,8 +22,6 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* position: relative;
-  position: center; */
 }
 
 body {
@@ -38,10 +37,11 @@ body.dark {
 body.dark {
   --black-color: #000;
   --white-color: #333;
-  --blue-color: #001657;
+  --blue-color: #5c7ee7;
   --grey-color: #ffffff;
   --grey-color-light: #aaa;
   --white-color: #2f2f2f;
+  --light-color: rgb(100,100,100);
 }
 
 /* navbar */
@@ -440,7 +440,7 @@ button[type="submit"]:hover {
 }
 
 .balance-content1:hover, .balance-content2:hover, .balance-content3:hover {
-  background-color: #ebebeb;
+  background-color: var(--light-color);
 }
 
 /* Manage: History */
